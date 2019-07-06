@@ -6,13 +6,14 @@
     </mt-swipe>
 </template>
 <script>
+
 export default {
   data() {
     return {
       data:[]
     };
   },
-  components: {},
+  //components: {},
   created() {
     this.axios.get("newphone").then(result => {
       this.data=result.data
