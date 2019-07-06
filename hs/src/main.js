@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
 import Vuex from "vuex"
 
 //注册vuex
@@ -12,11 +11,10 @@ Vue.use(Vuex)
 import MINTUI from 'mint-ui'
 //单独引入mint-ui的样式
 //引入图标
-import "./font/iconfont.css"
 import 'mint-ui/lib/style.css'
 //将MINT-ui注册vue
 //引入axios文件
-import "./axois"
+import "./axios"
 //创建vuex实例
 var store=new Vuex.Store({
   //定义全局修改的数据
