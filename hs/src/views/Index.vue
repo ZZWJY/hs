@@ -3,21 +3,22 @@
         index
         <mt-tab-container v-model="value">
             <mt-tab-container-item id="tab1">
-                内容1 <i class="iconfont icon-shouye"></i>
+                内容1 
             </mt-tab-container-item>
             <mt-tab-container-item id="tab2">
-                内容二 <i class="iconfont icon-shoujihao"></i>
+                内容二 
             </mt-tab-container-item>
             <mt-tab-container-item id="tab3">
-                内容3   <i class="iconfont icon-user-circle-o"></i>
+                内容3   
             </mt-tab-container-item>
             <mt-tab-container-item id="tab4">
-                内容4   <i class="iconfont icon-wode"></i>
+                内容4   
             </mt-tab-container-item>
         </mt-tab-container>
         <mt-tabbar v-model="selected" fixed>
-            <mt-tab-item v-for="(el,i) in nav" :key="i" :id="el.id" :data-index="el.id">       
-                    {{el.title}}{{el.id}}
+            <mt-tab-item v-for="(el,i) in nav" :key="i" :id="el.id" :data-index="el.id"> 
+                <i :class="el.iconurl+' nav-font'"></i>      
+                  <p class="nav-title">{{el.title}}</p>  
             </mt-tab-item>
         </mt-tabbar>
     </div>
@@ -27,7 +28,7 @@
 export default {
     data(){
         return  {
-            selected:"",
+            selected:1,
             value:"tab1",
             nav:[],
         }
@@ -58,6 +59,13 @@ export default {
 }
 </script>
 <style scoped>
+.nav-font{
+    font-size:25px;
+    padding:3px;
+}
+.nav-title{
+    margin-top:5px;
+}
 
 </style>
 
