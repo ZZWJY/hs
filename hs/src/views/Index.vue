@@ -1,18 +1,17 @@
 <template>
-    <div>
-        index
-        <mt-tab-container v-model="value">
+    <div class="index">
+        <mt-tab-container v-model="value" swipeable>
             <mt-tab-container-item id="tab1">
-                内容1 
+                <index-index></index-index>
             </mt-tab-container-item>
             <mt-tab-container-item id="tab2">
-                内容二 
+                <index-newphone></index-newphone> 
             </mt-tab-container-item>
             <mt-tab-container-item id="tab3">
-                内容3   
+               <index-serve></index-serve>  
             </mt-tab-container-item>
             <mt-tab-container-item id="tab4">
-                内容4   
+                <index-me></index-me>   
             </mt-tab-container-item>
         </mt-tab-container>
         <mt-tabbar v-model="selected" fixed>
@@ -25,6 +24,10 @@
 </template>
 
 <script>
+import indexIndex from "../components/index/index"
+import indexMe from "../components/index/Me"
+import indexNewPhone from "../components/index/NewPhone"
+import indexserve from "../components/index/Serve"
 export default {
     data(){
         return  {
@@ -52,6 +55,12 @@ export default {
     },
     created(){
        this.loadMore()
+    },
+    components:{
+        "index-index":indexIndex,
+        "index-me":indexMe,
+        "index-serve":indexserve,
+        "index-newphone":indexNewPhone,
     }
     
 
@@ -59,6 +68,18 @@ export default {
 }
 </script>
 <style scoped>
+.index{
+    max-width: 750px;
+    min-width: 320px;
+    margin: 0 auto;
+    background: #fff;
+
+}
+.mint-tabbar.is-fixed{
+    max-width: 750px;
+    min-width: 320px;
+    margin:0 auto
+}
 .nav-font{
     font-size:25px;
     padding:3px;
