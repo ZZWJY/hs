@@ -14,37 +14,46 @@
                     <i class="iconfont icon-cart-circle"></i>
                 </div>
             </div>
-             <mt-navbar class="page-part" :selected.sync="selected">
-                <mt-tab-item id="1">选项一</mt-tab-item>
-                <mt-tab-item id="2">选项二</mt-tab-item>
-                <mt-tab-item id="3">选项三</mt-tab-item>
-                <mt-tab-item id="3">选项四</mt-tab-item>
+            <div>
+            <mt-navbar v-model="selected">
+                <mt-tab-item id="1">推荐</mt-tab-item>
+                <mt-tab-item id="2">卖手机</mt-tab-item>
+                <mt-tab-item id="3">卖笔记</mt-tab-item>
+                <mt-tab-item id="4">卖平板</mt-tab-item>
             </mt-navbar>
 
 <!-- tab-container -->
-            <mt-tab-container :active.sync="selected">
-            <mt-tab-container-item id="1">
-                <mt-cell v-for="n in 10" :title="'内容 ' + n"></mt-cell>
-            </mt-tab-container-item>
-            <mt-tab-container-item id="2">
-                <mt-cell v-for="n in 4" :title="'测试 ' + n"></mt-cell>
-            </mt-tab-container-item>
-            <mt-tab-container-item id="3">
-                <mt-cell v-for="n in 6" :title="'选项 ' + n"></mt-cell>
-            </mt-tab-container-item>
+            <mt-tab-container v-model="selected">
+                <mt-tab-container-item id="1">
+                    <recommend></recommend>
+                </mt-tab-container-item>
+                <mt-tab-container-item id="2">
+                    222222
+                </mt-tab-container-item>
+                <mt-tab-container-item id="3">
+                    444444
+                </mt-tab-container-item>
+                <mt-tab-container-item id="4">
+                    5555
+                </mt-tab-container-item>
             </mt-tab-container>
+            </div>
         </div>
     </div>
 </template>
 <script>
+import recommend from "./index/recommend"
 export default {
     data(){
         return {
-            selected:1
+            selected:'1'
         }
     },
     created(){
         console.log(this.selected)
+    },
+    components:{
+        'recommend':recommend
     }
 }
 </script>
@@ -65,7 +74,7 @@ export default {
     
 }
 .header-search .icon-xiangxia{
-    font-size:10px;
+    font-size:.5rem;
     
 }
 .search{

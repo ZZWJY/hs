@@ -15,11 +15,9 @@ export default {
   },
   //components: {},
   created() {
-    this.axios.get("newphone").then(result => {
-      this.data=result.data
-      console.log(result);
+   
 
-    });
+   
   }
 };
 </script>

@@ -39,7 +39,7 @@ export default {
     watch:{
         selected(){
            this.value=`tab${this.selected}`
-        }
+        },
     },
     methods:{
         loadMore:function (){
