@@ -1,0 +1,13 @@
+*{
+    margin:0;
+    padding:0;
+    boxsizing:border-box;
+    font-size:14px;
+}
+a{
+    text-decoration: none;
+    color:#333
+}
+.my_font{
+    font-size:12px;
+}

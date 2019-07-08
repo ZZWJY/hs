@@ -1,7 +1,7 @@
 const express=require('express');
 //引入路由器
 const indexrouter=require('./router/index.js')
-const headrouter=require('./router/header.js')
+
 const session = require("express-session");
 const loginrouter=require('./router/login.js')
 //创建web服务器
