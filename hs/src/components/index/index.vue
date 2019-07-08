@@ -1,29 +1,29 @@
 <template>
     <div class="index">
         <div class="header">
-            <div class="header-search margin">
-                <router-link to="/">
-                    <span class="search-left">深圳市</span>
-                    <i class="iconfont icon-xiangxia"></i>
-                </router-link> 
-                <p class="search">
-                   <i class="iconfont icon-simui-search"></i>
-                    <input type="text" placeholder="检索您要卖的品牌、机器型号">
-                </p>
-                <div class="search-rigth">
-                    <i class="iconfont icon-cart-circle"></i>
+            <div class="header-full"> 
+                <div class="header-search margin">
+                    <router-link to="/">
+                        <span class="search-left">深圳市</span>
+                        <i class="iconfont icon-xiangxia"></i>
+                    </router-link> 
+                    <p class="search">
+                        <i class="iconfont icon-simui-search"></i>
+                        <input type="text" placeholder="检索您要卖的品牌、机器型号">
+                    </p>
+                    <div class="search-rigth">
+                        <i class="iconfont icon-cart-circle"></i>
+                    </div>
                 </div>
-            </div>
-            <div>
+            </div>   
+            <div id='content-top'>
             <mt-navbar v-model="selected">
                 <mt-tab-item id="1">推荐</mt-tab-item>
                 <mt-tab-item id="2">卖手机</mt-tab-item>
                 <mt-tab-item id="3">卖笔记</mt-tab-item>
                 <mt-tab-item id="4">卖平板</mt-tab-item>
             </mt-navbar>
-
-<!-- tab-container -->
-            <mt-tab-container v-model="selected">
+            <mt-tab-container v-model="selected" >
                 <mt-tab-container-item id="1">
                     <recommend></recommend>
                 </mt-tab-container-item>
@@ -36,8 +36,8 @@
                 <mt-tab-container-item id="4">
                     5555
                 </mt-tab-container-item>
-            </mt-tab-container>
-            </div>
+            </mt-tab-container>  
+            </div> 
         </div>
     </div>
 </template>
@@ -50,7 +50,7 @@ export default {
         }
     },
     created(){
-        console.log(this.selected)
+       
     },
     components:{
         'recommend':recommend
@@ -61,12 +61,25 @@ export default {
 .margin{
     margin:0 1rem
 }
+#content-top{
+    padding-top:2.5rem;
+    padding-bottom:4rem;
+}
 .header-search{
     display:flex;
     /* margin-top:1rem; */
     justify-content: space-between;
     line-height:3rem;
     
+    
+}
+.header-full{
+    width:100%;
+    background:#fff;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:99
 }
 .search-left{
     margin-right:.3rem;
@@ -79,6 +92,7 @@ export default {
 }
 .search{
     position:relative;
+    margin:0 .6rem;
 }
 .search input{
     padding-left:1.5rem;
