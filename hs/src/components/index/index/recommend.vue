@@ -67,22 +67,59 @@
             <img src="http://127.0.0.1:3000/img/index/refer/oldnew.png" alt="">
         </div>
         <div class="eval margin">
-            <div>
-                <p>旧机估价</p>
-                <p>苹果 iPhone X</p>
-                <p>
-                    最高回收价
-                    <span>￥5673</span>
-                </p>
+            <div class="eval-left">
+                <div class="evalImgs">
+                    <p><span>旧机估价</span></p>
+                    <img src="http://127.0.0.1:3000/img/index/refer/old_new_left.jfif" alt="">
+                    <p>苹果 iPhone X</p>
+                    <p>
+                        最高回收价
+                        <span>￥5673</span>
+                    </p>
+                </div>
+                <div class="evalImgs">
+                    <p><span>旧机估价</span></p>
+                    <img src="http://127.0.0.1:3000/img/index/refer/old_new_right.jfif" alt="">
+                    <p>苹果 iPhone X</p>
+                    <p>
+                        最高回收价
+                        <span>￥5673</span>起
+                    </p>
+                </div>
             </div>
-            <div class="img-right"></div>
-            <div>
-                <p>旧机估价</p>
-                <p>苹果 iPhone X</p>
-                <p>
-                    最高回收价
-                    <span>￥5673</span>
+            <div class="eval-bt margin">
+                <p> <i class="iconfont icon-Coins- "></i>
+                    <span>预计到手价</span>
+                <em style="color:#fc6232">￥</em>
+                    <span>1726</span>
                 </p>
+                <button class="button">去看看</button>
+            </div>
+        </div>
+        <div class="many margin">
+            <div >更多火爆新机</div>
+            <div class="many-content">
+                <div class="many-content-item">
+                    <img src="http://127.0.0.1:3000/img/index/refer/tx_rongyao8X.jpg" alt="">
+                    <p>荣耀 8X</p>
+                    <p><span>￥1699</span>起</p>
+                </div>
+                <div class="many-content-item">
+                     <img src="http://127.0.0.1:3000/img/index/refer/tx_rongyao8X.jpg" alt="">
+                    <p>荣耀 8X</p>
+                    <p><span>￥1699</span>起</p>
+                </div>
+                <div class="many-content-item">
+                     <img src="http://127.0.0.1:3000/img/index/refer/tx_rongyao8X.jpg" alt="">
+                    <p>荣耀 8X</p>
+                    <p><span>￥1699</span>起</p>
+                </div>
+            </div>
+            <div class="many-list">
+                <span>• 全国联保</span>
+                <span>• 省钱省心</span>
+                <span>• 不限旧机</span>
+                <span>• 闪电到货</span>
             </div>
         </div>
     </div>
@@ -231,6 +268,13 @@ export default {
     border-radius:.4rem;
 }
 .eval{
+    box-shadow:0 0 10px 0px #eee;
+    margin-top:-4px  ;
+    background:url("http://127.0.0.1:3000/img/index/refer/right.png") no-repeat;
+    background-size:2rem 1.5rem;
+    background-position:49% 40%;
+}
+.eval-left{
     display:flex;
     justify-content:center;
 }
@@ -238,6 +282,91 @@ export default {
     width:3rem;
     height:1.5rem;
     background:url("http://127.0.0.1:3000/img/index/refer/right.png") no-repeat;
-    background-size:100%
+    background-size:100%;
+    background-position:10px 20px;
+}
+.evalImgs p:nth-child(3),.evalImgs p:nth-child(4) span{
+    color:#111;
+    font-weight:700;
+    font-size:1rem;
+}
+.evalImgs p:nth-child(4){
+    font-size:14px;
+    color:#999;
+}
+.evalImgs img{
+    width:8rem;
+}
+.evalImgs{
+    padding:1rem;
+    border-bottom:2px solid #eee;
+}
+.evalImgs p{
+    margin-bottom:.8rem;
+}
+.evalImgs p:first-child span{
+    border-bottom:.3rem solid #ddd
+}
+.eval-bt{
+    display:flex;
+    justify-content:space-between;
+    padding:.5rem;
+    line-height:2.2rem;
+}
+.eval-bt p i{
+    color:rgba(228, 29, 29, 0.849);
+    font-size:1.5rem;
+    margin-right:.3rem;
+}
+.eval-bt span:last-child{
+    color:#fc6232;
+    font-size:1.5rem;
+    font-weight:700;
+}
+.eval-bt .button{
+    background: linear-gradient(90deg,#fff03b,#ffd629);
+    padding:0 1.5rem 0 1.5rem;
+    border:0;
+    border-radius:.5rem;
+    color:#333;
+}
+.many{
+   box-shadow:0 0 10px 0px #eee;
+   margin-top:1rem; 
+}
+.many>div:nth-child(1){
+    padding:1rem 0;
+    text-align:center;
+    color:#333;
+    font-weight:600;
+}
+.many-content{
+    display:flex;
+    justify-content: center;
+}
+.many-content img{
+    width:60px;
+}
+.many-content-item{
+    text-align:center;
+    width:30%;
+    border-bottom:1px solid #eee;
+}
+.many-content-item p{
+    color:#333;
+    font-size:12px;
+    margin-bottom:.3rem;
+}
+.many-content-item p>span{
+    font-weight:700;
+    color:#666
+}
+.many-list span{
+    text-align:center;
+    width:25%;
+    line-height:50px;
+    display:inline-block;
+    color:#999;
+    font-size:.7rem;
 }
 </style>
