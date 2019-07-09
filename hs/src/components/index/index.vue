@@ -15,28 +15,30 @@
                         <i class="iconfont icon-cart-circle"></i>
                     </div>
                 </div>
+                <div>
+                    <mt-navbar v-model="selected">
+                        <mt-tab-item id="1">推荐</mt-tab-item>
+                        <mt-tab-item id="2">卖手机</mt-tab-item>
+                        <mt-tab-item id="3">卖笔记</mt-tab-item>
+                        <mt-tab-item id="4">卖平板</mt-tab-item>
+                    </mt-navbar>
+                </div>
             </div>   
             <div id='content-top'>
-            <mt-navbar v-model="selected">
-                <mt-tab-item id="1">推荐</mt-tab-item>
-                <mt-tab-item id="2">卖手机</mt-tab-item>
-                <mt-tab-item id="3">卖笔记</mt-tab-item>
-                <mt-tab-item id="4">卖平板</mt-tab-item>
-            </mt-navbar>
-            <mt-tab-container v-model="selected" >
-                <mt-tab-container-item id="1">
-                    <recommend></recommend>
-                </mt-tab-container-item>
-                <mt-tab-container-item id="2">
-                    222222
-                </mt-tab-container-item>
-                <mt-tab-container-item id="3">
-                    444444
-                </mt-tab-container-item>
-                <mt-tab-container-item id="4">
-                    5555
-                </mt-tab-container-item>
-            </mt-tab-container>  
+                <mt-tab-container v-model="selected" >
+                    <mt-tab-container-item id="1">
+                        <recommend></recommend>
+                    </mt-tab-container-item>
+                    <mt-tab-container-item id="2">
+                        222222
+                    </mt-tab-container-item>
+                    <mt-tab-container-item id="3">
+                        444444
+                    </mt-tab-container-item>
+                    <mt-tab-container-item id="4">
+                        5555
+                    </mt-tab-container-item>
+                </mt-tab-container>  
             </div> 
         </div>
     </div>
@@ -62,7 +64,7 @@ export default {
     margin:0 1rem
 }
 #content-top{
-    padding-top:2.5rem;
+    padding-top:6.7rem;
     padding-bottom:4rem;
 }
 .header-search{
@@ -74,12 +76,14 @@ export default {
     
 }
 .header-full{
-    width:100%;
+    
     background:#fff;
-    position:fixed;
+    width:100%;
+     position:fixed;
     top:0;
     left:0;
-    z-index:99
+    z-index:99 
+
 }
 .search-left{
     margin-right:.3rem;

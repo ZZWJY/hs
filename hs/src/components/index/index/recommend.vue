@@ -66,13 +66,32 @@
         <div class="navold">
             <img src="http://127.0.0.1:3000/img/index/refer/oldnew.png" alt="">
         </div>
+        <div class="eval margin">
+            <div>
+                <p>旧机估价</p>
+                <p>苹果 iPhone X</p>
+                <p>
+                    最高回收价
+                    <span>￥5673</span>
+                </p>
+            </div>
+            <div class="img-right"></div>
+            <div>
+                <p>旧机估价</p>
+                <p>苹果 iPhone X</p>
+                <p>
+                    最高回收价
+                    <span>￥5673</span>
+                </p>
+            </div>
+        </div>
     </div>
 </template>
 <script>
 export default {
     data(){
         return {
-            data:new Date('2019/10/01 00:00:00'),
+            data:new Date('2019/8/18 18:00:00'),
             day:"",
             hours:"",
             seconds:"",
@@ -106,9 +125,6 @@ export default {
     .margin{
         margin:0 1rem
     }
-  .recom{
-      margin-top:.5rem;
-  } 
   .recom  .banner>img{
       width:100%;
       
@@ -213,5 +229,15 @@ export default {
     border:0;
     margin-top:1rem;
     border-radius:.4rem;
+}
+.eval{
+    display:flex;
+    justify-content:center;
+}
+.img-right{
+    width:3rem;
+    height:1.5rem;
+    background:url("http://127.0.0.1:3000/img/index/refer/right.png") no-repeat;
+    background-size:100%
 }
 </style>
