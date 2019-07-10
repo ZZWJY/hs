@@ -122,6 +122,32 @@
                 <span>• 闪电到货</span>
             </div>
         </div>
+        <div class="use-list margin">
+            <i class="iconfont icon-bell"></i>
+            <div class="use-bar" id="banbar">
+                <p v-for="(el,i) in carousel" :key="i">{{el}}</p>  
+            </div>
+        </div>
+        <div class="activity">
+            <div>
+                <img src="http://127.0.0.1:3000/img/index/refer/activity.png" alt="">
+            </div>
+            <div>
+                <img src="http://127.0.0.1:3000/img/index/refer/rmhd1.png" alt="">
+                <img src="http://127.0.0.1:3000/img/index/refer/rmhd2.png" alt="">
+            </div>
+        </div>
+        <div class="benefit">
+            <img src="http://127.0.0.1:3000/img/index/refer/benefit.png" alt="">
+            <img src="http://127.0.0.1:3000/img/index/refer/lsgy.png" alt="">
+        </div>
+        <div class="understand">
+            <img src="http://127.0.0.1:3000/img/index/refer/lsgy2.png" alt="">
+            <img src="http://127.0.0.1:3000/img/index/refer/lsgy3.png" alt="">
+        </div>
+        <div class="partner">
+            <img src="http://127.0.0.1:3000/img/index/refer/hzhb.jpg" alt="">
+        </div>
     </div>
 </template>
 <script>
@@ -132,8 +158,28 @@ export default {
             day:"",
             hours:"",
             seconds:"",
-            minutes:""
+            minutes:"",
+            carousel:["广州市李先生 以￥2599 喜提红米 K20 Pro 6GB 128GB 碳纤黑 全网通fsdfrdsfs","深圳市廖女士 以￥1099 喜提红米 Note7 4GB+64GB 梦幻蓝",
+            "北京市杨女士 以￥4188 喜提华为 P30 8GB 128GB 天空之境","天津市王先生 以￥1099 喜提红米 Note 7 4GB 64GB 暮光金 全网通","广州市李先生 以￥2599 喜提红米 K20 Pro 6GB 128GB 碳纤黑 全网通fsdfrdsfs"]
        }
+    },
+    mounted(){
+        var listps=document.getElementById("banbar")
+        var  i=0
+        setInterval(()=>{
+            if(i==0){
+               listps.style.transition="1s"  
+            }
+            i+=1
+            listps.style.transform=`translate(0,${-i*40}px)`
+            if(i==this.carousel.length-1){
+                setTimeout(function(){
+                    listps.style.transition="",
+                    i=0;
+                    listps.style.transform=`translate(0,${-i*40}px)`
+                },1900)
+            }
+        },2000)
     },
     created(){
         setInterval(()=>{
@@ -154,6 +200,9 @@ export default {
             this.minutes=residueM.toString().length>1?residueM:("0"+residueM)
         },1000)
     },
+    methods:{
+       
+    }
 
   
 }
@@ -368,5 +417,35 @@ export default {
     display:inline-block;
     color:#999;
     font-size:.7rem;
+}
+.use-list{
+    display:flex;
+    justify-content:space-between;
+    margin-top:1rem;
+    box-shadow:0 0 10px 0px #eee;
+    height:2.5rem;
+    line-height:2.5rem;
+    overflow: hidden;
+}
+.use-list i{
+    font-size:1.3rem;
+    color:#ffd629
+}
+.use-bar p{
+    font-size:.7rem;
+    width:18rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    margin-left:.5rem;
+    height:2.5rem;
+    line-height:2.5rem;
+    color:#6e6e6e;
+}
+.activity div:first-child img,.benefit img,.partner img{
+    width:100%;
+}
+.activity div:last-child img,.understand img{
+    width:50%
 }
 </style>

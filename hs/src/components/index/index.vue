@@ -16,15 +16,21 @@
                     </div>
                 </div>
                 <div>
-                    <mt-navbar v-model="selected">
-                        <mt-tab-item id="1">推荐</mt-tab-item>
-                        <mt-tab-item id="2">卖手机</mt-tab-item>
+                    <!-- <mt-navbar v-model="selected">
+                        <mt-tab-item id="1"></mt-tab-item>
+                        <mt-tab-item id="2"></mt-tab-item>
                         <mt-tab-item id="3">卖笔记</mt-tab-item>
                         <mt-tab-item id="4">卖平板</mt-tab-item>
-                    </mt-navbar>
+                    </mt-navbar> -->
+                    <div class="toLis margin" @click="linkTo">
+                        <router-link to="/index/index/recommend">推荐</router-link>
+                        <router-link to="/index/index/phone">卖手机</router-link>
+                        <router-link to="/index/index/notebook">卖笔记本</router-link>
+                        <router-link to="/index/index/ipad">卖平板</router-link>
+                    </div>
                 </div>
             </div>   
-            <div id='content-top'>
+            <!-- <div id='content-top'>
                 <mt-tab-container v-model="selected" >
                     <mt-tab-container-item id="1">
                         <recommend></recommend>
@@ -39,7 +45,12 @@
                         <ipad></ipad>
                     </mt-tab-container-item>
                 </mt-tab-container>  
-            </div> 
+            </div>  -->
+            <div class="header-content">
+                <transition name="fade" mode="out-in">
+                    <router-view></router-view>
+                </transition>
+            </div>
         </div>
     </div>
 </template>
@@ -51,7 +62,7 @@ import ipad from "./index/ipad"
 export default {
     data(){
         return {
-            selected:'1'
+        
         }
     },
     created(){
@@ -62,10 +73,26 @@ export default {
         "phone":phone,
         "notebook":notebook,
         "ipad":ipad
+    },
+    methods:{
+        linkTo(e){
+           e.target.className="active"
+        }
     }
 }
 </script>
 <style>
+.fade-leave,.fade-enter-to{
+    opacity: 1;
+}
+.fade-leave-to,.fade-enter{
+    opacity:0;
+    transform: translate(100px,100px) scale(0.5);
+   
+}
+.fade-enter-active,.fade-leave-active{
+    transition:.3s
+}
 .margin{
     margin:0 1rem
 }
@@ -120,7 +147,7 @@ export default {
     box-shadow:0 0 60px 1px #eee;
     outline:0;
     font-size:14px;
-    width:200px;
+    width:215px;
     color:#999;
     
 }
@@ -133,6 +160,25 @@ export default {
 }
 .search-rigth .icon-cart-circle{
     font-size:1.3rem;
+}
+.toLis{
+    display:flex;
+}
+.toLis a{
+    width:25%;
+    text-align:center;
+    font-size:1rem;
+    height:2.5rem;
+    line-height:2.5rem;
+    padding:0 .5rem;
+}
+.active{
+    border-bottom:3px solid #ff0;
+    font-weight:800;
+}
+.header-content{
+    padding-top:50px;
+    padding-bottom:32px;
 }
 </style>
 

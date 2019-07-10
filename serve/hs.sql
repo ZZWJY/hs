@@ -77,7 +77,7 @@ CREATE TABLE hs_indexRefer_know(
 );
 /**导航栏数据的插入**/
 INSERT INTO hs_indexRefer_navDown VALUES
-(1,"首页","iconfont icon-Xtubiao-shouye","/index"),
+(1,"首页","iconfont icon-Xtubiao-shouye","/index/index/recommend"),
 (2,"换新机","iconfont icon-shoujihao","/index/newPhone"),
 (3,"服务站","iconfont icon-shouye","/index/serve"),
 (4,"我的","iconfont icon-wode","/index/me");
