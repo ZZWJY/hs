@@ -27,5 +27,6 @@ export default {
 .mint-swipe {
   width: 694px;
   height: 416px !important;
+	margin:0;
 }
 </style>
