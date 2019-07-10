@@ -30,13 +30,13 @@
                         <recommend></recommend>
                     </mt-tab-container-item>
                     <mt-tab-container-item id="2">
-                        222222
+                        <phone></phone>
                     </mt-tab-container-item>
                     <mt-tab-container-item id="3">
-                        444444
+                        <notebook></notebook>
                     </mt-tab-container-item>
                     <mt-tab-container-item id="4">
-                        5555
+                        <ipad></ipad>
                     </mt-tab-container-item>
                 </mt-tab-container>  
             </div> 
@@ -45,6 +45,9 @@
 </template>
 <script>
 import recommend from "./index/recommend"
+import phone from "./index/phone"
+import notebook from "./index/notebook"
+import ipad from "./index/ipad"
 export default {
     data(){
         return {
@@ -55,7 +58,10 @@ export default {
        
     },
     components:{
-        'recommend':recommend
+        'recommend':recommend,
+        "phone":phone,
+        "notebook":notebook,
+        "ipad":ipad
     }
 }
 </script>
@@ -66,6 +72,14 @@ export default {
 #content-top{
     padding-top:6.7rem;
     padding-bottom:4rem;
+}
+.header-full .mint-navbar .mint-tab-item.is-selected{
+    border-bottom:3px solid #ff0;
+    color:black;
+    font-weight:700
+}
+.header .mint-navbar .mint-tab-item{
+    padding:1rem;
 }
 .header-search{
     display:flex;

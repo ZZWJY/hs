@@ -66,7 +66,8 @@ insert into hs_indexRefer_old_new values
 CREATE TABLE hs_indexRefer_navDown(
     id SMALLINT PRIMARY KEY,
     title VARCHAR(15), 
-    iconurl VARCHAR(100)
+    iconurl VARCHAR(100),
+    linkurl VARCHAR(100)
 );
 /**了解list**/
 CREATE TABLE hs_indexRefer_know(
@@ -76,10 +77,10 @@ CREATE TABLE hs_indexRefer_know(
 );
 /**导航栏数据的插入**/
 INSERT INTO hs_indexRefer_navDown VALUES
-(1,"首页","iconfont icon-Xtubiao-shouye"),
-(2,"换新机","iconfont icon-shoujihao"),
-(3,"服务站","iconfont icon-shouye"),
-(4,"我的","iconfont icon-wode");
+(1,"首页","iconfont icon-Xtubiao-shouye","/index"),
+(2,"换新机","iconfont icon-shoujihao","/index/newPhone"),
+(3,"服务站","iconfont icon-shouye","/index/serve"),
+(4,"我的","iconfont icon-wode","/index/me");
 /**了解list的数据插入**/
 
 

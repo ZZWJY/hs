@@ -15,9 +15,11 @@
             </mt-tab-container-item>
         </mt-tab-container>
         <mt-tabbar v-model="selected" fixed>
-            <mt-tab-item v-for="(el,i) in nav" :key="i" :id="el.id" :data-index="el.id"> 
-                <i :class="el.iconurl+' nav-font'"></i>      
-                  <p class="nav-title">{{el.title}}</p>  
+            <mt-tab-item v-for="(el,i) in nav" :key="i" :id="el.id" :data-index="el.id">
+                <router-link :to="el.linkurl">
+                    <i :class="el.iconurl+' nav-font'"></i>      
+                    <p class="nav-title">{{el.title}}</p>  
+                </router-link> 
             </mt-tab-item>
         </mt-tabbar>
     </div>

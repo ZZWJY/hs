@@ -11,6 +11,7 @@ Vue.use(Vuex)
 import MINTUI from 'mint-ui'
 //单独引入mint-ui的样式
 import "./assets/Indexfont/iconfont.css"
+import "./assets/MyFont/iconfont.css"
 //引入图标
 import 'mint-ui/lib/style.css'
 //将MINT-ui注册vue

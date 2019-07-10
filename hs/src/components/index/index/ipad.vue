@@ -3,56 +3,56 @@
         <router-link to="#">
         <div class="navgator">
             <div class="navgator-four">
-                <img src="http://127.0.0.1:3000/img/index/phone/iPhone.png" alt="">
+                <img src="http://127.0.0.1:3000/img/index/iPad/iPhone.png" alt="">
                 <span>苹果</span>
             </div>
             <div class="navgator-four">
-                <img src="http://127.0.0.1:3000/img/index/phone/mi.png" alt="">
+                <img src="http://127.0.0.1:3000/img/index/iPad/MI.png" alt="">
                 <span>小米</span>
             </div>
             <div class="navgator-four">
-                <img src="http://127.0.0.1:3000/img/index/phone/HUAWEI.png" alt="">
+                <img src="http://127.0.0.1:3000/img/index/iPad/HUAWEI.png" alt="">
                 <span>华为</span>
             </div>
             <div class="navgator-four">
-                <img src="http://127.0.0.1:3000/img/index/phone/honor.png" alt="">
-                <span>荣耀</span>
+                <img src="http://127.0.0.1:3000/img/index/iPad/SAMSUNG.png" alt="">
+                <span>三星</span>
             </div>
         </div>
         <div class="navgator">
             <div class="navgator-four">
-                <img src="http://127.0.0.1:3000/img/index/phone/OPPO.png" alt="">
-                <span>OPPO</span>
+                <img src="http://127.0.0.1:3000/img/index/iPad/honor.png" alt="">
+                <span>荣耀</span>
             </div>
             <div class="navgator-four">
-                <img src="http://127.0.0.1:3000/img/index/phone/vivo.png" alt="">
-                <span>vivo</span>
+                <img src="http://127.0.0.1:3000/img/index/iPad/Lenovo.png" alt="">
+                <span>联想</span>
             </div>
             <div class="navgator-four">
-                <img src="http://127.0.0.1:3000/img/index/phone/SAMSUNG.png" alt="">
-                <span>三星</span>
+                <img src="http://127.0.0.1:3000/img/index/iPad/Nokia.png" alt="">
+                <span>诺基亚</span>
             </div>
             <div class="navgator-four">
-                <img src="http://127.0.0.1:3000/img/index/phone/something.png" alt="">
+                <img src="http://127.0.0.1:3000/img/index/iPad/more.png" alt="">
                 <span>更多</span>
             </div>
         </div>
         </router-link>
         <!-- 免费评估 -->
         <router-link to="#" class="assess">
-            <img src="http://127.0.0.1:3000/img/index/phone/mianfeigujia.png" alt="">
+            <img src="http://127.0.0.1:3000/img/index/iPad/mianfeigujia.png" alt="">
         </router-link>
         <router-link to="#" class="assess">
-            <img src="http://127.0.0.1:3000/img/index/phone/toutiao.png" alt="">
+            <img src="http://127.0.0.1:3000/img/index/iPad/toutiao.png" alt="">
         </router-link>
         <router-link to="#" class="assess">
-            <img src="http://127.0.0.1:3000/img/index/phone/2999.jpg" alt="">
+            <img src="http://127.0.0.1:3000/img/index/iPad/iPadBanner.jpg" alt="">
         </router-link>
         <router-link to="" class="assess">
-            <img src="http://127.0.0.1:3000/img/index/phone/toutiao1.jpg" alt="">
+            <img src="http://127.0.0.1:3000/img/index/iPad/bannerTop_second.jpg" alt="">
         </router-link>
         <router-link to="" class="assess">
-            <img src="http://127.0.0.1:3000/img/index/phone/toutiao2.jpg" alt="">
+            <img src="http://127.0.0.1:3000/img/index/iPad/bannerTop_first.jpg" alt="">
         </router-link>
     </div>
 </template>
