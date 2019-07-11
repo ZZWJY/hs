@@ -18,6 +18,7 @@ import 'mint-ui/lib/style.css'
 import "./axios"
 //创建vuex实例
 Vue.use(MINTUI)
+import "./assets/Myfont/iconfont.css"
 Vue.config.productionTip = false
 
 new Vue({

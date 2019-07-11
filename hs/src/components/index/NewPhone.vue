@@ -773,6 +773,7 @@ export default {
 };
 </script>
 <style scope>
+body{background-color: #f5f5f5;}
 .newphone_header {
   padding: 20px 0;
 }
