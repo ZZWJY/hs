@@ -22,11 +22,11 @@
                         <mt-tab-item id="3">卖笔记</mt-tab-item>
                         <mt-tab-item id="4">卖平板</mt-tab-item>
                     </mt-navbar> -->
-                    <div class="toLis margin" @click="linkTo">
-                        <router-link to="/index/index/recommend">推荐</router-link>
-                        <router-link to="/index/index/phone">卖手机</router-link>
-                        <router-link to="/index/index/notebook">卖笔记本</router-link>
-                        <router-link to="/index/index/ipad">卖平板</router-link>
+                    <div class="toLis  margin" id="header-nav">
+                        <router-link @click.prevent="linkTo"  to="/index/index/recommend">推荐</router-link>
+                        <router-link @click.prevent="linkTo" to="/index/index/phone">卖手机</router-link>
+                        <router-link @click.prevent="linkTo"  to="/index/index/notebook">卖笔记本</router-link>
+                        <router-link @click.prevent="linkTo"  to="/index/index/ipad">卖平板</router-link>
                     </div>
                 </div>
             </div>   
@@ -45,10 +45,14 @@
                         <ipad></ipad>
                     </mt-tab-container-item>
                 </mt-tab-container>  
-            </div>  -->
+            </div>  --> 
             <div class="header-content">
                 <transition name="fade" mode="out-in">
-                    <router-view></router-view>
+                   <router-view></router-view>
+<!--                    <recmmend v-show="isShow==1"></recmmend>
+                    <phone v-show="isShow==2"></phone>
+                    <notebook v-show="isShow==3"></notebook>
+                    <ipad v-show="isShow==4"></ipad> -->
                 </transition>
             </div>
         </div>
@@ -62,11 +66,14 @@ import ipad from "./index/ipad"
 export default {
     data(){
         return {
-        
+           
         }
     },
     created(){
-       
+    
+    },
+    mounted() {
+
     },
     components:{
         'recommend':recommend,
@@ -75,8 +82,13 @@ export default {
         "ipad":ipad
     },
     methods:{
-        linkTo(e){
-           e.target.className="active"
+        linkTo(){   
+        var nav=document.getElementById("header-nav")
+        console.log(nav.children)
+           for(var i=0;i<nav.children.length;i++){
+               nav.children[i].className=""
+           } 
+            e.target.className="active"
         }
     }
 }

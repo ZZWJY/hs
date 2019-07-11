@@ -155,10 +155,10 @@ export default {
     data(){
         return {
             data:new Date('2019/8/18 18:00:00'),
-            day:"",
-            hours:"",
-            seconds:"",
-            minutes:"",
+            day:"00",
+            hours:"00",
+            seconds:"00",
+            minutes:"00",
             carousel:["广州市李先生 以￥2599 喜提红米 K20 Pro 6GB 128GB 碳纤黑 全网通fsdfrdsfs","深圳市廖女士 以￥1099 喜提红米 Note7 4GB+64GB 梦幻蓝",
             "北京市杨女士 以￥4188 喜提华为 P30 8GB 128GB 天空之境","天津市王先生 以￥1099 喜提红米 Note 7 4GB 64GB 暮光金 全网通","广州市李先生 以￥2599 喜提红米 K20 Pro 6GB 128GB 碳纤黑 全网通fsdfrdsfs"]
        }
@@ -182,6 +182,10 @@ export default {
         },2000)
     },
     created(){
+         this.time()
+    },
+    methods:{
+       time(){
         setInterval(()=>{
             var now=new Date();//获取当前时间
             var starttime=now.getTime()//转化为毫秒数
@@ -199,9 +203,7 @@ export default {
             this.seconds=S.toString().length>1?S:("0"+S)
             this.minutes=residueM.toString().length>1?residueM:("0"+residueM)
         },1000)
-    },
-    methods:{
-       
+       }
     }
 
   

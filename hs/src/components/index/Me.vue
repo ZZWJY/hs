@@ -1,6 +1,7 @@
 <template>
     <div class="Mycontainer">
         <!-- 头部 -->
+        
            <mt-header fixed title="我的">
                  <mt-button slot="right">
                      <i class="iconfont icon-gouwuche1"></i>
@@ -12,7 +13,9 @@
                <div class="ImgText" >
                <img class="topImg" src="http://127.0.0.1:3000/img/login/下载.png" alt="">
                <div class="topText">
-                   <p>立即登录</p>
+                    <router-link to="/login">
+                        <p>立即登录</p>
+                    </router-link>
                    <div class="myImg">
                    <img src="http://127.0.0.1:3000/img/login/new_user.png" alt="">
                    </div>

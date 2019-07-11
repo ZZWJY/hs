@@ -14,6 +14,7 @@
                 <index-me></index-me>   
             </mt-tab-container-item>
         </mt-tab-container>
+       
         <mt-tabbar v-model="selected" fixed>
             <mt-tab-item v-for="(el,i) in nav" :key="i" :id="el.id" :data-index="el.id">
                 <router-link :to="el.linkurl">
@@ -42,6 +43,9 @@ export default {
         selected(){
            this.value=`tab${this.selected}`
         },
+        $route(){
+            console.log(this.$route.fullPath)
+        }
     },
     methods:{
         loadMore:function (){
@@ -57,6 +61,7 @@ export default {
     },
     created(){
        this.loadMore()
+       console.log(this.$route)
     },
     components:{
         "index-index":indexIndex,
