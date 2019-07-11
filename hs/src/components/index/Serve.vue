@@ -2,7 +2,7 @@
   <div>
     <div class="serve">服务站</div>
     <div class="kong"></div>
-    <i class="serve_btn iconfont icon-right" @click="btns"></i>
+    <i class="serve_btn iconfont icon-xialazhankaixiajiantouxiangxiaxianxing" @click="btns"></i>
     <div class="all_pranucts">
       <div class="all_pranuct">全部商品</div>
       <div class="pranuct_list">
@@ -25,118 +25,54 @@
     <!-- tab-container -->
     <mt-tab-container v-model="selected">
       <mt-tab-container-item id="1" style="display:block">
-        <!-- 1 -->
         <div>
-          <div class="site">
-            <h4>深圳金港城店</h4>
-            <p>深圳市宝安区宝安大道4009-1号首层金港城沃尔玛正门进去左手边</p>
-            <div>
-              <span class="tag-item">回收</span>
-              <span class="tag-item">以久换新</span>
+          <!-- 1 -->
+          <div class="serve_list">
+            <div class="site">
+              <h4>
+                深圳金港城店
+                <i class="iconfont icon-right"></i>
+              </h4>
+              <p>深圳市宝安区宝安大道4009-1号首层金港城沃尔玛正门进去左手边</p>
+              <div>
+                <span class="tag-item">回收</span>
+                <span class="tag-item">以久换新</span>
+              </div>
+            </div>
+            <div class="si-action">
+              <a href="#" class="si-action-contact">
+                <i class="iconfont icon-dianhua"></i>
+                <span>联系服务站</span>
+              </a>
+              <a href="#" class="si-action-contact">
+                <i class="iconfont icon-ditu"></i>
+                <span>查看地图</span>
+              </a>
             </div>
           </div>
-          <div class="si-action">
-            <a href="#" class="si-action-contact">
-              <span>联系服务站</span>
-            </a>
-            <a href="#" class="si-action-contact">
-              <span>查看地图</span>
-            </a>
-          </div>
-        </div>
-        <!-- 1 -->
-        <div>
-          <div class="site">
-            <h4>深圳金港城店</h4>
-            <p>深圳市宝安区宝安大道4009-1号首层金港城沃尔玛正门进去左手边</p>
-            <div>
-              <span class="tag-item">回收</span>
-              <span class="tag-item">以久换新</span>
+          <!-- 2 -->
+          <div class="serve_list">
+            <div class="site">
+              <h4>
+                深圳金港城店
+                <i class="iconfont icon-right"></i>
+              </h4>
+              <p>深圳市宝安区宝安大道4009-1号首层金港城沃尔玛正门进去左手边</p>
+              <div>
+                <span class="tag-item">回收</span>
+                <span class="tag-item">以久换新</span>
+              </div>
             </div>
-          </div>
-          <div class="si-action">
-            <a href="#" class="si-action-contact">
-              <span>联系服务站</span>
-            </a>
-            <a href="#" class="si-action-contact">
-              <span>查看地图</span>
-            </a>
-          </div>
-        </div>
-        <!-- 1 -->
-        <div>
-          <div class="site">
-            <h4>深圳金港城店</h4>
-            <p>深圳市宝安区宝安大道4009-1号首层金港城沃尔玛正门进去左手边</p>
-            <div>
-              <span class="tag-item">回收</span>
-              <span class="tag-item">以久换新</span>
+            <div class="si-action">
+              <a href="#" class="si-action-contact">
+                <i class="iconfont icon-dianhua"></i>
+                <span>联系服务站</span>
+              </a>
+              <a href="#" class="si-action-contact">
+                <i class="iconfont icon-ditu"></i>
+                <span>查看地图</span>
+              </a>
             </div>
-          </div>
-          <div class="si-action">
-            <a href="#" class="si-action-contact">
-              <span>联系服务站</span>
-            </a>
-            <a href="#" class="si-action-contact">
-              <span>查看地图</span>
-            </a>
-          </div>
-        </div>
-        <!-- 1 -->
-        <div>
-          <div class="site">
-            <h4>深圳金港城店</h4>
-            <p>深圳市宝安区宝安大道4009-1号首层金港城沃尔玛正门进去左手边</p>
-            <div>
-              <span class="tag-item">回收</span>
-              <span class="tag-item">以久换新</span>
-            </div>
-          </div>
-          <div class="si-action">
-            <a href="#" class="si-action-contact">
-              <span>联系服务站</span>
-            </a>
-            <a href="#" class="si-action-contact">
-              <span>查看地图</span>
-            </a>
-          </div>
-        </div>
-        <!-- 1 -->
-        <div>
-          <div class="site">
-            <h4>深圳金港城店</h4>
-            <p>深圳市宝安区宝安大道4009-1号首层金港城沃尔玛正门进去左手边</p>
-            <div>
-              <span class="tag-item">回收</span>
-              <span class="tag-item">以久换新</span>
-            </div>
-          </div>
-          <div class="si-action">
-            <a href="#" class="si-action-contact">
-              <span>联系服务站</span>
-            </a>
-            <a href="#" class="si-action-contact">
-              <span>查看地图</span>
-            </a>
-          </div>
-        </div>
-        <!-- 1 -->
-        <div>
-          <div class="site">
-            <h4>深圳金港城店</h4>
-            <p>深圳市宝安区宝安大道4009-1号首层金港城沃尔玛正门进去左手边</p>
-            <div>
-              <span class="tag-item">回收</span>
-              <span class="tag-item">以久换新</span>
-            </div>
-          </div>
-          <div class="si-action">
-            <a href="#" class="si-action-contact">
-              <span>联系服务站</span>
-            </a>
-            <a href="#" class="si-action-contact">
-              <span>查看地图</span>
-            </a>
           </div>
         </div>
       </mt-tab-container-item>
@@ -168,11 +104,12 @@ export default {
   line-height: 44px;
   margin-bottom: 10px;
   position: fixed;
+  border-bottom: 1px solid #e9e9e9;
   z-index: 999;
 }
 .kong {
   width: 100%;
-  height: 50px;
+  height: 44px;
 }
 .mint-navbar {
   position: relative;
@@ -226,9 +163,61 @@ export default {
 .hide {
   display: none;
 }
-.iconfont {
-  font-size: 22px;
+.icon-xialazhankaixiajiantouxiangxiaxianxing{
+  font-size: 16px;
   height: 46px;
   line-height: 46px;
+  font-weight: bold;
+}
+.serve_list{
+  background-color: #fff;
+  box-sizing: border-box;
+  margin-top:8px;
+}
+.site {
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+.site > p {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+  margin-right: 60px;
+}
+.site .tag-item {
+  font-size: 12px;
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  background: linear-gradient(270deg, #ff6830, #ff4949);
+  color: #fff;
+  margin: 5px 5px;
+  border-radius: 10px;
+  padding: 2px 6px;
+}
+.si-action {
+  text-align: left;
+}
+.si-action-contact {
+  display: inline-block;
+  width: 50%;
+  text-decoration: none;
+  text-align: center;
+  color: #666;
+  height: 40px;
+  line-height: 40px;
+  font-size: 13px;
+}
+.icon-right {
+  position: absolute;
+  top: 13px;
+  left: 92%;
+  font-size: 16px;
+}
+.icon-dianhua .icon-ditu{
+  height: 40px;
+  line-height: 40px;
 }
 </style>
