@@ -1,6 +1,6 @@
 <template>
   <div>
-    <mt-header title="登录123" class="header">
+    <mt-header title="登录" class="header">
       <router-link to="/" slot="left">
         <mt-button icon="back"></mt-button>
       </router-link>
@@ -88,11 +88,25 @@
         },
         login(){
             if(this.active=="tb1"){
+                var uname=this.uname.trim()
+                var upwd=this.upwd.trim()
                 var namereg=/^[a-z1-9\u4e00-\u9fa5]{3,12}$/i;
-                var pwdreg=/^[a-z1-9][a-z1-9`~!@#$%^&*()_\-+=<>?:"{}|,.\/;'\\[\]·~！@#￥%……&*（）——\-+={}|《》？：“”【】、；‘’，。、]{6,12}/i;
-                if(!namereg.test(this.uanme)||!pwdreg.test(this.upwd)){
+                var pwdreg=/^[a-z1-9][a-z1-9`~!@#$%^&*()_\-+=<>?:"{}|,.\/;'\\[\]·~！@#￥%……&*（）——\-+={}|《》？：“”【】、；‘’，。、]{5,12}/i;
+                if(!namereg.test(uname)||!pwdreg.test(upwd)){
                     this.$toast("用户名或者密码错误")
+                    return;
                 }
+                sessionStorage.setItem('name',uname)
+                cosnole.log()
+                console.log(uname,upwd)
+                this.axios.post("/login/",{
+                    params:{
+                        uname:uname,
+                        upwd:upwd
+                        }
+                    }).then(res=>{
+                        console.log(res)
+                    })
 
             }
         }
@@ -116,14 +130,13 @@
     }
     a{
         text-decoration: none;
-    }
-    .mint-button--normal{
-        /* border-radius: 2rem; */
-        width:129px;height:28px;
-        font-size:0.9rem;
-    }   
+    } 
     .tab .mint-button--normal{
         border-radius: 2rem;
+        width:140px;height:28px;
+        font-size:0.9rem;
+        height:30px;
+        line-height:30px;
     }
     .tab{
         
@@ -134,10 +147,7 @@
         margin:.3rem 0;
         
     }
-    .mint-button--normal{
-        height:30px;
-        line-height:30px;
-    }
+  
     .mint-cell-wrapper{
         border-top:none;
     }

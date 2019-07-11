@@ -1,6 +1,7 @@
 const express=require('express');
 //引入路由器
 const indexrouter=require('./router/index.js')
+const bodyparse=require("body-parser")
 
 const session = require("express-session");
 const loginrouter=require('./router/login.js')
@@ -8,6 +9,10 @@ const loginrouter=require('./router/login.js')
 var server=express();
 const cors=require("cors");
 server.listen(3000);
+//解析post请求中的数据
+server.use(bodyparse.urlencoded({
+   extended:false
+}))
 //使用路由器
 //使用(挂载)的url: /user
 // /user/login

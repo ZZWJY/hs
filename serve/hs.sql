@@ -3,7 +3,7 @@ drop database if exists hs;
 create database hs charset=utf8;
 use hs;
 create table hs_indexRefer_specialList (
-uid int primary key auto_increment, #编号
+id int primary key auto_increment, #编号
 title VARCHAR(16),  #手机型号
 img_url varchar(128),  #手机图片路径
 price decimal(10,2),  #手机价格
@@ -15,9 +15,20 @@ insert into hs_indexRefer_specialList values
 (null,"红米 Note7","http://127.0.0.1:3000/img/note7.jpg",1699,"最高省150"),
 (null,"荣耀 20i","http://127.0.0.1:3000/img/20i.jpg",1199,"最高省100");
 
-
+#用户表
+create table hs_user(
+    uid int primary key auto_increment, #编号
+    uname VARCHAR(32),       #用户名
+    upwd  VARCHAR(32),       #密码
+    phone VARCHAR(11)        #电话
+);
+insert into hs_user values
+(1,"陈雪婷","123456",null),
+(null,"赵志伟","123456",null),
+(null,"刘林峰","123456",null),
+(null,"吕美美","123456",null);
 create table hs_indexRefer_msg(
-    uid int primary key auto_increment,
+    id int primary key auto_increment,
     uname varchar(12),
     price decimal(10,2),  #手机价格
     title VARCHAR(16)  #手机型号
