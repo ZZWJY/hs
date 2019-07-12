@@ -1,13 +1,17 @@
 <template>
   <div>
+
     <mt-header title="登录" class="header">
+
+
       <router-link to="/" slot="left">
         <mt-button icon="back"></mt-button>
       </router-link>
       <!-- <mt-button icon="more" slot="right"></mt-button> -->
     </mt-header>
-    
-    <img style="width:100%" src="http://127.0.0.1:3000/img/login/login.png" alt />
+
+    <img style="width:100%" src="http://127.0.0.1:3000/img/login/login_banner.png" alt />
+
     <div>
         <div class="tab">
             <mt-button @click="setclick" v-for="(elem,i) of list" :key="i" :data-ids="i">{{elem}}</mt-button>
@@ -15,8 +19,9 @@
     </div>
     <div>
         <mt-tab-container v-model="active">
+
             <mt-tab-container-item id="tb2">
-                <mt-field class="input-box" label="手机号" placeholder="请输入手机号" :attr="{maxlength:11}" v-model="uphone" >
+                <mt-field class="input-box" label="手机号" placeholder="请输入手机号" :attr="{maxlength:11}" v-model="uphone">          
                     <div class="smscode">获取验证码</div>
                 </mt-field>
                 
@@ -24,7 +29,7 @@
             </mt-tab-container-item>
              <mt-tab-container-item id="tb1">
                 <mt-field label="账号" placeholder="爱回收账号" :attr="{maxlength:11,id:'name'}" v-model="uname" ></mt-field>
-                <mt-field label="密码" placeholder="密码" type="password" :attr="{maxlength:20}" v-model="upwd"></mt-field>
+                <mt-field label="密码" placeholder="密码" type="password" :attr="{maxlength:20}" v-model="upwd"></mt-field>     
             </mt-tab-container-item>
         </mt-tab-container>
     </div>
@@ -41,6 +46,7 @@
     export default {
     data() {
         return {
+
             list:["账号密码登录","手机号快捷登录"],
             active:"tb1",
             uname:"赵志伟",
@@ -70,6 +76,7 @@
         setclick(e){
             var ids=parseInt(e.target.dataset.ids);
             // console.log(ids);
+
             this.active="tb"+(ids+1);  
         },
         init(){
@@ -106,6 +113,7 @@
                     })
 
             }
+
         }
     },
     };
@@ -117,9 +125,11 @@
         color:#333;
         font-size:1.2rem;
     }
+
     .header .mint-button--normal{
         width:15px;
     }
+
     .app_tip{
         font-size:0.8rem;
         color:#797979;
@@ -127,6 +137,7 @@
     }
     a{
         text-decoration: none;
+
     } 
     .tab .mint-button--normal{
         border-radius: 2rem;
@@ -148,6 +159,7 @@
     .mint-cell-wrapper{
         border-top:none;
     }
+
     .input-box{
         position:relative;
     }
@@ -169,6 +181,7 @@
         color:#666;
         margin:10px 0;
     }
+
     .login-tab{
         background:linear-gradient(right,rgba(255, 255, 0, 0.699),rgba(185, 185, 3, 0.712));
         color:#444
