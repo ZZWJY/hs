@@ -12,13 +12,19 @@
            <div class="top_ImgText">
                <div class="ImgText" >
                <img class="topImg" src="http://127.0.0.1:3000/img/login/下载.png" alt="">
-               <div class="topText">
+               <div class="topText" v-if="!loginname">
                     <router-link to="/login">
                         <p>立即登录</p>
                     </router-link>
                    <div class="myImg">
                    <img src="http://127.0.0.1:3000/img/login/new_user.png" alt="">
                    </div>
+               </div>
+               <div v-else-if="loginname" class="loginname">
+                    <div> {{uname}}</div>
+                    <router-link to="/login">
+                        <p @click.prevent="loginout">退出</p> 
+                    </router-link>
                </div>
               </div>
            </div>
@@ -89,7 +95,34 @@
 <script>
 export default {
     data(){
-        return{}
+        return{
+            loginname:false,
+            uname:""
+
+        }
+    },
+    mounted(){
+        this.init()
+        
+    },
+    methods:{
+        init(){
+        var topText=document.getElementsByClassName("topText")[0]
+            if(sessionStorage.getItem("name")){
+            this.loginname=true
+            this.uname=sessionStorage.getItem("name")+" 欢迎回来 "
+            }
+        },
+        loginout(){
+            this.$messagebox.confirm("确定退出么").then(action=>{
+                this.loginname=false
+                sessionStorage.removeItem("name")
+            }).catch(err=>{
+               
+            })
+            // this.loginname=false
+            // sessionStorage.removeItem("name")
+        }
     }
 }
 </script>
@@ -97,6 +130,7 @@ export default {
 .Mycontainer{
     background-color:#fff;
     /* margin-top:8px; */
+    padding-bottom:3rem;
 }
 .Mycontainer .icon-gouwuche1{
     font-size:1.8rem;
@@ -104,7 +138,7 @@ export default {
 
 /* 头部样式 */
 .mint-header{
-    max-width:750px;
+    
     height:44px;
     background-color:#fff;
     color:black;
@@ -143,9 +177,9 @@ export default {
     
 }
 .topText{
-    width:247px;
+    width:265px;
     height:100%;
-    padding-left:5px;
+    padding-left:20px;
 }
 .topText p{
     margin: 0;padding: 0;
@@ -247,6 +281,21 @@ export default {
 .Services_top img{
     width:87px;
     height: 54px;
+}
+.loginname{
+    display:flex;
+    justify-content: space-between;
+    line-height:3rem;
+    text-align:center;
+    font-size:1.2rem;
+    width:245px;
+    font-weight:600;
+    color:#111;
+}
+.loginname p{
+    width:48px;
+    line-height:48px;
+    
 }
 </style>
 

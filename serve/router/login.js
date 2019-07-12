@@ -3,11 +3,12 @@ const router=express.Router();
 const Pool=require('../pool.js')
 
 router.post("/",(req,res)=>{
+  console.log(req.body.uname);
   //1:参数
-  var uname = req.params.uname;
-  var upwd = req.params.upwd;
-  console.log(config)
-  console.log(uname,upwd)
+  var uname = req.body.uname;
+  var upwd = req.body.upwd;
+  // console.log(req)
+  // console.log(uname,upwd)
   //1.1:正则表达式验证用户名或密码
   //2:sql
 var sql = "SELECT uid,uname FROM ";
@@ -19,7 +20,6 @@ sql +=" AND upwd = ?";
       if(result.length==0){
          res.send({code:-1,msg:"用户名或密码有误"});
       }else{
-         //??缺少一步
 		    req.session.uid=result[0].uid
         res.send({code:1,msg:"登录成功"});
 		

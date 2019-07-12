@@ -4,7 +4,18 @@
     <router-view/>
   </div>
 </template>
+<script>
+export default {
+  data(){
+    return {
 
+    }
+  },
+  mounted(){
+      
+  }
+}
+</script>
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

@@ -22,8 +22,5 @@ export default {
 };
 </script>
 <style scope>
-.mint-swipe {
-  width: 694px;
-  height: 416px !important;
-}
+
 </style>

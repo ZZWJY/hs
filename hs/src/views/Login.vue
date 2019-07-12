@@ -24,7 +24,7 @@
             </mt-tab-container-item>
              <mt-tab-container-item id="tb1">
                 <mt-field label="账号" placeholder="爱回收账号" :attr="{maxlength:11,id:'name'}" v-model="uname" ></mt-field>
-                <mt-field label="密码" placeholder="密码" :attr="{maxlength:20}" v-model="upwd"></mt-field>
+                <mt-field label="密码" placeholder="密码" type="password" :attr="{maxlength:20}" v-model="upwd"></mt-field>
             </mt-tab-container-item>
         </mt-tab-container>
     </div>
@@ -43,8 +43,8 @@
         return {
             list:["账号密码登录","手机号快捷登录"],
             active:"tb1",
-            uname:"",
-            upwd:"",
+            uname:"赵志伟",
+            upwd:"123456",
             uphone:"",
             uverify:"",
             checked:false
@@ -97,15 +97,12 @@
                     return;
                 }
                 sessionStorage.setItem('name',uname)
-                cosnole.log()
-                console.log(uname,upwd)
-                this.axios.post("/login/",{
-                    params:{
-                        uname:uname,
-                        upwd:upwd
+                this.axios.post("login/",{uname,upwd}).then(res=>{
+                    console.log(res)
+                        if(res.data.code==1){
+                            this.$toast("登录成功")
+                            console.log(this.$router.push("/"))
                         }
-                    }).then(res=>{
-                        console.log(res)
                     })
 
             }
@@ -175,6 +172,11 @@
     .login-tab{
         background:linear-gradient(right,rgba(255, 255, 0, 0.699),rgba(185, 185, 3, 0.712));
         color:#444
+    }
+    .mint-button--large{
+        margin:0 auto;
+        width:90%;
+        border-radius:.4rem
     }
 
 </style>

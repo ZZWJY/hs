@@ -1,6 +1,6 @@
 <template>
     <div class="index">
-        <mt-tab-container v-model="value" swipeable>
+        <!-- <mt-tab-container v-model="value" swipeable>
             <mt-tab-container-item id="tab1">
                 <index-index></index-index>
             </mt-tab-container-item>
@@ -13,16 +13,26 @@
             <mt-tab-container-item id="tab4">
                 <index-me></index-me>   
             </mt-tab-container-item>
-        </mt-tab-container>
-       
-        <mt-tabbar v-model="selected" fixed>
+        </mt-tab-container> -->
+        <router-view :indexdata="to()"></router-view>
+        <!-- <mt-tabbar v-model="selected" fixed>
             <mt-tab-item v-for="(el,i) in nav" :key="i" :id="el.id" :data-index="el.id">
                 <router-link :to="el.linkurl">
                     <i :class="el.iconurl+' nav-font'"></i>      
                     <p class="nav-title">{{el.title}}</p>  
                 </router-link> 
             </mt-tab-item>
-        </mt-tabbar>
+        </mt-tabbar> -->
+        <ul class="nav-footer">
+            <li v-for="(el,i) in nav" :key="i">
+                <router-link :to="el.linkurl" class="navs">
+                    <div @click="actived(i)" :class="i==0?'active':''">
+                        <i :class="el.iconurl+' nav-font'"></i>      
+                        <p class="nav-title">{{el.title}}</p>
+                    </div>
+                </router-link> 
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -37,15 +47,15 @@ export default {
             selected:1,
             value:"tab1",
             nav:[],
+            indexobj:{
+                
+            }
         }
     },
     watch:{
         selected(){
            this.value=`tab${this.selected}`
         },
-        $route(){
-            console.log(this.$route.fullPath)
-        }
     },
     methods:{
         loadMore:function (){
@@ -55,19 +65,35 @@ export default {
                 params:obj
             }).then(res=>{
                 this.nav=res.data.nav
-                console.log(this.nav)
+                this.indexobj=res.data.rem
             })
-        }
+        },
+        to(){
+              if(this.$route.path.indexOf('/index/index')!=-1){
+                       return this.indexobj 
+              }          
+        },
+        actived(i){
+            var navs = document.getElementsByClassName("navs")
+            for(var j=0;j<navs.length;j++){
+                 navs[j].children[0].className=""
+            }
+            navs[i].children[0].className="active"
+            console.log(i)
+        },
+    },
+    mounted(){
+       
     },
     created(){
        this.loadMore()
-       console.log(this.$route)
+        this.to()
     },
     components:{
-        "index-index":indexIndex,
-        "index-me":indexMe,
-        "index-serve":indexserve,
-        "index-newphone":indexNewPhone,
+        // "index-index":indexIndex,
+        // "index-me":indexMe,
+        // "index-serve":indexserve,
+        // "index-newphone":indexNewPhone,
     }
     
 
@@ -82,6 +108,7 @@ export default {
     background: #fff;
 
 }
+/*
 .mint-tabbar.is-fixed{
     max-width: 750px;
     min-width: 320px;
@@ -93,7 +120,39 @@ export default {
 }
 .nav-title{
     margin-top:5px;
+} */
+.nav-footer{
+    display:flex;
+    position:fixed;
+    bottom:0px;
+    left:0;
+    width:100%;
+    background:#fff;
+    
 }
-
+.nav-footer p{
+    font-size:0.8rem;
+}
+.nav-footer li{
+    width:25%
+}
+.nav-footer i{
+    font-size:1.5rem;
+}
+.nav-footer .active .nav-title{
+    /* background:rgba(247, 231, 14, 0.486) center;
+    border-radius:3rem; */
+    color:#fff03b;
+    font-weight:700;
+    
+    /* box-shadow:0px 0px 22px 0px #ff0 inset */
+}
+.nav-footer .active .nav-font{
+    /* background:#fff03b; */
+    color:#fff03b;
+    border-radius:2rem;
+    opacity:.5
+    
+}
 </style>
 

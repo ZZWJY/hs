@@ -10,9 +10,7 @@ var server=express();
 const cors=require("cors");
 server.listen(3000);
 //解析post请求中的数据
-server.use(bodyparse.urlencoded({
-   extended:false
-}))
+server.use(bodyparse.json())
 //使用路由器
 //使用(挂载)的url: /user
 // /user/login

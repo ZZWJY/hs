@@ -39,11 +39,11 @@
             </router-link>
         </div>
         <div class="navgator margin">
-            <div>
-                <i class='iconfont icon-shoujihao '></i>
-                <p>卖手机</p>
+            <div v-for="(item,i) in listtypeall" :key="i">
+                <i :class='item.img_list'></i>
+                <p>{{item.uname}}</p>
             </div>
-            <div>
+            <!-- <div>
                 <i class="iconfont icon-laptop "></i>
                 <p>卖笔记本</p>
             </div>
@@ -58,7 +58,7 @@
             <div>
                 <i class="iconfont icon-piao "></i>
                 <p>智能数码</p>
-            </div>
+            </div> -->
         </div>
         <div class="free margin">
             <button>免费估价</button>
@@ -68,16 +68,16 @@
         </div>
         <div class="eval margin">
             <div class="eval-left">
-                <div class="evalImgs">
-                    <p><span>旧机估价</span></p>
-                    <img src="http://127.0.0.1:3000/img/index/refer/old_new_left.jfif" alt="">
-                    <p>苹果 iPhone X</p>
+                <div class="evalImgs" v-for="(item,i) in oldNew" :key="i">
+                    <p><span>{{item.title}}</span></p>
+                    <img :src="item.img_url" alt="">
+                    <p>{{item.model}}</p>
                     <p>
                         最高回收价
-                        <span>￥5673</span>
+                        <span>{{item.price}}</span>
                     </p>
                 </div>
-                <div class="evalImgs">
+                <!-- <div class="evalImgs">
                     <p><span>旧机估价</span></p>
                     <img src="http://127.0.0.1:3000/img/index/refer/old_new_right.jfif" alt="">
                     <p>苹果 iPhone X</p>
@@ -85,7 +85,7 @@
                         最高回收价
                         <span>￥5673</span>起
                     </p>
-                </div>
+                </div> -->
             </div>
             <div class="eval-bt margin">
                 <p> <i class="iconfont icon-Coins- "></i>
@@ -155,6 +155,8 @@ export default {
     data(){
         return {
             data:new Date('2019/8/18 18:00:00'),
+            listtypeall:[],
+            oldNew:[],
             day:"00",
             hours:"00",
             seconds:"00",
@@ -163,30 +165,29 @@ export default {
             "北京市杨女士 以￥4188 喜提华为 P30 8GB 128GB 天空之境","天津市王先生 以￥1099 喜提红米 Note 7 4GB 64GB 暮光金 全网通","广州市李先生 以￥2599 喜提红米 K20 Pro 6GB 128GB 碳纤黑 全网通fsdfrdsfs"]
        }
     },
+    props:{
+     
+    },
     mounted(){
-        var listps=document.getElementById("banbar")
-        var  i=0
-        setInterval(()=>{
-            if(i==0){
-               listps.style.transition="1s"  
-            }
-            i+=1
-            listps.style.transform=`translate(0,${-i*40}px)`
-            if(i==this.carousel.length-1){
-                setTimeout(function(){
-                    listps.style.transition="",
-                    i=0;
-                    listps.style.transform=`translate(0,${-i*40}px)`
-                },1900)
-            }
-        },2000)
+        this.carsou()
+        this.init()
+
     },
     created(){
-         this.time()
+        this.time()
+        
     },
     methods:{
-       time(){
-        setInterval(()=>{
+        init(){
+            var url="index/recommend"
+            this.axios.get(url).then(res=>{
+               this.listtypeall=res.data.listtypeall
+               this.oldNew=res.data.oldNew
+               console.log(res)
+            })
+        },
+        time(){
+            setInterval(()=>{
             var now=new Date();//获取当前时间
             var starttime=now.getTime()//转化为毫秒数
             var endtime=this.data.getTime()
@@ -203,11 +204,30 @@ export default {
             this.seconds=S.toString().length>1?S:("0"+S)
             this.minutes=residueM.toString().length>1?residueM:("0"+residueM)
         },1000)
+       },
+       carsou(){
+        var listps=document.getElementById("banbar")
+        var  i=0
+        setInterval(()=>{
+            if(i==0){
+               listps.style.transition="1s"  
+            }
+            i+=1
+            listps.style.transform=`translate(0,${-i*40}px)`
+            if(i==this.carousel.length-1){
+                setTimeout(function(){
+                    listps.style.transition="",
+                    i=0;
+                    listps.style.transform=`translate(0,${-i*40}px)`
+                },1900)
+            }
+        },2000)
        }
-    }
 
-  
+    }
+    
 }
+
 </script>
 <style scoped>
     .margin{
