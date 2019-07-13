@@ -183,7 +183,7 @@
     }
 
     .login-tab{
-        background:linear-gradient(right,rgba(255, 255, 0, 0.699),rgba(185, 185, 3, 0.712));
+        background:linear-gradient(to right,rgba(255, 255, 0, 0.699),rgba(185, 185, 3, 0.712));
         color:#444
     }
     .mint-button--large{
