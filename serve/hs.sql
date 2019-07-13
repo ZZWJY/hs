@@ -99,3 +99,26 @@ insert into hs_indexRefer_carousel values
 (null,"http://127.0.0.1:3000/img/index/newphone/p30.jpg"),
 (null,"http://127.0.0.1:3000/img/index/newphone/xr.jpg");
 
+
+/*创建首页热门活动表(hs_indexRefer_hot)*/
+create table hs_indexRefer_hot(
+    id int primary key auto_increment,
+    img_url varchar(128),
+		title varchar(32)
+);
+
+#插入数据
+insert into hs_indexRefer_hot values
+(null,"http://127.0.0.1:3000/img/index/hot/hot1.png","邀好友，赚现金"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot2.png","新人专享799元加价券"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot3.png","华为商城以旧换新，享加价5%"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot4.jpg","换购运动相机，低至500元！"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot5.png","3个G流量任意送 ！新人专属福利"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot6.jpg","限时特惠，50元加油券疯抢中！"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot7.png","还有大额现金红包派送中!"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot8.jpg","悦动圈新用户专享76元大礼包"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot9.png","免费听雅思课，拿干货"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot10.png","和包支付送您10元话费"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot11.jpg","20元信用卡还款红包"),
+
+
