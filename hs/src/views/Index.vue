@@ -79,7 +79,6 @@ export default {
                  navs[j].children[0].className=""
             }
             navs[i].children[0].className="active"
-            console.log(i)
         },
     },
     mounted(){

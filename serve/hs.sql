@@ -94,6 +94,78 @@ INSERT INTO hs_indexRefer_navDown VALUES
 (3,"服务站","iconfont icon-shouye","/index/serve"),
 (4,"我的","iconfont icon-wode","/index/me");
 /**了解list的数据插入**/
+/*创建轮播图表(hs_indexRefer_carousel)*/
+create table hs_indexRefer_carousel(
+    id int primary key auto_increment,
+    img_url varchar(128)
+);
 
+
+#插入数据
+insert into hs_indexRefer_carousel values
+(null,"http://127.0.0.1:3000/img/index/newphone/8x.jpg"),
+(null,"http://127.0.0.1:3000/img/index/newphone/20.jpg"),
+(null,"http://127.0.0.1:3000/img/index/newphone/note7.png"),
+(null,"http://127.0.0.1:3000/img/index/newphone/p30.jpg"),
+(null,"http://127.0.0.1:3000/img/index/newphone/xr.jpg");
+/*创建首页内热门活动表(hs_indexRefer_hot)*/
+create table hs_indexRefer_hot(
+    id int primary key auto_increment,
+    img_url varchar(128),
+    title varchar(64)
+);
+
+
+#插入数据
+insert into hs_indexRefer_hot values
+(null,"http://127.0.0.1:3000/img/index/hot/hot1.png","邀好友，赚现金"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot2.png","新人专享799元加价卷"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot3.png","华为商城以旧换新,享加价5%"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot4.jpg","换购运动相机，低至500元！"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot5.png","3个G流量任意送 ！新人专属福利"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot6.jpg","限时特惠，50元加油券疯抢中！"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot7.png","还有大额现金红包派送中!"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot8.jpg","悦动圈新用户专享76元大礼包"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot9.png","免费听雅思课，拿干货"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot10.png","和包支付送您10元话费"),
+(null,"http://127.0.0.1:3000/img/index/hot/hot11.jpg","20元信用卡还款红包");
+/**服务站地址区域列表**/
+create table hs_serve_navtype(
+    id int primary key auto_increment,
+    sname  varchar(32)
+);
+#插入服务站地区数据
+insert into hs_serve_navtype values
+(1,"附近"),
+(null,"罗湖区"),
+(null,"福田区"),
+(null,"南山区"),
+(null,"宝安区"),
+(null,"龙岗区"),
+(null,"龙华区");
+/**服务站详细地址列表**/
+create table hs_serve_adinfo(
+    id int primary key auto_increment,
+    title varchar(32),
+    iaddress varchar(60),
+    phone varchar(11),
+    nid  int
+);
+insert into hs_serve_adinfo values
+(1,"深圳益田假日店","深圳市南山区世界之窗地铁站C3出口益田假日广场B2层(麦当劳楼梯下方)","13625413648",4),
+(null,"深圳缤果空间店","深圳市龙华新区深圳北站缤果空间L1层服务台右侧扶手电梯口（七匹狼工厂店旁","12365412571",7),
+(null,"深圳乐淘里店","深圳市福田区华强北地铁站A出口乐淘里商业街F05号（台北涮涮锅对面","15421368541",3),
+(null,"深圳京基凤凰印象店","深圳市罗湖区京基凤凰印象商业城1层正门","12365458714",2),
+(null,"深圳喜荟城店","深圳市罗湖区喜荟城购物中心L1层Z-112铺（博士眼镜旁","12365485412",2),
+(null,"深圳天利名城店","深圳市南山区天利名城购物中心2层东南门（贡茶对面）","12365487412",4),
+(null,"深圳金港城店","深圳市宝安区宝安大道4009-1号首层金港城沃尔玛正门进去左手边","13658421425",5),
+(null,"深圳龙岗万科店","深圳市龙岗区万科广场负一楼停车场入口","12541236984",6),
+(null,"深圳KK mall店","深圳市罗湖区大剧院地铁站B出口京基KK mall B1层（Blt超市门口","12368541254",2),
+(null,"深圳ICO购物中心店","深圳市龙华新区ICO时尚购物中心L1层西门扶手电梯旁","15123658412",7),
+(null,"深圳龙华九方店","深圳市龙华新区人民路九方购物中心B1层（华为斜对面","18547562541",7),
+(null,"深圳西乡汇一城店","深圳市宝安区西乡地铁站A出口天虹汇一城1层（面包新语旁）","18523654741",5),
+(null,"深圳中洲π店","深圳市宝安区创业二路89号中洲·π mall购物中心正大门奈雪的茶旁边垂直电梯下B1层或扶手梯下负一层爱回收（良品铺子旁）","12536484125",5),
+(null,"深圳坪山益田假日店","深圳市龙岗区坪山益田假日世界L1-H-11（天梭手表旁）","13698745624",6),
+(null,"深圳新沙天虹店","深圳市宝安区沙井街道新沙天虹购物中心L1层（客服中心旁）","16954821365",5)
 
 

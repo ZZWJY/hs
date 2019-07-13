@@ -36,5 +36,33 @@ router.get('/recommend',function(req,res){
 		
 	})
 })
-
+router.get("/newphone",(req,res)=>{
+	var img=req.query.img_url;
+	var sql="select img_url from hs_indexRefer_carousel"
+	Pool.query(sql,[img],(err,result)=>{
+		if(err) throw err
+		if(result.length>0){
+			res.send({code:1,data:result})
+		}else{
+			res.send({code:-1,data:"查询失败!"})
+		}
+	})
+})
+router.get("/serve",(req,res)=>{
+	var obj={
+		type:[],
+		info:[]
+	}
+	Pool.query("select id,sname from hs_serve_navtype",function(err,result){
+		if(err) throw err
+		if(result.length>0){
+			obj.type=result
+			Pool.query("select id,title,iaddress,phone,nid from hs_serve_adinfo",function(err,result1){
+				if(err) throw err
+					obj.info=result1
+					res.send(obj)
+			})
+		}
+	})
+})
 module.exports=router;

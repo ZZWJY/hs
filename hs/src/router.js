@@ -10,6 +10,7 @@ import recommend from "./components/index/index/recommend"
 import ipad from "./components/index/index/ipad"
 import notebook from "./components/index/index/notebook"
 import phone from "./components/index/index/phone"
+import love  from "./components/index/index/love"
 
 Vue.use(Router)
 
@@ -37,8 +38,9 @@ export default new Router({
           },
           {path:"me",component:Me},
           {path:"newPhone",component:NewPhone},
-          {path:"serve",component:Serve},
+          {path:"Serve",component:Serve},
         ]
-    }
+    },
+    {path:"/love",component:love}
   ]
 })

@@ -11,6 +11,9 @@ a{
 .my_font{
     font-size:12px;
 }
+.margin{
+    margin:0 1rem
+}
 ul{
     list-style:none
 }
