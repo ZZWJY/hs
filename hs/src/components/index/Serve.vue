@@ -3,8 +3,13 @@
         <div class="newheader">
           <p class="title">服务站</p>
           <div class="adresss">
+<<<<<<< HEAD
             <ul>
               <li v-for="(el,i) in type" :key="i" @touchstart.prevent="fn">{{el.sname}}</li>
+=======
+            <ul id="nav-list" @touchstart="moveTo()">
+              <li v-for="(el,i) in type" :key="i"  @touchstart.prevent="linkTo(el.id)">{{el.sname}}({{el.num}})</li>
+>>>>>>> 49f7db9fd1371ee5842ce888cb1a1fdb26ca1299
               <!-- <li>罗湖区(2)</li>
               <li>罗湖区(3)</li>
               <li>罗湖区(5)</li>
@@ -24,7 +29,11 @@
         </div>
         <div class="quyucontent">
           <ul class="quyu">
+<<<<<<< HEAD
                 <li v-for="(el,i) in type" :key="i">{{el.sname}}</li>
+=======
+                <li v-for="(el,i) in type" :key="i" @touchstart.prevent="linkToL(el.id)">{{el.sname}}</li>
+>>>>>>> 49f7db9fd1371ee5842ce888cb1a1fdb26ca1299
                 <!-- <li>罗湖区</li>
                 <li>罗湖区</li>
                 <li>罗湖区</li>
@@ -62,6 +71,7 @@ export default {
   data() {
     return {
       selected: "",
+<<<<<<< HEAD
       showlist:false,
       type:[],
       info:[],
@@ -80,6 +90,55 @@ export default {
       })
     },
    listshow(){
+=======
+      showlist:false,   //导航栏的下拉显示，如果为true，显示下拉内容,反之不显示，默认不显示
+      type:{},          //导航栏显示的地区的所有的类型
+      info:{},          //当前页面显示的内容（筛选的）的列表，默认显示所有的内容  
+      alldata:{},      //存储内容的所有项
+      move:""
+    };
+  },
+  watch:{
+    move(){
+      var navList=document.getElementById("nav-list")
+      console.log(this.move)
+      navList.style.transform=`translate(${this.move}px)`
+    }
+  },
+  mounted(){
+    this.init()
+  },
+  methods: {
+     linkTo(n){ // 数据的筛选，点击导航栏触发事件
+       //得到导航栏的li数组并循环数组，让数组所有的下边框样式为空
+       var nlist=document.getElementById("nav-list").children
+       for(var item of nlist){
+         item.style.borderBottom=""
+       }
+        //判断如果触发事件传过来的值为1，让页面显示的内容为所有内容且加上当前的下边框并退出
+      if(n==1){
+        this.info=this.alldata
+        nlist[0].style.borderBottom="2px solid #ff0"
+        return ;
+      }
+      //如果不是显示所有
+      var arr=
+      this.alldata.filter(function(item){
+      return  item.nid==n
+      })
+      nlist[n-1].style.borderBottom="2px solid #ff0"
+      this.info=arr
+     
+  },
+  linkToL(n){
+    this.linkTo(n)
+     var quyu=document.getElementsByClassName("quyu")[0]
+     var all=document.getElementsByClassName("all")[0]
+        quyu.style.display="none";
+        all.style.display="none"
+  },
+  listshow(){
+>>>>>>> 49f7db9fd1371ee5842ce888cb1a1fdb26ca1299
      var quyu=document.getElementsByClassName("quyu")[0]
      var all=document.getElementsByClassName("all")[0]
           if(!this.showlist){
@@ -90,6 +149,7 @@ export default {
              quyu.style.display="none";
             all.style.display="none"
             this.showlist=false
+<<<<<<< HEAD
           }
    },
     fn(e){ 
@@ -100,6 +160,54 @@ export default {
   created(){
     this.init()
   },
+=======
+    }
+  },
+  moveTo(e){
+    var navList=document.getElementById("nav-list")
+   
+    startX = e.changedTouches[0].pageX,
+　  startY = e.changedTouches[0].pageY;
+    div.ontouchmove=function(e){
+     
+      moveEndX = e.changedTouches[0].pageX,
+　　　moveEndY = e.changedTouches[0].pageY
+      if(moveEndX-startX!=0){
+      navList.style.transform=`translate(${moveEndX-startX}px)`
+    }
+    }
+
+  },
+    init(){
+      this.axios.get('index/serve',{
+      }).then(res=>{
+        //导航栏显示地区的类型
+        this.type=res.data.type
+        //内容显示的筛选的数据，默认为所有的数据
+        this.info=res.data.info
+        //储存所有的数据
+        this.alldata=res.data.info
+        //遍历所有的数据,导航栏的类型的id关联内容所有的数据的nid
+        for (var i=0;i<this.type.length;i++){
+          //利用filter拿着类型表表的id到内容表去筛选个数
+          if(i==0){
+          num=this.alldata.length
+          }else{
+          var num=this.alldata.filter(item=>{
+                      return item.nid==this.type[i].id
+                  }).length
+          }
+          //将个数放到本地的type对象中
+          this.type[i].num=num
+        }
+        //默认导航栏第一个就是附近的有下边框
+          var lists=document.getElementById("nav-list")
+          
+        })
+      }
+    },
+ 
+>>>>>>> 49f7db9fd1371ee5842ce888cb1a1fdb26ca1299
 };
 </script>
 <style scoped>
@@ -144,6 +252,13 @@ export default {
   background:#fff;
   box-shadow: 0px 0px 5px 1px #f3f3f3
 }
+<<<<<<< HEAD
+=======
+#nav-list{
+  width:85%;
+  overflow: hidden;
+}
+>>>>>>> 49f7db9fd1371ee5842ce888cb1a1fdb26ca1299
 .all{
   position:absolute;
   top:49px;
@@ -214,4 +329,11 @@ export default {
   width:50%;
   text-align:center;
 }
+<<<<<<< HEAD
+=======
+.content-list{
+  padding-top:5rem;
+  margin-bottom:3rem;
+}
+>>>>>>> 49f7db9fd1371ee5842ce888cb1a1fdb26ca1299
 </style>
