@@ -11,6 +11,9 @@ import ipad from "./components/index/index/ipad"
 import notebook from "./components/index/index/notebook"
 import phone from "./components/index/index/phone"
 import love  from "./components/index/index/love"
+import detail from "./views/detail"
+import comeback from "./views/comeback"
+import comeback1 from "./views/comeback1"
 
 Vue.use(Router)
 
@@ -41,6 +44,9 @@ export default new Router({
           {path:"Serve",component:Serve},
         ]
     },
-    {path:"/love",component:love}
+    {path:"/love",component:love},
+    {path:"/detail",component:detail},
+    {path:"/comeback",component:comeback},
+    {path:"/comeback1",component:comeback1}
   ]
 })

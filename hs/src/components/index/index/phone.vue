@@ -42,16 +42,16 @@
         <router-link to="#" class="assess">
             <img src="http://127.0.0.1:3000/img/index/phone/mianfeigujia.png" alt="">
         </router-link>
-        <router-link to="#" class="assess">
+        <router-link to="/comeback" class="assess">
             <img src="http://127.0.0.1:3000/img/index/phone/toutiao.png" alt="">
         </router-link>
-        <router-link to="#" class="assess">
+        <router-link to="/comeback1" class="assess">
             <img src="http://127.0.0.1:3000/img/index/phone/2999.jpg" alt="">
         </router-link>
-        <router-link to="" class="assess">
+        <router-link to="/comeback1" class="assess">
             <img src="http://127.0.0.1:3000/img/index/phone/toutiao1.jpg" alt="">
         </router-link>
-        <router-link to="" class="assess">
+        <router-link to="/comeback1" class="assess">
             <img src="http://127.0.0.1:3000/img/index/phone/toutiao2.jpg" alt="">
         </router-link>
     </div>

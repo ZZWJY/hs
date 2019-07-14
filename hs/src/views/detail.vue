@@ -1,0 +1,398 @@
+<template>
+  <div>
+    <!-- 页头标题 -->
+    <mt-header title="【换新到手价¥1469】荣耀8X">
+      <router-link to="/" slot="left">
+        <mt-button icon="back"></mt-button>
+      </router-link>
+    </mt-header>
+    <!-- 产品轮播图 -->
+    <div class="carousel">
+      <mt-swipe :auto="4000">
+        <mt-swipe-item>
+          <img class="img-size" src="http://127.0.0.1:3000/img/index/detail-1/01.jpg" />
+        </mt-swipe-item>
+        <mt-swipe-item>
+          <img src="http://127.0.0.1:3000/img/index/detail-1/01-1.jpg" />
+        </mt-swipe-item>
+        <mt-swipe-item>
+          <img src="http://127.0.0.1:3000/img/index/detail-1/01-2.jpg" />
+        </mt-swipe-item>
+        <mt-swipe-item>
+          <img src="http://127.0.0.1:3000/img/index/detail-1/01-3.jpg" />
+        </mt-swipe-item>
+        <mt-swipe-item>
+          <img src="http://127.0.0.1:3000/img/index/detail-1/01-4.jpg" />
+        </mt-swipe-item>
+        <mt-swipe-item>
+          <img src="http://127.0.0.1:3000/img/index/detail-1/01-5.jpg" />
+        </mt-swipe-item>
+      </mt-swipe>
+    </div>
+    <div class="title">
+      <img src="http://127.0.0.1:3000/img/index/detail-1/1-1.png" alt />
+      <p>【换新到手价￥1469】荣耀8X</p>
+      <span class="mytitle">千元旗舰 COF超窄下巴封装 GT加速</span>
+    </div>
+    <!-- 领券入口 -->
+    <div class="conpan">
+      <img class="conpan-img" src="http://127.0.0.1:3000/img/index/detail-1/small.png" alt />
+      <span>领券最高减150元</span>
+      <a href="#" class="conpan-a a-style">
+        <span>登录领取</span>
+      </a>
+      <a href="#">
+        <img class="img-detail" src="http://127.0.0.1:3000/img/index/detail-1/small01.png" alt />
+      </a>
+    </div>
+    <!-- 新机机型介绍 -->
+    <div class="new">
+      <h5 class="new-goods font-style">新机机型</h5>
+      <div class="new-detail">
+        <div>
+          <a class="a-style font-style" href="#">6GB 128GB幻夜黑全网通</a>
+        </div>
+        <div>
+          <span class="font-style font-color">￥</span>
+          <a class="a-style font-color" href="#">1699</a>
+          <a class="a-style new-img" href="#">></a>
+        </div>
+      </div>
+    </div>
+    <!-- 旧机抵扣 -->
+    <div class="old font-style">
+      <h5 class="new-goods font-style">旧机抵扣</h5>
+      <div class="new-detail">
+        <img class="old-img" src="http://127.0.0.1:3000/img/index/detail-1/下载.png" alt />
+        <a class="a-style line-center text-left" href="#">添加想卖的旧机，可抵扣新机款</a>
+        <a class="a-style new-img line-center" href="#">></a>
+      </div>
+      <div class="old-a-style">
+        <a class="a-style" href="#">添加更多旧机</a>
+      </div>
+    </div>
+    <!-- 优惠福利 -->
+    <div class="old font-style">
+      <h5 class="new-goods font-style">优惠福利</h5>
+      <div class="new-detail">
+        <div>
+          <span class="old-h-w">以旧换新补贴</span>
+        </div>
+        <div>
+          <span class="font-style font-color">-￥</span>
+          <a class="a-style font-color" href="#">150</a>
+        </div>
+      </div>
+      <div class="old-a-style new-detail">
+        <a class="a-style" href="#">添加更多旧机</a>
+        <a class="a-style new-img" href="#">></a>
+      </div>
+    </div>
+    <img class="img-width" src="http://127.0.0.1:3000/img/index/detail-1/1-1.jpg" />
+    <!-- 详情导航栏 -->
+    <div class="pic-data font-style">
+      <a href="#miao1">图文详情</a>
+      <a class="pic-data-a" href="#miao2">基本参数</a>
+      <a href="#miao3">包装售后</a>
+    </div>
+    <img id="miao1" class="img-width" src="http://127.0.0.1:3000/img/index/detail-1/02.jpg" alt />
+    <img class="img-width" src="http://127.0.0.1:3000/img/index/detail-1/03.jpg" alt />
+    <img class="img-width" src="http://127.0.0.1:3000/img/index/detail-1/04.jpg" alt />
+    <img class="img-width" src="http://127.0.0.1:3000/img/index/detail-1/05.jpg" alt />
+    <img class="img-width" src="http://127.0.0.1:3000/img/index/detail-1/06.jpg" alt />
+    <div id="miao2" class="parameter">
+      <h5 class="parameter-title">主体</h5>
+      <span class="parameter-left">品牌</span>
+      <span class="parameter-right">华为</span>
+      <span class="parameter-left">型号</span>
+      <span class="parameter-right">荣耀8X</span>
+      <span class="parameter-left">入网型号</span>
+      <span class="parameter-right parameter-right-h">JSN-AL00a</span>
+      <span class="parameter-left">上市年份</span>
+      <span class="parameter-right">2018年</span>
+      <span class="parameter-left">上市月份</span>
+      <span class="parameter-right">9月</span>
+      <h5 class="parameter-title">基本信息</h5>
+      <span class="parameter-left">机身颜色</span>
+      <span class="parameter-right">幻夜黑</span>
+      <span class="parameter-left">机身长度（mm）</span>
+      <span class="parameter-right">160.4备注：实际尺寸依配置、制造工艺、测量方法的不同可能有所差异。</span>
+      <span class="parameter-left">机身宽度（mm）</span>
+      <span class="parameter-right">76.6备注：实际尺寸依配置、制造工艺、测量方法的不同可能有所差异。</span>
+      <span class="parameter-left">机身厚度（mm）</span>
+      <span class="parameter-right">7.8备注：实际尺寸依配置、制造工艺、测量方法的不同可能有所差异。</span>
+      <span class="parameter-left">机身重量（g）</span>
+      <span class="parameter-right">175备注：实际尺寸依配置、制造工艺、测量方法的不同可能有所差异。</span>
+      <span class="parameter-left">输入方式</span>
+      <span class="parameter-right">触控</span>
+      <span class="parameter-left">运营商标志或内容</span>
+      <span class="parameter-right parameter-h">其他</span>
+      <span class="parameter-left">机身材质分类</span>
+      <span class="parameter-right">金属边框；玻璃后盖</span>
+      <span class="parameter-left parameter-h">机身材质工艺</span>
+      <span class="parameter-right">卡托：金属+塑胶 后盖：玻璃 边框：铝合金</span>
+    </div>
+    <img id="miao3" class="img-width" src="http://127.0.0.1:3000/img/index/detail-1/07.jpg" alt />
+    <div class="police">
+      <p>上海悦易网络信息技术有限公司</p>
+      <p>沪ICP备10043802号 - 2</p>
+      <p>
+        <img class="police-img" src="http://127.0.0.1:3000/img/index/detail-1/police.png" /> 沪ICP备10043802号 - 2
+      </p>
+    </div>
+    <div class="font-style foot-f">
+      <div class="foot">
+        <img class="foot-img" src="http://127.0.0.1:3000/img/index/detail-1/phone.png" />
+        <p class="foot-m">客服</p>
+      </div>
+      <div class="foot-s">
+        <p class="foot-m">添加旧机获取超值换新价</p>
+      </div>
+      <div class="foot-t">
+        <a class="foot-size" href="#">
+          <p class="foot-m">添加旧机</p>
+        </a>
+      </div>
+    </div>
+    <div class="go-top"><a href="#">回顶部</a></div>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {};
+  }
+};
+</script>
+<style scoped>
+/* 页脚样式 */
+.go-top{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    line-height: 50px;
+    position: fixed;
+    right: 30px;
+    bottom:80px;
+    background: rgba(0,0,0,.5);
+    z-index: 10;
+    border: 1px solid #ecd2a1;
+}
+.go-top a{color: #ecd2a1;
+    font-size: 12px;text-decoration: none}
+.foot-f {
+  display: flex;
+  position: fixed;
+  z-index: 998;
+  bottom:0;left:0;
+  width:100%;
+  background: #fff;
+}
+.foot {
+  width: 15%;
+  height: 39px;
+  bottom:0;
+}
+.foot-s {
+  width: 50%;
+  line-height: 39px;
+  border-left: 1px solid #dbdbdb;
+}
+.foot-t {
+  width: 35%;
+  line-height: 39px;
+  background: #33271f;
+}
+.foot-size {
+  color: #ecd2a1;
+  text-decoration: none;
+}
+.foot-m {
+  margin: 0;
+}
+.foot-img {
+  width: 14px;
+  height: 17px;
+}
+.police {
+  font-size: 12px;
+  color: #999;
+  background: #fafafa;
+  margin-bottom:79px;
+}
+.police p {
+  margin: 0;
+}
+.police-img {
+  width: 13px;
+  height: 13px;
+  line-height: 16px;
+}
+/* 参数样式 */
+.parameter {
+  text-align: left;
+  color: #999;
+}
+.parameter span {
+  font-size: 14px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e7e7e7;
+  box-sizing: border-box;
+  padding-left: 20px;
+}
+.parameter-title {
+  margin: 0;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e7e7e7;
+}
+.parameter-left {
+  float: left;
+  width: 30%;
+  border-right: 1px solid #e7e7e7;
+}
+.parameter-right {
+  float: left;
+  width: 70%;
+}
+.parameter-right-h {
+  height: 36px;
+}
+.parameter-h {
+  height: 55px;
+}
+/*  */
+.mint-header {
+  background-color: #ffffff !important;
+  color: black !important;
+  font-size: 16px !important;
+  position: fixed !important;
+  left:0px ;top:0px ;
+  z-index: 999;
+  width:100%
+}
+.carousel {
+  width: 100%;
+  height: 280px;
+  padding-top:40px;
+}
+.carousel img {
+  height: 280px;
+}
+.title {
+  padding: 0 10px;
+}
+.title:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.title img {
+  width: 28px;
+  height: 28px;
+  float: left;
+}
+.title p {
+  float: left;
+  line-height: 28px;
+  margin: 0;
+  font-weight: bold;
+}
+.mytitle {
+  float: left;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.conpan {
+  width: 100%;
+  float: left;
+  font-size: 12px;
+  padding: 10px 10px;
+  background-color: #fff8ec;
+}
+.conpan > span {
+  float: left;
+  padding: 0px 10px;
+}
+.a-style {
+  text-decoration: none;
+  color: #2c3e50;
+}
+.conpan-img {
+  width: 15px;
+  height: 9px;
+  padding: 5px 0px;
+  float: left;
+}
+.conpan-a {
+  margin-left: 120px;
+}
+.img-detail {
+  width: 6px;
+  height: 10px;
+  margin-left: 5px;
+}
+.new {
+  background: #fafafa;
+  border: 1px solid #eee;
+  padding: 5px 13px;
+  margin-top: 50px;
+}
+.new-goods {
+  text-align: left;
+  margin: 0px;
+  padding: 10px 0px;
+  border-bottom: 1px solid #eee;
+}
+.font-style {
+  font-size: 14px;
+}
+.new-detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px;
+}
+.font-color {
+  color: #fc6232;
+}
+.new-img {
+  margin-left: 20px;
+  color: #000;
+  font-weight: 550;
+}
+.old {
+  background: #fafafa;
+  border: 1px solid #eee;
+  padding: 5px 13px;
+  margin-top: 10px;
+}
+.old-img {
+  height: 28px;
+}
+.line-center {
+  line-height: 28px;
+}
+.old-a-style {
+  padding: 10px 0px;
+  border-top: 1px solid #eee;
+}
+.text-left {
+  margin-left: -80px;
+}
+.img-width {
+  width: 100%;
+}
+.pic-data {
+  display: flex;
+  margin: 13px 0px;
+}
+.pic-data a {
+  color: #999;
+  text-decoration: none;
+  width: 33.33%;
+}
+.pic-data-a {
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+}
+</style>
+
