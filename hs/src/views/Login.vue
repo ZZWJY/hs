@@ -104,7 +104,9 @@
                     return;
                 }
                 sessionStorage.setItem('name',uname)
-                this.axios.post("login/",{uname,upwd}).then(res=>{
+                this.axios.post("login/",{
+                       uname,upwd
+                    }).then(res=>{
                     console.log(res)
                         if(res.data.code==1){
                             this.$toast("登录成功")

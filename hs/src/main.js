@@ -17,7 +17,8 @@ import "./assets/newphonefont/iconfont.css"
 import 'mint-ui/lib/style.css'
 //将MINT-ui注册vue
 //引入axios文件
-import "./axios"
+import axios from "./axios"
+Vue.use(axios)
 //创建vuex实例
 var store=new Vuex.Store({
   //定义全局修改的数据
