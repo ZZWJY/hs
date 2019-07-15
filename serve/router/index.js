@@ -65,4 +65,17 @@ router.get("/serve",(req,res)=>{
 		}
 	})
 })
+router.get("/hot",(req,res)=>{
+	var img=req.query.img_url;
+	var title=req.query.title;
+	var sql="select img_url,title from hs_indexRefer_hot"
+	Pool.query(sql,[img,title],(err,result)=>{
+		if(err) throw err
+		if(result.length>0){
+			res.send({code:1,data:result})
+		}else{
+			res.send({code:-1,data:"查询失败!"})
+		}
+	})
+})
 module.exports=router;

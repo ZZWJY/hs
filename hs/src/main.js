@@ -20,6 +20,15 @@ import 'mint-ui/lib/style.css'
 import axios from "./axios"
 Vue.use(axios)
 //创建vuex实例
+var store=new Vuex.Store({
+  //定义全局修改的数据
+  state:{
+  },
+  Mutations:{
+  },
+  getters:{
+  }
+  })
 Vue.use(MINTUI)
 import "./assets/Myfont/iconfont.css"
 Vue.config.productionTip = false

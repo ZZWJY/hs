@@ -14,6 +14,8 @@ import love  from "./components/index/index/love"
 import detail from "./views/detail"
 import comeback from "./views/comeback"
 import comeback1 from "./views/comeback1"
+import hot  from "./components/index/index/hot"
+import welfare  from "./components/index/index/welfare"
 
 Vue.use(Router)
 
@@ -47,6 +49,8 @@ export default new Router({
     {path:"/love",component:love},
     {path:"/detail",component:detail},
     {path:"/comeback",component:comeback},
-    {path:"/comeback1",component:comeback1}
+    {path:"/comeback1",component:comeback1},
+    {path:"/hot",component:hot},
+    {path:"/welfare",component:welfare}
   ]
 })

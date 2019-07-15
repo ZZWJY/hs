@@ -60,7 +60,7 @@
            <span>查看更多 &gt;</span>
        </div>
        <!-- 图片 -->
-        <router-link to="" class="Img">
+        <router-link to="/welfare" class="Img">
         <img src="http://127.0.0.1:3000/img/login/799.png" alt="">
         </router-link>
         <router-link to="" class="Img"  >
@@ -77,8 +77,10 @@
                 <span>特权专区</span>
             </div>
             <div class="Services_top">
+                <router-link to="/welfare">
                 <img src="http://127.0.0.1:3000/img/login/fuli.png" alt="">
                 <span>新人福利</span>
+                </router-link>
             </div>
         </div>
         <router-link to="" class="Img">
