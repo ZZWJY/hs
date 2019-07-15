@@ -10,6 +10,8 @@ import recommend from "./components/index/index/recommend"
 import ipad from "./components/index/index/ipad"
 import notebook from "./components/index/index/notebook"
 import phone from "./components/index/index/phone"
+import love from "./components/index/love"
+import shop from "./components/index/shop"
 
 Vue.use(Router)
 
@@ -24,6 +26,8 @@ export default new Router({
       redirect:"/index/index/recommend"
     },
     {path:"/login",component:login},
+    {path:"/love",component:love},
+    {path:"/shop",component:shop},
     {
       path:"/index",component:Index,
         children:[
