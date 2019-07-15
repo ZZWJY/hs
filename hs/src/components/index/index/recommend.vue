@@ -145,7 +145,9 @@
         </div>
         <div class="understand">
             <img src="http://127.0.0.1:3000/img/index/refer/lsgy2.png" alt="">
-            <img src="http://127.0.0.1:3000/img/index/refer/lsgy3.png" alt="">
+            <router-link to="/clear">
+                <img src="http://127.0.0.1:3000/img/index/refer/lsgy3.png" alt="">
+            </router-link>
         </div>
         <div class="partner">
             <img src="http://127.0.0.1:3000/img/index/refer/hzhb.jpg" alt="">
@@ -164,7 +166,8 @@ export default {
             seconds:"00",
             minutes:"00",
             carousel:["广州市李先生 以￥2599 喜提红米 K20 Pro 6GB 128GB 碳纤黑 全网通fsdfrdsfs","深圳市廖女士 以￥1099 喜提红米 Note7 4GB+64GB 梦幻蓝",
-            "北京市杨女士 以￥4188 喜提华为 P30 8GB 128GB 天空之境","天津市王先生 以￥1099 喜提红米 Note 7 4GB 64GB 暮光金 全网通","广州市李先生 以￥2599 喜提红米 K20 Pro 6GB 128GB 碳纤黑 全网通fsdfrdsfs"]
+            "北京市杨女士 以￥4188 喜提华为 P30 8GB 128GB 天空之境","天津市王先生 以￥1099 喜提红米 Note 7 4GB 64GB 暮光金 全网通","广州市李先生 以￥2599 喜提红米 K20 Pro 6GB 128GB 碳纤黑 全网通fsdfrdsfs"],
+            standtop:0
        }
     },
     props:{
@@ -173,13 +176,24 @@ export default {
     mounted(){
         this.carsou()
         this.init()
-
+        window.onmousewheel=function(){
+            var understand=document.getElementsByClassName("understand")[0]
+           this.standtop=document.body.scrollTop+document.documentElement.scrollTop
+        }
+           
     },
+    watch:{
+        standtop(){
+            console.log(this.standtop)
+        }
+    },
+    
     created(){
         this.time()
         
     },
     methods:{
+
         init(){
             var url="index/recommend"
             this.axios.get(url).then(res=>{

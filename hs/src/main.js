@@ -15,6 +15,7 @@ import "./assets/MyFont/iconfont.css"
 import "./assets/newphonefont/iconfont.css"
 //引入图标
 import 'mint-ui/lib/style.css'
+import myevent from "./event"
 //将MINT-ui注册vue
 //引入axios文件
 import axios from "./axios"
@@ -33,10 +34,12 @@ var store=new Vuex.Store({
   }
 })
 Vue.use(MINTUI)
+Vue.use(myevent)
 Vue.config.productionTip = false
 
 new Vue({
   router,
   store,
+  myevent,
   render: h => h(App)
 }).$mount('#app')

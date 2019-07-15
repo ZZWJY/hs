@@ -65,4 +65,46 @@ router.get("/serve",(req,res)=>{
 		}
 	})
 })
+router.get("/type",function(req,res){
+	var type=req.query.num
+	if(type==1){
+		Pool.query('select pid,title,imgurl from hs_category_phone',function(err,result){
+			if(err) throw err
+			if(result.length>0){
+				res.send({code:1,data:result})
+				return ;
+			}else{
+				res.send({code:-1,data:result})
+				return ;
+			}
+		})
+	}else if(type==2){
+		Pool.query('select lid,title,imgurl from hs_category_labbook',function(err,result){
+			if(err) throw err
+			if(result.length>0){
+				res.send({code:1,data:result})
+				return ;
+			}else{
+				res.send({code:-1,data:result})
+				return ;
+			}
+		})
+	}else if(type==3){
+		Pool.query('select tid,title,imgurl from hs_category_labtop',function(err,result){
+			if(err) throw err
+			if(result.length>0){
+				res.send({code:1,data:result})
+				return ;
+			}else{
+				res.send({code:-1,data:result})
+				return ;
+			}
+		})
+	}
+})
+router.get('category',function(req,res){
+	var obj={
+		
+	}
+})
 module.exports=router;

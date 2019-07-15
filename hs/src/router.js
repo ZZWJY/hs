@@ -14,6 +14,9 @@ import love  from "./components/index/index/love"
 import detail from "./views/detail"
 import comeback from "./views/comeback"
 import comeback1 from "./views/comeback1"
+import fon from "./components/index/index/Fon"
+import factor from "./components/index/index/Factor"
+import clear from "./components/index/index/Clear"
 
 Vue.use(Router)
 
@@ -47,6 +50,9 @@ export default new Router({
     {path:"/love",component:love},
     {path:"/detail",component:detail},
     {path:"/comeback",component:comeback},
-    {path:"/comeback1",component:comeback1}
+    {path:"/comeback1",component:comeback1},
+    {path:'/clear',component:clear},
+    {path:"/factor",component:factor},
+    {path:"/fon",component:fon}
   ]
 })

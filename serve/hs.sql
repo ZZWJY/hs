@@ -62,7 +62,6 @@ insert into hs_indexRefer_listTypeALL values
 (NULL, '卖平板','iconfont icon-st-browse'),
 (NULL, '摄影摄像','iconfont icon-Camera-'),
 (NULL, '智能数码','iconfont icon-piao');
-
 #以旧换新数据表
 create table hs_indexRefer_old_new(
 	title varchar(30),
@@ -166,6 +165,184 @@ insert into hs_serve_adinfo values
 (null,"深圳西乡汇一城店","深圳市宝安区西乡地铁站A出口天虹汇一城1层（面包新语旁）","18523654741",5),
 (null,"深圳中洲π店","深圳市宝安区创业二路89号中洲·π mall购物中心正大门奈雪的茶旁边垂直电梯下B1层或扶手梯下负一层爱回收（良品铺子旁）","12536484125",5),
 (null,"深圳坪山益田假日店","深圳市龙岗区坪山益田假日世界L1-H-11（天梭手表旁）","13698745624",6),
-(null,"深圳新沙天虹店","深圳市宝安区沙井街道新沙天虹购物中心L1层（客服中心旁）","16954821365",5)
+(null,"深圳新沙天虹店","深圳市宝安区沙井街道新沙天虹购物中心L1层（客服中心旁）","16954821365",5);
+/**商品手机类型列表**/
+create table hs_category_phone(
+    pid int primary key auto_increment,
+    title varchar(32),   
+    zid int,
+    imgurl varchar(100)
+);
+insert into hs_category_phone values
+(1,"苹果",1,"http://127.0.0.1:3000/img/index/iPad/iPhone.png"),
+(null,"华为",1,"http://127.0.0.1:3000/img/index/iPad/HUAWEI.png"),
+(null,"vivo",1,"http://127.0.0.1:3000/img/index/phone/vivo.png"),
+(null,"OPPO",1,"http://127.0.0.1:3000/img/index/phone/OPPO.png"),
+(null,"小米",1,"http://127.0.0.1:3000/img/index/phone/mi.png"),
+(null,"三星",1,"http://127.0.0.1:3000/img/index/phone/SAMSUNG.png"),
+(null,"荣耀",1,"http://127.0.0.1:3000/img/index/phone/honor.png"),
+(null,"更多",1,"http://127.0.0.1:3000/img/index/phone/something.png");
+create table hs_category_labbook(
+    lid  int primary key auto_increment,
+    title varchar(32)  ,
+    zid int,
+    imgurl varchar(100) 
+);
+insert into hs_category_labbook values
+(1,"苹果",2,"http://127.0.0.1:3000/img/index/notebook/iPhone.png"),
+(null,"ThinkPad",2,"http://127.0.0.1:3000/img/index/notebook/ThinkPad.png"),
+(null,"华硕",2,"http://127.0.0.1:3000/img/index/notebook/ASUS.png"),
+(null,"联想",2,"http://127.0.0.1:3000/img/index/notebook/Lenovo.png"),
+(null,"戴尔",2,"http://127.0.0.1:3000/img/index/notebook/DELL.png"),
+(null,"惠普",2,"http://127.0.0.1:3000/img/index/notebook/hp.png"),
+(null,"小米",2,"http://127.0.0.1:3000/img/index/notebook/MI.png"),
+(null,"更多",2,"http://127.0.0.1:3000/img/index/notebook/something.png");
+create table hs_category_labtop(
+    tid int primary key auto_increment,
+    title varchar(32),
+    zid int,
+    imgurl varchar(100)   
+);
+insert into hs_category_labtop values
+(1,"苹果",3,"http://127.0.0.1:3000/img/index/iPad/iPhone.png"),
+(null,"三星",3,"http://127.0.0.1:3000/img/index/iPad/SAMSUNG.png"),
+(null,"小米",3,"http://127.0.0.1:3000/img/index/iPad/MI.png"),
+(null,"华为",3,"http://127.0.0.1:3000/img/index/iPad/HUAWEI.png"),
+(null,"荣耀",3,"http://127.0.0.1:3000/img/index/iPad/honor.png"),
+(null,"诺基亚",3,"http://127.0.0.1:3000/img/index/iPad/Nokia.png"),
+(null,"联想",3,"http://127.0.0.1:3000/img/index/iPad/Lenovo.png"),
+(null,"更多",3,"http://127.0.0.1:3000/img/index/iPad/more.png");
+create table hs_category_camera(
+    cid int primary key auto_increment,
+    title varchar(32)  ,
+    zid int
+);
+insert into hs_category_camera values
+(1,"单反相机",4),
+(null,"微单相机",4),
+(null,"镜头",4),
+(null,"数码相机",4),
+(null,"摄像机",4),
+(null,"闪光灯",4);
+create table hs_category_digital(
+    did int primary key auto_increment,
+    title varchar(32),
+    zid int 
+);
+insert into hs_category_digital values
+(1,"智能手表",4),
+(null,"新·奇·特",4),
+(null,"耳机",4),
+(null,"电子书",4),
+(null,"投影仪",4),
+(null,"游戏机",4),
+(null,"运动相机",4),
+(null,"智能手写笔",4),
+(null,"智能手环",4);
+
+create table hs_category_all(
+    aid int primary key auto_increment,
+    title varchar(32),
+    nid  int ,       #表示lid条件下的类型表,如卖手机下面的苹果
+    zid int         #表示当前数据属于什么类型,如卖手机
+);
+insert into hs_category_all values
+(1,"苹果 iPhone X Plus",1,1),
+(null,"苹果 iPhone 7 Plus",1,1),
+(null,"苹果 iPhone 6",1,1),
+(null,"苹果 iPhone 8 Plus",1,1),
+(null,"苹果 iPhone 6 Plus",1,1),
+(null,"苹果 iPhone 6s Plus",1,1),
+(null,"苹果 iPhone 7",1,1),
+(null,"苹果 iPhone 8",1,1),
+(null,"苹果 iPhone XS Max",1,1),
+(null,"苹果 iPhone 6",1,1),
+(null,"苹果 iPhone 8 Plus",1,1),
+(null,"苹果 iPhone 6 Plus",1,1),
+(null,"苹果 iPhone 6s Plus",1,1),
+(null,"苹果 iPhone 7",1,1),
+(null,"苹果 iPhone 8",1,1),
+(null,"苹果 iPhone XS Max",1,1),
+(null,"华为 P20  Pro",2,1),
+(null,"华为 Mate9",2,1),
+(null,"华为 P9",2,1),
+(null,"华为 Mate8",2,1),
+(null,"华为 P20",2,1),
+(null,"华为 Mate10 Pro",2,1),
+(null,"华为 Mate10",2,1),
+(null,"华为 P10",2,1),
+(null,"华为 P10 Plus",2,1),
+(null,"华为 麦芒5",2,1),
+(null,"华为 mate7",2,1),
+(null,"华为 P20",2,1),
+(null,"华为 Mate10 Pro",2,1),
+(null,"华为 Mate10",2,1),
+(null,"华为 P10",2,1),
+(null,"华为 P10 Plus",2,1),
+(null,"华为 麦芒5",2,1),
+(null,"华为 mate7",2,1),
+(null,"苹果 15年 13寸 MacBook Air",1,2),
+(null,"苹果 15年 13寸 MacBook Pro",1,2),
+(null,"苹果 17年 13寸 MacBook Air",1,2),
+(null,"苹果 17年 13寸 MacBook Pro",1,2),
+(null,"苹果 15年 15寸 MacBook Pro",1,2),
+(null,"苹果 14年 13寸 MacBook Air",1,2),
+(null,"苹果 15年 11寸 MacBook Air",1,2),
+(null,"苹果 17年 15寸 MacBook Pro",1,2),
+(null,"苹果 13年 13寸 MacBook Pro",1,2),
+(null,"苹果 15年 12寸 MacBook",1,2),
+(null,"苹果 16年 13寸 MacBook Pro",1,2),
+(null,"苹果 13年 13寸 MacBook Air",1,2),
+(null,"苹果 14年 13寸 MacBook Pro",1,2),
+(null,"苹果 11年 13寸 MacBook Pro",1,2),
+(null,"联想ThinkPad X1 Carbon 系列",2,2),
+(null,"联想ThinkPad New S2(非触控版) 系列",2,2),
+(null,"联想 ThinkPad E450",2,2),
+(null,"联想ThinkPad E470 系列",2,2),
+(null,"联想 Thinkpad E450c",2,2),
+(null,"联想ThinkPad E470c 系列",2,2),
+(null,"联想ThinkPad E420",2,2),
+(null,"联想ThinkPad X270 系列",2,2),
+(null,"联想ThinkPad X240",2,2),
+(null,"联想ThinkPad E431",2,2),
+(null,"联想ThinkPad X250",2,2),
+(null,"联想ThinkPad E430",2,2),
+(null,"联想ThinkPad X280 系列",2,2),
+(null,"联想ThinkPad E430c",2,2),
+(null,"联想ThinkPad 翼480(E480) 系列",2,2),
+(null,"联想ThinkPad E40",2,2),
+(null,"iPad Mini2",1,3),
+(null,"iPad mini4",1,3),
+(null,"iPad Air2",1,3),
+(null,"iPad Air",1,3),
+(null,"iPad 5代 2017款",1,3),
+(null,"iPad Mini",1,3),
+(null,"iPad Pro 10.5寸 2017款",1,3),
+(null,"iPad Pro 12.9寸 1代 2015款",1,3),
+(null,"iPad 6代 2018款",1,3),
+(null,"iPad 2代",1,3),
+(null,"iPad 4代 (Retina屏)",1,3),
+(null,"iPad 3代（New iPad）",1,3),
+(null,"iPad Mini3",1,3),
+(null,"iPad Pro 12.9寸 2代 2017款",1,3),
+(null,"iPad Pro 12.9寸 3代 2018款",1,3),
+(null,"三星Galaxy Tab S 8.4(T700/T705/T707)",2,3),
+(null,"三星Galaxy Note 10.1 2014 Edition(P600/P601)",2,3),
+(null,"三星Galaxy Tab S 10.5(T800/T805/T807)",2,3),
+(null,"三星Galaxy Tab2 7.0(P3100/P3110/P3113/P3108)",2,3),
+(null,"三星Galaxy Note 10.1(N8000/N8010/N8020)",2,3),
+(null,"三星Galaxy Tab2 10.1(P5100/P5110)",2,3),
+(null,"三星Galaxy Tab 3 8.0(T310/T311/T315)",2,3),
+(null,"三星Galaxy Tab 3 7.0(T210/T211/T215/T217)",2,3),
+(null,"三星Galaxy Tab S2 8.0(T710/T713/T715/T719)",2,3),
+(null,"三星Galaxy Tab 10.1(P7500/P7510)",2,3),
+(null,"三星Galaxy Tab S3(T820/T825)",2,3),
+(null,"三星Galaxy Tab 3 10.1(P5200/P5210/P5220)",2,3),
+(null,"三星Galaxy Tab 4 8.0(T330/T331/T335/T337)",2,3),
+(null,"三星Galaxy Note 8.0(N5100/N5110/N5120)",2,3),
+(null,"三星Galaxy Tab 8.9(P7300/P7310)",2,3);
+
+
+
 
 
