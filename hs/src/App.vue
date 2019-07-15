@@ -4,7 +4,18 @@
     <router-view/>
   </div>
 </template>
+<script>
+export default {
+  data(){
+    return {
 
+    }
+  },
+  mounted(){
+      
+  }
+}
+</script>
 <style>
 body,p,h1,h2,h3,h4,h5,h6,ul{
   margin:0;

@@ -1,8 +1,10 @@
 <template>
-  <div>
+  <div class="newPhoneContent">
+    <!-- 页头 -->
     <div class="newphone_header">
       <h4 style="margin:0">爱回收 0元换新机</h4>
     </div>
+    <!-- 轮播图 -->
     <div class="carousel">
       <mt-swipe :auto="4000">
         <mt-swipe-item v-for="(item,i) of data" :key="i">
@@ -10,684 +12,733 @@
         </mt-swipe-item>
       </mt-swipe>
     </div>
+    <!-- 本周热销 -->
     <div class="sell">
       <div class="sell_header">
         <img src="http://127.0.0.1:3000/img/index/newphone/sell.jpg" alt />
       </div>
       <!-- 1 -->
-      <div class="sell_product">
-        <div class="img_left">
-          <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-          <div class="tip">
-            <p>换新再省</p>
-            <p>
-              <span>￥</span>
-              <span>300</span>
+      <router-link to="#">
+        <div class="sell_product">
+          <div class="img_left">
+            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+            <div class="tip">
+              <p>换新再省</p>
+              <p>
+                <span>￥</span>
+                <span>300</span>
+              </p>
+            </div>
+          </div>
+          <div class="text_right">
+            <p class="texts">
+              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+              <span>荣耀官方合作 同步首销</span>
             </p>
+            <p class="price">
+              官方指导价
+              <span>￥</span>
+              <span>2999</span>
+            </p>
+            <router-link to="#" class="btns">
+              <p>立即换新</p>
+            </router-link>
           </div>
         </div>
-        <div class="text_right">
-          <p class="texts">
-            <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-            <span>荣耀官方合作 同步首销</span>
-          </p>
-          <p class="price">
-            官方指导价
-            <span>￥</span>
-            <span>2999</span>
-          </p>
-          <div class="btns">
-            <p>立即换新</p>
-          </div>
-        </div>
-      </div>
+      </router-link>
       <!-- 2 -->
-      <div class="sell_product">
-        <div class="img_left">
-          <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-          <div class="tip">
-            <p>换新再省</p>
-            <p>
-              <span>￥</span>
-              <span>300</span>
+      <router-link to="#">
+        <div class="sell_product">
+          <div class="img_left">
+            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+            <div class="tip">
+              <p>换新再省</p>
+              <p>
+                <span>￥</span>
+                <span>300</span>
+              </p>
+            </div>
+          </div>
+          <div class="text_right">
+            <p class="texts">
+              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+              <span>荣耀官方合作 同步首销</span>
             </p>
+            <p class="price">
+              官方指导价
+              <span>￥</span>
+              <span>2999</span>
+            </p>
+            <router-link to="#" class="btns">
+              <p>立即换新</p>
+            </router-link>
           </div>
         </div>
-        <div class="text_right">
-          <p class="texts">
-            <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-            <span>荣耀官方合作 同步首销</span>
-          </p>
-          <p class="price">
-            官方指导价
-            <span>￥</span>
-            <span>2999</span>
-          </p>
-          <div class="btns">
-            <p>立即换新</p>
-          </div>
-        </div>
-      </div>
+      </router-link>
       <!-- 3 -->
-      <div class="sell_product">
-        <div class="img_left">
-          <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-          <div class="tip">
-            <p>换新再省</p>
-            <p>
-              <span>￥</span>
-              <span>300</span>
+      <router-link to="#">
+        <div class="sell_product">
+          <div class="img_left">
+            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+            <div class="tip">
+              <p>换新再省</p>
+              <p>
+                <span>￥</span>
+                <span>300</span>
+              </p>
+            </div>
+          </div>
+          <div class="text_right">
+            <p class="texts">
+              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+              <span>荣耀官方合作 同步首销</span>
             </p>
+            <p class="price">
+              官方指导价
+              <span>￥</span>
+              <span>2999</span>
+            </p>
+            <router-link to="#" class="btns">
+              <p>立即换新</p>
+            </router-link>
           </div>
         </div>
-        <div class="text_right">
-          <p class="texts">
-            <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-            <span>荣耀官方合作 同步首销</span>
-          </p>
-          <p class="price">
-            官方指导价
-            <span>￥</span>
-            <span>2999</span>
-          </p>
-          <div class="btns">
-            <p>立即换新</p>
-          </div>
-        </div>
-      </div>
+      </router-link>
       <!-- 4 -->
-      <div class="sell_product">
-        <div class="img_left">
-          <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-          <div class="tip">
-            <p>换新再省</p>
-            <p>
-              <span>￥</span>
-              <span>300</span>
+      <router-link to="#">
+        <div class="sell_product">
+          <div class="img_left">
+            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+            <div class="tip">
+              <p>换新再省</p>
+              <p>
+                <span>￥</span>
+                <span>300</span>
+              </p>
+            </div>
+          </div>
+          <div class="text_right">
+            <p class="texts">
+              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+              <span>荣耀官方合作 同步首销</span>
             </p>
+            <p class="price">
+              官方指导价
+              <span>￥</span>
+              <span>2999</span>
+            </p>
+            <router-link to="#" class="btns">
+              <p>立即换新</p>
+            </router-link>
           </div>
         </div>
-        <div class="text_right">
-          <p class="texts">
-            <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-            <span>荣耀官方合作 同步首销</span>
-          </p>
-          <p class="price">
-            官方指导价
-            <span>￥</span>
-            <span>2999</span>
-          </p>
-          <div class="btns">
-            <p>立即换新</p>
-          </div>
-        </div>
-      </div>
+      </router-link>
       <!-- 5 -->
-      <div class="sell_product">
-        <div class="img_left">
-          <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-          <div class="tip">
-            <p>换新再省</p>
-            <p>
-              <span>￥</span>
-              <span>300</span>
+      <router-link to="#">
+        <div class="sell_product">
+          <div class="img_left">
+            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+            <div class="tip">
+              <p>换新再省</p>
+              <p>
+                <span>￥</span>
+                <span>300</span>
+              </p>
+            </div>
+          </div>
+          <div class="text_right">
+            <p class="texts">
+              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+              <span>荣耀官方合作 同步首销</span>
             </p>
+            <p class="price">
+              官方指导价
+              <span>￥</span>
+              <span>2999</span>
+            </p>
+            <router-link to="#" class="btns">
+              <p>立即换新</p>
+            </router-link>
           </div>
         </div>
-        <div class="text_right">
-          <p class="texts">
-            <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-            <span>荣耀官方合作 同步首销</span>
-          </p>
-          <p class="price">
-            官方指导价
-            <span>￥</span>
-            <span>2999</span>
-          </p>
-          <div class="btns">
-            <p>立即换新</p>
-          </div>
-        </div>
-      </div>
+      </router-link>
       <!-- 6 -->
-      <div class="sell_product">
-        <div class="img_left">
-          <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-          <div class="tip">
-            <p>换新再省</p>
-            <p>
-              <span>￥</span>
-              <span>300</span>
+      <router-link to="#">
+        <div class="sell_product">
+          <div class="img_left">
+            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+            <div class="tip">
+              <p>换新再省</p>
+              <p>
+                <span>￥</span>
+                <span>300</span>
+              </p>
+            </div>
+          </div>
+          <div class="text_right">
+            <p class="texts">
+              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+              <span>荣耀官方合作 同步首销</span>
             </p>
+            <p class="price">
+              官方指导价
+              <span>￥</span>
+              <span>2999</span>
+            </p>
+            <router-link to="#" class="btns">
+              <p>立即换新</p>
+            </router-link>
           </div>
         </div>
-        <div class="text_right">
-          <p class="texts">
-            <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-            <span>荣耀官方合作 同步首销</span>
-          </p>
-          <p class="price">
-            官方指导价
-            <span>￥</span>
-            <span>2999</span>
-          </p>
-          <div class="btns">
-            <p>立即换新</p>
-          </div>
-        </div>
-      </div>
+      </router-link>
     </div>
     <!--小米专区  -->
     <div class="sell_header">
       <img src="http://127.0.0.1:3000/img/index/newphone/sell.jpg" alt />
     </div>
+    <!--小米专区商品  -->
     <div class="miui">
       <div>
         <!-- left1 -->
-        <div class="product">
-          <div class="img_left">
-            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-            <div class="tip">
-              <p>换新再省</p>
-              <p>
-                <span>￥</span>
-                <span>300</span>
+        <router-link to="#">
+          <div class="product">
+            <div class="img_left">
+              <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+              <div class="tip">
+                <p>换新再省</p>
+                <p>
+                  <span>￥</span>
+                  <span>300</span>
+                </p>
+              </div>
+            </div>
+            <div class="text_right">
+              <p class="texts">
+                <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+                <span>荣耀官方合作 同步首销</span>
               </p>
-            </div>
-          </div>
-          <div class="text_right">
-            <p class="texts">
-              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-              <span>荣耀官方合作 同步首销</span>
-            </p>
-            <p class="price">
-              官方指导价
-              <span>￥</span>
-              <span>2999</span>
-              <del>
-                <span></span>
-              </del>
-            </p>
-            <div class="btns">
-              <p>立即换新</p>
-            </div>
-          </div>
-        </div>
-        <!-- right1 -->
-        <div class="product">
-          <div class="img_left">
-            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-            <div class="tip">
-              <p>换新再省</p>
-              <p>
+              <p class="price">
+                官方指导价
                 <span>￥</span>
-                <span>300</span>
-              </p>
-            </div>
-          </div>
-          <div class="text_right">
-            <p class="texts">
-              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-              <span>荣耀官方合作 同步首销</span>
-            </p>
-            <p class="price">
-              官方指导价
-              <span>￥</span>
-              <span>2999</span>
-              <del>
-                官方指导价：￥
                 <span>2999</span>
-              </del>
-            </p>
-            <div class="btns">
-              <p>立即换新</p>
-            </div>
-          </div>
-        </div>
-        <!-- left1 -->
-        <div class="product">
-          <div class="img_left">
-            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-            <div class="tip">
-              <p>换新再省</p>
-              <p>
-                <span>￥</span>
-                <span>300</span>
+                <del>
+                  <span></span>
+                </del>
               </p>
+              <router-link to="#" class="btns">
+                <p>立即换新</p>
+              </router-link>
             </div>
           </div>
-          <div class="text_right">
-            <p class="texts">
-              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-              <span>荣耀官方合作 同步首销</span>
-            </p>
-            <p class="price">
-              官方指导价
-              <span>￥</span>
-              <span>2999</span>
-              <del>
-                <span></span>
-              </del>
-            </p>
-            <div class="btns">
-              <p>立即换新</p>
-            </div>
-          </div>
-        </div>
+        </router-link>
         <!-- right1 -->
-        <div class="product">
-          <div class="img_left">
-            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-            <div class="tip">
-              <p>换新再省</p>
-              <p>
-                <span>￥</span>
-                <span>300</span>
+        <router-link to="#">
+          <div class="product">
+            <div class="img_left">
+              <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+              <div class="tip">
+                <p>换新再省</p>
+                <p>
+                  <span>￥</span>
+                  <span>300</span>
+                </p>
+              </div>
+            </div>
+            <div class="text_right">
+              <p class="texts">
+                <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+                <span>荣耀官方合作 同步首销</span>
               </p>
-            </div>
-          </div>
-          <div class="text_right">
-            <p class="texts">
-              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-              <span>荣耀官方合作 同步首销</span>
-            </p>
-            <p class="price">
-              官方指导价
-              <span>￥</span>
-              <span>2999</span>
-              <del>
-                官方指导价：￥
+              <p class="price">
+                官方指导价
+                <span>￥</span>
                 <span>2999</span>
-              </del>
-            </p>
-            <div class="btns">
-              <p>立即换新</p>
+                <del>
+                  官方指导价：￥
+                  <span>2999</span>
+                </del>
+              </p>
+              <router-link to="#" class="btns">
+                <p>立即换新</p>
+              </router-link>
             </div>
           </div>
-        </div>
+        </router-link>
+        <!-- left2 -->
+        <router-link to="#">
+          <div class="product">
+            <div class="img_left">
+              <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+              <div class="tip">
+                <p>换新再省</p>
+                <p>
+                  <span>￥</span>
+                  <span>300</span>
+                </p>
+              </div>
+            </div>
+            <div class="text_right">
+              <p class="texts">
+                <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+                <span>荣耀官方合作 同步首销</span>
+              </p>
+              <p class="price">
+                官方指导价
+                <span>￥</span>
+                <span>2999</span>
+                <del>
+                  <span></span>
+                </del>
+              </p>
+              <router-link to="#" class="btns">
+                <p>立即换新</p>
+              </router-link>
+            </div>
+          </div>
+        </router-link>
+        <!-- right2 -->
+        <router-link to="#">
+          <div class="product">
+            <div class="img_left">
+              <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+              <div class="tip">
+                <p>换新再省</p>
+                <p>
+                  <span>￥</span>
+                  <span>300</span>
+                </p>
+              </div>
+            </div>
+            <div class="text_right">
+              <p class="texts">
+                <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+                <span>荣耀官方合作 同步首销</span>
+              </p>
+              <p class="price">
+                官方指导价
+                <span>￥</span>
+                <span>2999</span>
+                <del>
+                  官方指导价：￥
+                  <span>2999</span>
+                </del>
+              </p>
+              <router-link to="#" class="btns">
+                <p>立即换新</p>
+              </router-link>
+            </div>
+          </div>
+        </router-link>
       </div>
     </div>
     <!-- 华为荣耀专区 -->
     <div class="sell_header">
       <img src="http://127.0.0.1:3000/img/index/newphone/sell.jpg" alt />
     </div>
+    <!-- 华为荣耀专区商品 -->
     <div class="miui">
       <div>
         <!-- left1 -->
-        <div class="product">
-          <div class="img_left">
-            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-            <div class="tip">
-              <p>换新再省</p>
-              <p>
-                <span>￥</span>
-                <span>300</span>
+        <router-link to="#">
+          <div class="product">
+            <div class="img_left">
+              <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+              <div class="tip">
+                <p>换新再省</p>
+                <p>
+                  <span>￥</span>
+                  <span>300</span>
+                </p>
+              </div>
+            </div>
+            <div class="text_right">
+              <p class="texts">
+                <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+                <span>荣耀官方合作 同步首销</span>
               </p>
+              <p class="price">
+                官方指导价
+                <span>￥</span>
+                <span>2999</span>
+                <del>
+                  <span></span>
+                </del>
+              </p>
+              <router-link to="#" class="btns">
+                <p>立即换新</p>
+              </router-link>
             </div>
           </div>
-          <div class="text_right">
-            <p class="texts">
-              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-              <span>荣耀官方合作 同步首销</span>
-            </p>
-            <p class="price">
-              官方指导价
-              <span>￥</span>
-              <span>2999</span>
-              <del>
-                <span></span>
-              </del>
-            </p>
-            <div class="btns">
-              <p>立即换新</p>
-            </div>
-          </div>
-        </div>
+        </router-link>
         <!-- right1 -->
-        <div class="product">
-          <div class="img_left">
-            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-            <div class="tip">
-              <p>换新再省</p>
-              <p>
-                <span>￥</span>
-                <span>300</span>
+        <router-link to="#">
+          <div class="product">
+            <div class="img_left">
+              <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+              <div class="tip">
+                <p>换新再省</p>
+                <p>
+                  <span>￥</span>
+                  <span>300</span>
+                </p>
+              </div>
+            </div>
+            <div class="text_right">
+              <p class="texts">
+                <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+                <span>荣耀官方合作 同步首销</span>
               </p>
-            </div>
-          </div>
-          <div class="text_right">
-            <p class="texts">
-              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-              <span>荣耀官方合作 同步首销</span>
-            </p>
-            <p class="price">
-              官方指导价
-              <span>￥</span>
-              <span>2999</span>
-              <del>
-                官方指导价：￥
+              <p class="price">
+                官方指导价
+                <span>￥</span>
                 <span>2999</span>
-              </del>
-            </p>
-            <div class="btns">
-              <p>立即换新</p>
+                <del>
+                  官方指导价：￥
+                  <span>2999</span>
+                </del>
+              </p>
+              <router-link to="#" class="btns">
+                <p>立即换新</p>
+              </router-link>
             </div>
           </div>
-        </div>
+        </router-link>
         <!-- left2 -->
-        <div class="product">
-          <div class="img_left">
-            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-            <div class="tip">
-              <p>换新再省</p>
-              <p>
-                <span>￥</span>
-                <span>300</span>
+        <router-link to="#">
+          <div class="product">
+            <div class="img_left">
+              <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+              <div class="tip">
+                <p>换新再省</p>
+                <p>
+                  <span>￥</span>
+                  <span>300</span>
+                </p>
+              </div>
+            </div>
+            <div class="text_right">
+              <p class="texts">
+                <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+                <span>荣耀官方合作 同步首销</span>
               </p>
+              <p class="price">
+                官方指导价
+                <span>￥</span>
+                <span>2999</span>
+                <del>
+                  <span></span>
+                </del>
+              </p>
+              <router-link to="#" class="btns">
+                <p>立即换新</p>
+              </router-link>
             </div>
           </div>
-          <div class="text_right">
-            <p class="texts">
-              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-              <span>荣耀官方合作 同步首销</span>
-            </p>
-            <p class="price">
-              官方指导价
-              <span>￥</span>
-              <span>2999</span>
-              <del>
-                <span></span>
-              </del>
-            </p>
-            <div class="btns">
-              <p>立即换新</p>
-            </div>
-          </div>
-        </div>
+        </router-link>
         <!-- right2 -->
-        <div class="product">
-          <div class="img_left">
-            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-            <div class="tip">
-              <p>换新再省</p>
-              <p>
-                <span>￥</span>
-                <span>300</span>
+        <router-link to="#">
+          <div class="product">
+            <div class="img_left">
+              <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+              <div class="tip">
+                <p>换新再省</p>
+                <p>
+                  <span>￥</span>
+                  <span>300</span>
+                </p>
+              </div>
+            </div>
+            <div class="text_right">
+              <p class="texts">
+                <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+                <span>荣耀官方合作 同步首销</span>
               </p>
-            </div>
-          </div>
-          <div class="text_right">
-            <p class="texts">
-              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-              <span>荣耀官方合作 同步首销</span>
-            </p>
-            <p class="price">
-              官方指导价
-              <span>￥</span>
-              <span>2999</span>
-              <del>
-                官方指导价：￥
+              <p class="price">
+                官方指导价
+                <span>￥</span>
                 <span>2999</span>
-              </del>
-            </p>
-            <div class="btns">
-              <p>立即换新</p>
+                <del>
+                  官方指导价：￥
+                  <span>2999</span>
+                </del>
+              </p>
+              <router-link to="#" class="btns">
+                <p>立即换新</p>
+              </router-link>
             </div>
           </div>
-        </div>
+        </router-link>
         <!-- left3 -->
-        <div class="product">
-          <div class="img_left">
-            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-            <div class="tip">
-              <p>换新再省</p>
-              <p>
-                <span>￥</span>
-                <span>300</span>
+        <router-link to="#">
+          <div class="product">
+            <div class="img_left">
+              <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+              <div class="tip">
+                <p>换新再省</p>
+                <p>
+                  <span>￥</span>
+                  <span>300</span>
+                </p>
+              </div>
+            </div>
+            <div class="text_right">
+              <p class="texts">
+                <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+                <span>荣耀官方合作 同步首销</span>
               </p>
+              <p class="price">
+                官方指导价
+                <span>￥</span>
+                <span>2999</span>
+                <del>
+                  <span></span>
+                </del>
+              </p>
+              <router-link to="#" class="btns">
+                <p>立即换新</p>
+              </router-link>
             </div>
           </div>
-          <div class="text_right">
-            <p class="texts">
-              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-              <span>荣耀官方合作 同步首销</span>
-            </p>
-            <p class="price">
-              官方指导价
-              <span>￥</span>
-              <span>2999</span>
-              <del>
-                <span></span>
-              </del>
-            </p>
-            <div class="btns">
-              <p>立即换新</p>
-            </div>
-          </div>
-        </div>
+        </router-link>
         <!-- right3 -->
-        <div class="product">
-          <div class="img_left">
-            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-            <div class="tip">
-              <p>换新再省</p>
-              <p>
-                <span>￥</span>
-                <span>300</span>
+        <router-link to="#">
+          <div class="product">
+            <div class="img_left">
+              <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+              <div class="tip">
+                <p>换新再省</p>
+                <p>
+                  <span>￥</span>
+                  <span>300</span>
+                </p>
+              </div>
+            </div>
+            <div class="text_right">
+              <p class="texts">
+                <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+                <span>荣耀官方合作 同步首销</span>
               </p>
-            </div>
-          </div>
-          <div class="text_right">
-            <p class="texts">
-              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-              <span>荣耀官方合作 同步首销</span>
-            </p>
-            <p class="price">
-              官方指导价
-              <span>￥</span>
-              <span>2999</span>
-              <del>
-                官方指导价：￥
+              <p class="price">
+                官方指导价
+                <span>￥</span>
                 <span>2999</span>
-              </del>
-            </p>
-            <div class="btns">
-              <p>立即换新</p>
+                <del>
+                  官方指导价：￥
+                  <span>2999</span>
+                </del>
+              </p>
+              <router-link to="#" class="btns">
+                <p>立即换新</p>
+              </router-link>
             </div>
           </div>
-        </div>
+        </router-link>
         <!-- left4 -->
-        <div class="product">
-          <div class="img_left">
-            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-            <div class="tip">
-              <p>换新再省</p>
-              <p>
-                <span>￥</span>
-                <span>300</span>
+        <router-link to="#">
+          <div class="product">
+            <div class="img_left">
+              <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+              <div class="tip">
+                <p>换新再省</p>
+                <p>
+                  <span>￥</span>
+                  <span>300</span>
+                </p>
+              </div>
+            </div>
+            <div class="text_right">
+              <p class="texts">
+                <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+                <span>荣耀官方合作 同步首销</span>
               </p>
+              <p class="price">
+                官方指导价
+                <span>￥</span>
+                <span>2999</span>
+                <del>
+                  <span></span>
+                </del>
+              </p>
+              <router-link to="#" class="btns">
+                <p>立即换新</p>
+              </router-link>
             </div>
           </div>
-          <div class="text_right">
-            <p class="texts">
-              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-              <span>荣耀官方合作 同步首销</span>
-            </p>
-            <p class="price">
-              官方指导价
-              <span>￥</span>
-              <span>2999</span>
-              <del>
-                <span></span>
-              </del>
-            </p>
-            <div class="btns">
-              <p>立即换新</p>
-            </div>
-          </div>
-        </div>
+        </router-link>
         <!-- right4 -->
-        <div class="product">
-          <div class="img_left">
-            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-            <div class="tip">
-              <p>换新再省</p>
-              <p>
-                <span>￥</span>
-                <span>300</span>
+        <router-link to="#">
+          <div class="product">
+            <div class="img_left">
+              <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+              <div class="tip">
+                <p>换新再省</p>
+                <p>
+                  <span>￥</span>
+                  <span>300</span>
+                </p>
+              </div>
+            </div>
+            <div class="text_right">
+              <p class="texts">
+                <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+                <span>荣耀官方合作 同步首销</span>
               </p>
-            </div>
-          </div>
-          <div class="text_right">
-            <p class="texts">
-              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-              <span>荣耀官方合作 同步首销</span>
-            </p>
-            <p class="price">
-              官方指导价
-              <span>￥</span>
-              <span>2999</span>
-              <del>
-                官方指导价：￥
+              <p class="price">
+                官方指导价
+                <span>￥</span>
                 <span>2999</span>
-              </del>
-            </p>
-            <div class="btns">
-              <p>立即换新</p>
+                <del>
+                  官方指导价：￥
+                  <span>2999</span>
+                </del>
+              </p>
+              <router-link to="#" class="btns">
+                <p>立即换新</p>
+              </router-link>
             </div>
           </div>
-        </div>
+        </router-link>
         <!-- left5 -->
-        <div class="product">
-          <div class="img_left">
-            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-            <div class="tip">
-              <p>换新再省</p>
-              <p>
-                <span>￥</span>
-                <span>300</span>
+        <router-link to="#">
+          <div class="product">
+            <div class="img_left">
+              <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+              <div class="tip">
+                <p>换新再省</p>
+                <p>
+                  <span>￥</span>
+                  <span>300</span>
+                </p>
+              </div>
+            </div>
+            <div class="text_right">
+              <p class="texts">
+                <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+                <span>荣耀官方合作 同步首销</span>
               </p>
+              <p class="price">
+                官方指导价
+                <span>￥</span>
+                <span>2999</span>
+                <del>
+                  <span></span>
+                </del>
+              </p>
+              <router-link to="#" class="btns">
+                <p>立即换新</p>
+              </router-link>
             </div>
           </div>
-          <div class="text_right">
-            <p class="texts">
-              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-              <span>荣耀官方合作 同步首销</span>
-            </p>
-            <p class="price">
-              官方指导价
-              <span>￥</span>
-              <span>2999</span>
-              <del>
-                <span></span>
-              </del>
-            </p>
-            <div class="btns">
-              <p>立即换新</p>
-            </div>
-          </div>
-        </div>
+        </router-link>
         <!-- right5 -->
-        <div class="product">
-          <div class="img_left">
-            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-            <div class="tip">
-              <p>换新再省</p>
-              <p>
-                <span>￥</span>
-                <span>300</span>
+        <router-link to="#">
+          <div class="product">
+            <div class="img_left">
+              <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+              <div class="tip">
+                <p>换新再省</p>
+                <p>
+                  <span>￥</span>
+                  <span>300</span>
+                </p>
+              </div>
+            </div>
+            <div class="text_right">
+              <p class="texts">
+                <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+                <span>荣耀官方合作 同步首销</span>
               </p>
-            </div>
-          </div>
-          <div class="text_right">
-            <p class="texts">
-              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-              <span>荣耀官方合作 同步首销</span>
-            </p>
-            <p class="price">
-              官方指导价
-              <span>￥</span>
-              <span>2999</span>
-              <del>
-                官方指导价：￥
+              <p class="price">
+                官方指导价
+                <span>￥</span>
                 <span>2999</span>
-              </del>
-            </p>
-            <div class="btns">
-              <p>立即换新</p>
+                <del>
+                  官方指导价：￥
+                  <span>2999</span>
+                </del>
+              </p>
+              <router-link to="#" class="btns">
+                <p>立即换新</p>
+              </router-link>
             </div>
           </div>
-        </div>
+        </router-link>
         <!-- left6 -->
-        <div class="product">
-          <div class="img_left">
-            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-            <div class="tip">
-              <p>换新再省</p>
-              <p>
-                <span>￥</span>
-                <span>300</span>
+        <router-link to="#">
+          <div class="product">
+            <div class="img_left">
+              <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+              <div class="tip">
+                <p>换新再省</p>
+                <p>
+                  <span>￥</span>
+                  <span>300</span>
+                </p>
+              </div>
+            </div>
+            <div class="text_right">
+              <p class="texts">
+                <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+                <span>荣耀官方合作 同步首销</span>
               </p>
-            </div>
-          </div>
-          <div class="text_right">
-            <p class="texts">
-              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-              <span>荣耀官方合作 同步首销</span>
-            </p>
-            <p class="price">
-              官方指导价
-              <span>￥</span>
-              <span>2999</span>
-              <del>
-                <span></span>
-              </del>
-            </p>
-            <div class="btns">
-              <p>立即换新</p>
-            </div>
-          </div>
-        </div>
-        <!-- right6 -->
-        <div class="product">
-          <div class="img_left">
-            <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
-            <div class="tip">
-              <p>换新再省</p>
-              <p>
+              <p class="price">
+                官方指导价
                 <span>￥</span>
-                <span>300</span>
-              </p>
-            </div>
-          </div>
-          <div class="text_right">
-            <p class="texts">
-              <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
-              <span>荣耀官方合作 同步首销</span>
-            </p>
-            <p class="price">
-              官方指导价
-              <span>￥</span>
-              <span>2999</span>
-              <del>
-                官方指导价：￥
                 <span>2999</span>
-              </del>
-            </p>
-            <div class="btns">
-              <p>立即换新</p>
+                <del>
+                  <span></span>
+                </del>
+              </p>
+              <router-link to="#" class="btns">
+                <p>立即换新</p>
+              </router-link>
             </div>
           </div>
-        </div>
+        </router-link>
+        <!-- right6 -->
+        <router-link to="#">
+          <div class="product">
+            <div class="img_left">
+              <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
+              <div class="tip">
+                <p>换新再省</p>
+                <p>
+                  <span>￥</span>
+                  <span>300</span>
+                </p>
+              </div>
+            </div>
+            <div class="text_right">
+              <p class="texts">
+                <span class="title">荣耀20 8GB 256GB 幻夜黑 全网通</span>
+                <span>荣耀官方合作 同步首销</span>
+              </p>
+              <p class="price">
+                官方指导价
+                <span>￥</span>
+                <span>2999</span>
+                <del>
+                  官方指导价：￥
+                  <span>2999</span>
+                </del>
+              </p>
+              <router-link to="#" class="btns">
+                <p>立即换新</p>
+              </router-link>
+            </div>
+          </div>
+        </router-link>
       </div>
     </div>
     <!-- 苹果专区 -->
     <div class="sell_header">
       <img src="http://127.0.0.1:3000/img/index/newphone/sell.jpg" alt />
     </div>
+    <!-- 苹果专区商品 -->
     <div class="miui">
       <div>
         <!-- left1 -->
+        <router-link to="#">
         <div class="product">
           <div class="img_left">
             <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -712,12 +763,14 @@
                 <span></span>
               </del>
             </p>
-            <div class="btns">
+            <router-link to="#" class="btns">
               <p>立即换新</p>
-            </div>
+            </router-link>
           </div>
         </div>
+        </router-link>
         <!-- right1 -->
+        <router-link to="#">
         <div class="product">
           <div class="img_left">
             <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -743,16 +796,18 @@
                 <span>2999</span>
               </del>
             </p>
-            <div class="btns">
+            <router-link to="#" class="btns">
               <p>立即换新</p>
-            </div>
+            </router-link>
           </div>
         </div>
+        </router-link>
       </div>
     </div>
+    <!-- 底部 -->
     <div class="footer">
-        <img src="http://127.0.0.1:3000/img/index/newphone/footer1.png" alt="">
-        <img src="http://127.0.0.1:3000/img/index/newphone/footer2.png" alt="">
+      <img src="http://127.0.0.1:3000/img/index/newphone/footer1.png" alt />
+      <img src="http://127.0.0.1:3000/img/index/newphone/footer2.png" alt />
     </div>
   </div>
 </template>
@@ -773,10 +828,22 @@ export default {
 };
 </script>
 <style scope>
-body{background-color: #f5f5f5;}
-.newphone_header {
-  padding: 20px 0;
+.newPhoneContent{
+padding-bottom:3.2rem;
 }
+
+.newphone_header {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  /* position: fixed; */
+  z-index: 999;
+  background-color: #fff;
+  top:0px;
+}
+/* .mint-swipe{
+  margin-top: 40px;
+} */
 .mint-swipe,
 .mint-swipe-item img {
   width: 100%;
@@ -804,7 +871,6 @@ body{background-color: #f5f5f5;}
   margin-left: 1.5rem;
 }
 .tip {
-  width: 50px;
   background: linear-gradient(90deg, #ff4949, #ff6830);
   border-radius: 0 1rem;
   padding: 0.313rem;
@@ -817,7 +883,7 @@ body{background-color: #f5f5f5;}
 }
 .tip p {
   margin: 0;
-  font: 0.625rem 黑体;
+  font: 0.5rem 黑体;
   color: #fff;
   text-align: center;
 }
@@ -851,6 +917,7 @@ body{background-color: #f5f5f5;}
   font-size: 1rem;
 }
 .text_right > .btns {
+  display: inline-block;
   width: 6.25rem;
   border-radius: 2rem;
   background-color: #0f0;
@@ -858,6 +925,7 @@ body{background-color: #f5f5f5;}
   font-size: 0.875rem;
   padding: 0.313rem 0;
   margin-top: 0.75rem;
+  color: #000;
 }
 .miui > div {
   width: 100%;
@@ -910,11 +978,14 @@ body{background-color: #f5f5f5;}
 .miui .texts > span:last-child {
   font-size: 0.75rem;
 }
-.footer>img{
-  width:100%;
+.footer > img {
+  width: 100%;
   height: 300px;
 }
-.footer>img:last-child{
+.footer > img:last-child {
   height: 105px;
+}
+.miui .btns {
+  margin-left: 25px;
 }
 </style>
