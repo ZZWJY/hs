@@ -199,7 +199,6 @@ export default {
             this.axios.get(url).then(res=>{
                this.listtypeall=res.data.listtypeall
                this.oldNew=res.data.oldNew
-               console.log(res)
             })
         },
         time(){

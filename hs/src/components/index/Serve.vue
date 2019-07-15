@@ -99,7 +99,6 @@ export default {
   },
   created() {
     this.init();
-    console.log(this)
   },
   methods: {
     linkTo(n) {

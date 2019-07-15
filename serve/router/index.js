@@ -102,9 +102,44 @@ router.get("/type",function(req,res){
 		})
 	}
 })
-router.get('category',function(req,res){
+router.get('/category',function(req,res){
 	var obj={
-		
+		camera:[],
+		digital:[],
+		all:[],
+		labtop:[],
+		labbook:[],
+		phone:[],
+		type:[]
 	}
+	Pool.query('select pid,title,zid from hs_category_phone',function(err,res0){
+		if(err) throw err;
+		obj.phone=res0
+		Pool.query('select lid,title,zid from  hs_category_labbook',function(err,res1){
+			if(err) throw err;
+			obj.labbook=res1
+			Pool.query('select tid,title,zid from hs_category_labtop',function(err,res2){
+				if(err) throw err;
+				obj.labtop=res2
+				Pool.query('select cid,title,zid from hs_category_camera',function(err,res3){
+					if(err) throw err;
+					obj.camera=res3
+					Pool.query('select did,title,zid from hs_category_digital',function(err,res4){
+						if(err) throw err;
+						obj.digital=res4
+						Pool.query('select aid,title,nid,zid from hs_category_all',function(err,res5){
+							if(err) throw err;
+							obj.all=res5
+							Pool.query('select id,uname from hs_indexRefer_listTypeALL',function(err,res6){
+								if(err) throw err;
+								obj.type=res6
+								res.send(obj)	
+							})	
+						})	
+					})		
+				})	
+			})
+		})
+	})
 })
 module.exports=router;

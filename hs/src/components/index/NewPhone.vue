@@ -822,7 +822,6 @@ export default {
   created() {
     this.axios.get("index/newphone").then(result => {
       this.data = result.data.data;
-      console.log(this.data);
     });
   }
 };

@@ -17,6 +17,7 @@ import comeback1 from "./views/comeback1"
 import fon from "./components/index/index/Fon"
 import factor from "./components/index/index/Factor"
 import clear from "./components/index/index/Clear"
+import category from "./views/category"
 
 Vue.use(Router)
 
@@ -53,6 +54,7 @@ export default new Router({
     {path:"/comeback1",component:comeback1},
     {path:'/clear',component:clear},
     {path:"/factor",component:factor},
-    {path:"/fon",component:fon}
+    {path:"/fon",component:fon},
+    {path:"/category",component:category}
   ]
 })
