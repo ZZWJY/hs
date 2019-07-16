@@ -230,15 +230,15 @@ create table hs_category_digital(
     zid int 
 );
 insert into hs_category_digital values
-(1,"智能手表",4),
-(null,"新·奇·特",4),
-(null,"耳机",4),
-(null,"电子书",4),
-(null,"投影仪",4),
-(null,"游戏机",4),
-(null,"运动相机",4),
-(null,"智能手写笔",4),
-(null,"智能手环",4);
+(1,"智能手表",5),
+(null,"新·奇·特",5),
+(null,"耳机",5),
+(null,"电子书",5),
+(null,"投影仪",5),
+(null,"游戏机",5),
+(null,"运动相机",5),
+(null,"智能手写笔",5),
+(null,"智能手环",5);
 
 create table hs_category_all(
     aid int primary key auto_increment,
