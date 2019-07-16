@@ -1,5 +1,13 @@
 <template>
-    <div class="recom">
+    <div class="recom" id="top">
+        <div class="right-nav">
+            <ul class="right-nav-list">
+                <li v-for="(item,i) of nav" :key="i" :class="i==0?'selected':''">{{item}}</li>
+                <!-- <li>2</li>
+                <li>3</li>
+                <li>4</li> -->
+            </ul>
+        </div>
         <div class="banner">
             <img src="http://127.0.0.1:3000/img/index/refer/referbanner.jpg" alt="">
         </div>
@@ -97,7 +105,7 @@
             </div>
         </div>
         <div class="many margin">
-            <div >更多火爆新机</div>
+            <div class="new-phone">更多火爆新机</div>
             <div class="many-content">
                 <div class="many-content-item">
                     <img src="http://127.0.0.1:3000/img/index/refer/tx_rongyao8X.jpg" alt="">
@@ -167,7 +175,8 @@ export default {
             minutes:"00",
             carousel:["广州市李先生 以￥2599 喜提红米 K20 Pro 6GB 128GB 碳纤黑 全网通fsdfrdsfs","深圳市廖女士 以￥1099 喜提红米 Note7 4GB+64GB 梦幻蓝",
             "北京市杨女士 以￥4188 喜提华为 P30 8GB 128GB 天空之境","天津市王先生 以￥1099 喜提红米 Note 7 4GB 64GB 暮光金 全网通","广州市李先生 以￥2599 喜提红米 K20 Pro 6GB 128GB 碳纤黑 全网通fsdfrdsfs"],
-            standtop:0
+            standtop:0,
+            nav:["头部","换新","新机","公益"]
        }
     },
     props:{
@@ -176,9 +185,29 @@ export default {
     mounted(){
         this.carsou()
         this.init()
-        window.onmousewheel=function(){
-            var understand=document.getElementsByClassName("understand")[0]
-           this.standtop=document.body.scrollTop+document.documentElement.scrollTop
+        window.ontouchmove=function(e){
+            var navold=document.getElementsByClassName("navold")[0]
+            var navs=document.querySelectorAll(".right-nav-list li")
+            var newphone=document.getElementsByClassName("new-phone")[0]
+            var benefit=document.getElementsByClassName("benefit")[0]
+            var bentop=benefit.offsetTop
+            var newtop=newphone.offsetTop
+            var ntop=navold.offsetTop 
+            var scrolltop=document.body.scrollTop+document.documentElement.scrollTop
+            for(var item of navs){
+                item.classList.remove("selected")              
+            }
+            if((ntop-scrolltop)>90){
+                navs[0].classList.add("selected")
+            }else{
+                if((ntop-scrolltop)<90&&newtop>scrolltop+90){
+                navs[1].classList.add("selected")
+                }else if(newtop<scrolltop+90&&bentop>scrolltop+90){
+                    navs[2].classList.add("selected")
+                }else{
+                    navs[3].classList.add("selected")
+                }
+            }
         }
            
     },
@@ -484,5 +513,24 @@ export default {
 }
 .activity div:last-child img,.understand img{
     width:50%
+}
+.right-nav{
+    position:fixed;
+    right:6%;
+    top:40%;
+     width:10%
+}
+.right-nav ul li{
+    background:rgba(182, 202, 7, 0.219);
+    width:100%;
+    height:2rem;
+    line-height:2rem;
+    border-radius:1rem;
+    margin-top:2rem;
+    font-size:12px;
+}
+.selected{
+    background:#e25a0a7e !important;
+    color:#fff
 }
 </style>
