@@ -1,5 +1,12 @@
 <template>
   <div>
+    <div class="messagebox">
+      <div class="messagetop">与客服小姐姐的聊天</div>
+      <div class="messagecontent"></div>
+       <div class="messagefooter">
+        <input type="text" v-model="values"><button @touchstart="msg()" >提交</button>
+      </div>
+    </div>
     <!-- 页头标题 -->
     <mt-header title="【换新到手价¥1469】荣耀8X">
       <router-link to="/" slot="left">
@@ -160,7 +167,29 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      values:''
+    };
+  },
+  created(){
+
+  },
+  mounted(){
+    var messagecon=document.getElementsByClassName("messagecontent")[0]
+    console.log(messagecon)
+  },
+  methods:{
+    msg(){
+      var  socket=io("http://127.0.0.1:2900")
+            socket.emit("chat message",this.values)
+            socket.on("chat message",function(msg){
+               var messagecon=document.getElementsByClassName("messagecontent")[0]
+               var p=document.createElement("p")
+                    p.innerHTML=msg
+               messagecon.appendChild(p)
+               this.values=""
+            })
+    }
   }
 };
 </script>
@@ -393,6 +422,47 @@ export default {
 .pic-data-a {
   border-left: 1px solid #999;
   border-right: 1px solid #999;
+}
+.messagebox{
+  position:fixed;
+  top:15%;
+  left:10%;
+  background:#22222270;
+  width:300px;
+  height:400px;
+  z-index:10;
+  overflow-y:scroll;
+
+}
+.messagetop{
+  width:100%;
+  height:2rem;
+  line-height:2rem;
+  background:#e6e6e650;
+  color:#fff;
+  position:fixed;
+  width:80%;
+}
+.messagefooter{
+  position:fixed;
+  height:29px;
+  background:#c6c6c680;
+  width:80%;
+  bottom:165px;
+  text-align:left;
+}
+.messagefooter input{
+  width:88%;
+ height:29px;
+ border:0px;
+}
+.messagefooter button{
+  background:#2c3e5060
+}
+.messagecontent{
+  overflow:hidden;
+  padding-top:35px;
+  padding-bottom:25px;
 }
 </style>
 
