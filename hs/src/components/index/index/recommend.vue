@@ -1,8 +1,12 @@
 <template>
     <div class="recom" id="top">
+        <div class="bg-zz">
+            <span>拼命数据加载中…………</span>
+        </div>
         <div class="right-nav">
             <ul class="right-nav-list">
-                <li v-for="(item,i) of nav" :key="i" :class="i==0?'selected':''">{{item}}</li>
+                <li v-for="(item,i) of nav" :key="i"  :class="i==0?'selected':''">
+                    {{item}}</li>
                 <!-- <li>2</li>
                 <li>3</li>
                 <li>4</li> -->
@@ -175,8 +179,8 @@ export default {
             minutes:"00",
             carousel:["广州市李先生 以￥2599 喜提红米 K20 Pro 6GB 128GB 碳纤黑 全网通fsdfrdsfs","深圳市廖女士 以￥1099 喜提红米 Note7 4GB+64GB 梦幻蓝",
             "北京市杨女士 以￥4188 喜提华为 P30 8GB 128GB 天空之境","天津市王先生 以￥1099 喜提红米 Note 7 4GB 64GB 暮光金 全网通","广州市李先生 以￥2599 喜提红米 K20 Pro 6GB 128GB 碳纤黑 全网通fsdfrdsfs"],
-            standtop:0,
-            nav:["头部","换新","新机","公益"]
+            nav:["头部","换新","新机","公益"],
+            scrolled:0
        }
     },
     props:{
@@ -184,8 +188,47 @@ export default {
     },
     mounted(){
         this.carsou()
-        this.init()
-        window.ontouchmove=function(e){
+        this.init() 
+       
+   
+    },
+    watch:{
+        scrolled(){
+        this.go()
+        }
+    },
+    
+    created(){
+        this.time()
+        setInterval(()=>{
+            this.scrolled=document.body.scrollTop+document.documentElement.scrollTop 
+        },100)
+        
+    },
+    methods:{
+        init(){
+            var url="index/recommend"
+            var bgzz=document.getElementsByClassName("bg-zz")[0]
+                bgzz.style.display="block"
+                var X=10
+                var timer=setInterval(function(){
+                    X-=1                   
+                    var span=bgzz.children[0]                   
+                    span.style.transform=`translate(${X}px)`
+                    if(-X==span.clientWidth){
+                        X=document.body.clientWidth
+                    }  
+                },10)
+            this.axios.get(url).then(res=>{
+               this.listtypeall=res.data.listtypeall
+               this.oldNew=res.data.oldNew
+               if(this.oldNew){
+                    bgzz.style.display="none"
+                    clearInterval(timer)
+               }
+            })
+        },
+        go(e){
             var navold=document.getElementsByClassName("navold")[0]
             var navs=document.querySelectorAll(".right-nav-list li")
             var newphone=document.getElementsByClassName("new-phone")[0]
@@ -208,27 +251,6 @@ export default {
                     navs[3].classList.add("selected")
                 }
             }
-        }
-           
-    },
-    watch:{
-        standtop(){
-            console.log(this.standtop)
-        }
-    },
-    
-    created(){
-        this.time()
-        
-    },
-    methods:{
-
-        init(){
-            var url="index/recommend"
-            this.axios.get(url).then(res=>{
-               this.listtypeall=res.data.listtypeall
-               this.oldNew=res.data.oldNew
-            })
         },
         time(){
             setInterval(()=>{
@@ -532,5 +554,24 @@ export default {
 .selected{
     background:#e25a0a7e !important;
     color:#fff
+}
+.bg-zz{
+    background:#22222240;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:900;
+    overflow: hidden;
+   
+}
+.bg-zz span{
+    position:fixed;
+    top:50%;
+    left:0%;
+    color:#fff;
+    z-index:991;
+    font-size:2rem;
 }
 </style>
