@@ -49,15 +49,17 @@
     </div>
     <div class="content-list margin">
       <div class="info-item" v-for="(el,i) in info" :key="i">
-        <div>
-          <h3 style="font-size:14px;">{{el.title}}</h3>
-          <i class="iconfont icon-xiayige"></i>
-        </div>
-        <p class="item-adres">{{el.iaddress}}</p>
-        <div class="tagitems">
-          <span class="tagitem">回收</span>
-          <span class="tagitem">以旧换新</span>
-        </div>
+        <router-link to="/serves">
+          <div>
+            <h3 style="font-size:14px;">{{el.title}}</h3>
+            <i class="iconfont icon-xiayige"></i>
+          </div>
+          <p class="item-adres">{{el.iaddress}}</p>
+          <div class="tagitems">
+            <span class="tagitem">回收</span>
+            <span class="tagitem">以旧换新</span>
+          </div>
+        </router-link>
         <div class="liannxi">
           <div class="lianxiitem" :title="el.phone">
             <i class="iconfont icon-dianhua"></i>

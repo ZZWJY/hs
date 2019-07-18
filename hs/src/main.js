@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import Vuex from "vuex"
+import vuesocketio from "vue-socket.io"
 
 //注册vuex
 Vue.use(Vuex)
@@ -20,6 +21,11 @@ import myevent from "./event"
 //引入axios文件
 import axios from "./axios"
 Vue.use(axios)
+//({connection:"http://127.0.0.1:2900",})
+Vue.use(new vuesocketio({
+  connection:"http://127.0.0.1:2900",
+  debug:false
+}))
 //创建vuex实例
 var store=new Vuex.Store({
   //定义全局修改的数据

@@ -35,15 +35,16 @@ resave:true,
 //同时saveUninitialized要设置为false允许修改。
    saveUninitialized:true
  }))
- http=require("http").Server(server)
+http=require("http").Server(server)
  io=require("socket.io")(http)
  io.on("connection",function(socket){
-    console.log("a used connected")
+    console.log("一个用户连接")
+   //  console.log("a used connected")
     socket.on("disconnect",function(){
        console.log("一个用户已经退出")
     })
     socket.on("chat message",function(data){
-       io.emit("chat message",data)
+       io.emit("message","要什么帮助么？")
     })
   
  })

@@ -57,7 +57,7 @@ router.get("/serve",(req,res)=>{
 		if(err) throw err
 		if(result.length>0){
 			obj.type=result
-			Pool.query("select id,title,iaddress,phone,nid from hs_serve_adinfo",function(err,result1){
+			Pool.query("select id,title,iaddress,phone,nid,img,sphone from hs_serve_adinfo",function(err,result1){
 				if(err) throw err
 					obj.info=result1
 					res.send(obj)

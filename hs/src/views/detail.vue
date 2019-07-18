@@ -148,7 +148,7 @@
       </p>
     </div>
     <div class="font-style foot-f">
-      <div class="foot">
+      <div class="foot" @click="showmsg">
         <img class="foot-img" src="http://127.0.0.1:3000/img/detail-1/phone.png" />
         <p class="foot-m">客服</p>
       </div>
@@ -168,27 +168,56 @@
 export default {
   data() {
     return {
-      values:''
+      values:'',
+      socket:{},
+      id:""
     };
   },
+  sockets:{
+    connect:function(){
+      this.id=this.$socket.id
+    },
+    message:function(val){
+      var messagecon=document.getElementsByClassName("messagecontent")[0]
+      console.log(val)
+      var p=document.createElement("p")
+          p.innerHTML=val
+          messagecon.appendChild(p)
+          console.log(messagecon)  
+    }
+  },
   created(){
-
   },
   mounted(){
-    var messagecon=document.getElementsByClassName("messagecontent")[0]
-    console.log(messagecon)
+    this.$emit("connect","http://127.0.0.1:3000")
+    console.log(this.$socket)
   },
   methods:{
     msg(){
-      var  socket=io("http://127.0.0.1:2900")
-            socket.emit("chat message",this.values)
-            socket.on("chat message",function(msg){
-               var messagecon=document.getElementsByClassName("messagecontent")[0]
-               var p=document.createElement("p")
-                    p.innerHTML=msg
-               messagecon.appendChild(p)
-               this.values=""
-            })
+      
+    //  this.socket=io("http://127.0.0.1:2900");
+    //         this.socket.emit("chat message",this.values);
+                this.$socket.emit("chat message",this.values)
+                 var messagecon=document.getElementsByClassName("messagecontent")[0]
+                  var p=document.createElement("p")
+                      p.innerHTML=this.values
+                      p.style.textAlign="right"
+                      messagecon.appendChild(p)
+                      console.log(messagecon)  
+            // var id=this.socket;
+            // console.log(this.socket.id);
+            this.values="";
+            console.log(this.id)
+      //        this.$socket.on("message",function(msg){
+      //           console.log(this.$socket)
+      //             console.log(msg)
+               
+      //  })
+    },
+    showmsg(){
+       var messagebox=document.getElementsByClassName("messagebox")[0]
+      console.log(messagebox)
+          messagebox.style.display="block"
     }
   }
 };
@@ -432,7 +461,7 @@ export default {
   height:400px;
   z-index:10;
   overflow-y:scroll;
-
+  display:none
 }
 .messagetop{
   width:100%;
@@ -463,6 +492,9 @@ export default {
   overflow:hidden;
   padding-top:35px;
   padding-bottom:25px;
+  color:#fff;
+  z-index:999;
+  text-align:left
 }
 </style>
 

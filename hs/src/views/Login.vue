@@ -61,7 +61,6 @@
     },
     watch:{
         checked(){
-            console.log(this.checked)
             var disab=document.getElementsByClassName("login-tab")[0]
             if(this.checked==true){
                disab.disabled=false 
@@ -107,10 +106,9 @@
                 this.axios.post("login/",{
                        uname,upwd
                     }).then(res=>{
-                    console.log(res)
                         if(res.data.code==1){
                             this.$toast("登录成功")
-                            console.log(this.$router.push("/"))
+                            this.$router.push("/")
                         }
                     })
 

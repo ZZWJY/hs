@@ -148,21 +148,23 @@ export default {
     height:3.5rem;
     line-height: 3.5rem;
     border-left:6px solid transparent;
-    font-size:0.8rem;
+    font-size:0.7rem;
 }
 .content-left ul li.sele{
     background:#f9faff;
     border-left:6px solid rgba(224, 228, 5, 0.199)
 }
 .content-right{
-    width:80%;
+    width:82%;
     background:#f9faff;
    
 }
 .content-right ul{
      padding:0 1rem;
+
 }
 .content-right ul li {
     line-height:44px;
+    font-size:0.7rem;
 }
 </style>

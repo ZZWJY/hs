@@ -18,6 +18,7 @@ import fon from "./components/index/index/Fon"
 import factor from "./components/index/index/Factor"
 import clear from "./components/index/index/Clear"
 import category from "./views/category"
+import serves from "./components/serves"
 
 Vue.use(Router)
 
@@ -55,6 +56,7 @@ export default new Router({
     {path:'/clear',component:clear},
     {path:"/factor",component:factor},
     {path:"/fon",component:fon},
-    {path:"/category",component:category}
+    {path:"/category",component:category},
+    {path:"/serves",component:serves}
   ]
 })
