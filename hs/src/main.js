@@ -30,13 +30,17 @@ Vue.use(new vuesocketio({
 var store=new Vuex.Store({
   //定义全局修改的数据
   state:{
-    
+    serveinfo:{}
   },
   Mutations:{
-  
+    reserve(state,obj){
+      state.serveinfo=obj
+    }
   },
   getters:{
-   
+    getServeingo(state){
+      return state.serveinfo
+    }
   }
 })
 Vue.use(MINTUI)

@@ -57,6 +57,6 @@ export default new Router({
     {path:"/factor",component:factor},
     {path:"/fon",component:fon},
     {path:"/category",component:category},
-    {path:"/serves",component:serves}
+    {path:"/serves/:id",component:serves}
   ]
 })

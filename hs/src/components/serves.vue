@@ -1,23 +1,23 @@
 <template>
   <div>
     <mt-header title="门店详情">
-      <router-link to="/" slot="left">
+      <router-link to="/index/serve" slot="left">
         <mt-button icon="back"></mt-button>
       </router-link>
     </mt-header>
     <div class="detail">
         <div class="title">
-            <img class="shop-img" src="http://127.0.0.1:3000/img/serve/yitian.jpg" alt="">
-            <h3 class="title-text">深圳益田假日店</h3>
+            <img class="shop-img" :src="data.img" alt="">
+            <h3 class="title-text">{{data.title}}</h3>
         </div>
         <div class="address">
             <span class="address-text">
-                深圳市南山区世界之窗地铁站C3出口益田假日广场B2层（麦当劳楼梯下方）
+                {{data.iaddress}}
             </span>
             <a href="#">查看地图</a>
         </div>
         <div class="contact">
-            <a href="#">02180111030 转分机号 1025</a>
+            <a href="#">{{data.sphone}}</a>
         </div>
         <div class="hours-itme">
                 工作日 10:00到22:00 节假日 10:00到22:00
@@ -43,7 +43,27 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+        data:{}
+    }
+  },
+  created(){
+      this.init()
+  },
+  methods:{
+      init(){
+          //要从serve跳向这里才有值，vuex里面的数据在上个页面形成
+          var info=this.$store.state.serveinfo
+          var id=this.$route.params.id
+          try{
+          this.data=info.filter(item=>{
+              return item.id==id
+          })
+          }catch(err){
+              console.log(err)
+          }
+          this.data=this.data[0]
+      }
   }
 };
 </script>

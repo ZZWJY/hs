@@ -49,7 +49,7 @@
     </div>
     <div class="content-list margin">
       <div class="info-item" v-for="(el,i) in info" :key="i">
-        <router-link to="/serves">
+        <router-link :to="'/serves/'+el.id">
           <div>
             <h3 style="font-size:14px;">{{el.title}}</h3>
             <i class="iconfont icon-xiayige"></i>
@@ -222,6 +222,8 @@ export default {
           this.type[i].num = num;
         }
         //默认导航栏第一个就是附近的有下边框
+        this.$store.state.serveinfo=res.data.info
+       
       });
     }
   }
@@ -307,7 +309,7 @@ export default {
   padding-top: 1rem;
 }
 
-.info-item > div:nth-child(1) {
+.info-item  div:nth-child(1) {
   display: flex;
   font-size: 0.8rem;
   line-height: 1.3rem;
