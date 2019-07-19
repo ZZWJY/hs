@@ -1,4 +1,5 @@
 <template>
+<div>
     <div class="recom" id="top">
         <div class="bg-zz">
             <span>拼命数据加载中…………</span>
@@ -230,8 +231,9 @@
       <img src="http://127.0.0.1:3000/img/index/refer/lsgy3.png" alt />
     </div>
     <div class="partner">
-      <img src="http://127.0.0.1:3000/img/index/refer/hzhb.jpg" alt />
+      <img src="http://127.0.0.1:3000/img/index/refer/hzhb.jpg"/>
     </div>
+  </div>
   </div>
 </template>
 <script>
