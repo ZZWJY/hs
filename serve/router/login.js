@@ -6,8 +6,6 @@ router.post("/",(req,res)=>{
   //1:参数
   var uname = req.body.uname;
   var upwd = req.body.upwd;
-   console.log(req.body)
-  console.log(uname,upwd)
   //1.1:正则表达式验证用户名或密码
   //2:sql
 var sql = "SELECT uid,uname FROM ";

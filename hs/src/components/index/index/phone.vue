@@ -2,11 +2,11 @@
     <div class="index-phone">
         <router-link to="#">
         <div class="navgator">
-            <div class="navgator-four">
-                <img src="http://127.0.0.1:3000/img/index/phone/iPhone.png" alt="">
-                <span>苹果</span>
+            <div class="navgator-four" v-for="(item,i) in product" :key="i">
+                <img :src="item.imgurl" alt="">
+                <span>{{item.title}}</span>
             </div>
-            <div class="navgator-four">
+            <!-- <div class="navgator-four">
                 <img src="http://127.0.0.1:3000/img/index/phone/mi.png" alt="">
                 <span>小米</span>
             </div>
@@ -19,8 +19,8 @@
                 <span>荣耀</span>
             </div>
         </div>
-        <div class="navgator">
-            <div class="navgator-four">
+        <div class="navgator"> -->
+            <!-- <div class="navgator-four">
                 <img src="http://127.0.0.1:3000/img/index/phone/OPPO.png" alt="">
                 <span>OPPO</span>
             </div>
@@ -35,7 +35,7 @@
             <div class="navgator-four">
                 <img src="http://127.0.0.1:3000/img/index/phone/something.png" alt="">
                 <span>更多</span>
-            </div>
+            </div> --> 
         </div>
         </router-link>
         <!-- 免费评估 -->
@@ -60,7 +60,19 @@
     export default {
         data(){
             return{
-                
+               product:[] 
+            }
+        },
+        created(){
+            this.init()
+        },
+        methods:{
+            init(){
+                this.axios.get("index/type",{
+                    params:{num:2}
+                }).then(res=>{
+                    this.product=res.data.data
+                })
             }
         }
     }
@@ -71,6 +83,7 @@
     }
     .navgator{
         display:flex;
+        flex-wrap: wrap;
         margin:0 14px 10px;
         
     }
@@ -78,7 +91,8 @@
         display:flex;
         flex-direction: column;
         align-items: center;
-        width:100%;
+        width:25%;
+
     }
     .navgator-four img{
         width:100%;

@@ -100,27 +100,59 @@ export default {
         };
       }
     },
-    login() {
-      if (this.active == "tb1") {
-        var uname = this.uname.trim();
-        var upwd = this.upwd.trim();
-        var namereg = /^[a-z1-9\u4e00-\u9fa5]{3,12}$/i;
-        var pwdreg = /^[a-z1-9][a-z1-9`~!@#$%^&*()_\-+=<>?:"{}|,.\/;'\\[\]·~！@#￥%……&*（）——\-+={}|《》？：“”【】、；‘’，。、]{5,12}/i;
-        if (!namereg.test(uname) || !pwdreg.test(upwd)) {
-          this.$toast("用户名或者密码错误");
-          return;
+    watch:{
+        checked(){
+            var disab=document.getElementsByClassName("login-tab")[0]
+            if(this.checked==true){
+               disab.disabled=false 
+               disab.style.opacity='1'
+            }else{
+                disab.disabled=true
+                disab.style.opacity='0.5'
+            }
         }
-        sessionStorage.setItem("name", uname);
-        this.axios
-          .post("login/", {
-            uname,
-            upwd
-          })
-          .then(res => {
-            console.log(res);
-            if (res.data.code == 1) {
-              this.$toast("登录成功");
-              console.log(this.$router.push("/"));
+    },
+    methods: {
+        setclick(e){
+            var ids=parseInt(e.target.dataset.ids);
+            // console.log(ids);
+
+            this.active="tb"+(ids+1);  
+        },
+        init(){
+            var name=document.getElementsByClassName("mint-field-core")[2]
+            name.focus()
+            var logactive=document.getElementsByClassName("mint-button--normal")
+            logactive[1].style.background="rgba(255, 255, 0, 0.699)"
+            for(var i=1;i<logactive.length;i++){
+                logactive[i].onclick=function(){
+                    for(var item of logactive){
+                        item.style.background="";
+                    }
+                    this.style.background="rgba(255, 255, 0, 0.699)"
+                }
+            }
+        },
+        login(){
+            if(this.active=="tb1"){
+                var uname=this.uname.trim()
+                var upwd=this.upwd.trim()
+                var namereg=/^[a-z1-9\u4e00-\u9fa5]{3,12}$/i;
+                var pwdreg=/^[a-z1-9][a-z1-9`~!@#$%^&*()_\-+=<>?:"{}|,.\/;'\\[\]·~！@#￥%……&*（）——\-+={}|《》？：“”【】、；‘’，。、]{5,12}/i;
+                if(!namereg.test(uname)||!pwdreg.test(upwd)){
+                    this.$toast("用户名或者密码错误")
+                    return;
+                }
+                sessionStorage.setItem('name',uname)
+                this.axios.post("login/",{
+                       uname,upwd
+                    }).then(res=>{
+                        if(res.data.code==1){
+                            this.$toast("登录成功")
+                            this.$router.push("/")
+                        }
+                    })
+
             }
           });
       }

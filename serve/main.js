@@ -3,10 +3,13 @@ const express=require('express');
 const indexrouter=require('./router/index.js')
 const bodyparse=require("body-parser")
 
+
 const session = require("express-session");
 const loginrouter=require('./router/login.js')
 //创建web服务器
 var server=express();
+//创建io对象
+
 const cors=require("cors");
 server.listen(3000);
 //解析post请求中的数据
@@ -32,6 +35,22 @@ resave:true,
 //同时saveUninitialized要设置为false允许修改。
    saveUninitialized:true
  }))
+http=require("http").Server(server)
+ io=require("socket.io")(http)
+ io.on("connection",function(socket){
+    console.log("一个用户连接")
+   //  console.log("a used connected")
+    socket.on("disconnect",function(){
+       console.log("一个用户已经退出")
+    })
+    socket.on("chat message",function(data){
+       io.emit("message","要什么帮助么？")
+    })
+  
+ })
+ http.listen(2900,function(){
+    console.log("2900")
+ })
 server.use(express.static("public"))
 server.use('/index',indexrouter)
 server.use('/login',loginrouter)

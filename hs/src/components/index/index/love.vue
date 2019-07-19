@@ -37,29 +37,29 @@
     </div>
     <div class="text">爱回收携手一扇窗计划 开启“回收爱·绘本计划”</div>
     <div>
-        <router-link class="activity-list" to="#">
+        <router-link class="activity-list" to="">
             <img src="http://127.0.0.1:3000/img/index/huishouai/one.png" alt="">
             <p>中国国家地理助力爱回收“科技夏令营”<br>用“拼图“接力爱心</p>
         </router-link>
-        <router-link class="activity-list" to="#">
+        <router-link class="activity-list" to="">
             <img src="http://127.0.0.1:3000/img/index/huishouai/two.png" alt="">
             <p>吴莫愁化身“教师兼编导” 山顶小学唱<br>响校园演唱会</p>
         </router-link>
-        <router-link class="activity-list" to="#">
+        <router-link class="activity-list" to="">
             <img src="http://127.0.0.1:3000/img/index/huishouai/three.png" alt="">
             <p>携手动感101爱心支教行赴四川<br>同吴莫愁建爱心合唱团</p>
         </router-link>
-        <router-link class="activity-list" to="#">
+        <router-link class="activity-list" to="">
             <img src="http://127.0.0.1:3000/img/index/huishouai/four.png" alt="">
             <p>用行动代替口号<br>爱回收正式启动回收爱助学计划</p>
         </router-link>
         <img style="margin-bottom:40px;" src="http://127.0.0.1:3000/img/index/huishouai/partner.png" alt="">
         <div class="btn">
-            <router-link class="btn-left" to="/#">
+            <router-link class="btn-left" to="">
                 <i class="iconfont icon-shengyin"></i>查看公告
             </router-link>
             <span></span>
-            <router-link class="btn-right" to="/#">
+            <router-link class="btn-right" to="">
                 <i class="iconfont icon-love-donate"></i>我要捐款
             </router-link>
         </div>

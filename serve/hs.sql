@@ -62,7 +62,6 @@ insert into hs_indexRefer_listTypeALL values
 (NULL, '卖平板','iconfont icon-st-browse'),
 (NULL, '摄影摄像','iconfont icon-Camera-'),
 (NULL, '智能数码','iconfont icon-piao');
-
 #以旧换新数据表
 create table hs_indexRefer_old_new(
 	title varchar(30),
@@ -149,23 +148,203 @@ create table hs_serve_adinfo(
     title varchar(32),
     iaddress varchar(60),
     phone varchar(11),
-    nid  int
+    nid  int,
+    img varchar(125),
+	sphone varchar(32)  #门店详情客服电话
 );
 insert into hs_serve_adinfo values
-(1,"深圳益田假日店","深圳市南山区世界之窗地铁站C3出口益田假日广场B2层(麦当劳楼梯下方)","13625413648",4),
-(null,"深圳缤果空间店","深圳市龙华新区深圳北站缤果空间L1层服务台右侧扶手电梯口（七匹狼工厂店旁","12365412571",7),
-(null,"深圳乐淘里店","深圳市福田区华强北地铁站A出口乐淘里商业街F05号（台北涮涮锅对面","15421368541",3),
-(null,"深圳京基凤凰印象店","深圳市罗湖区京基凤凰印象商业城1层正门","12365458714",2),
-(null,"深圳喜荟城店","深圳市罗湖区喜荟城购物中心L1层Z-112铺（博士眼镜旁","12365485412",2),
-(null,"深圳天利名城店","深圳市南山区天利名城购物中心2层东南门（贡茶对面）","12365487412",4),
-(null,"深圳金港城店","深圳市宝安区宝安大道4009-1号首层金港城沃尔玛正门进去左手边","13658421425",5),
-(null,"深圳龙岗万科店","深圳市龙岗区万科广场负一楼停车场入口","12541236984",6),
-(null,"深圳KK mall店","深圳市罗湖区大剧院地铁站B出口京基KK mall B1层（Blt超市门口","12368541254",2),
-(null,"深圳ICO购物中心店","深圳市龙华新区ICO时尚购物中心L1层西门扶手电梯旁","15123658412",7),
-(null,"深圳龙华九方店","深圳市龙华新区人民路九方购物中心B1层（华为斜对面","18547562541",7),
-(null,"深圳西乡汇一城店","深圳市宝安区西乡地铁站A出口天虹汇一城1层（面包新语旁）","18523654741",5),
-(null,"深圳中洲π店","深圳市宝安区创业二路89号中洲·π mall购物中心正大门奈雪的茶旁边垂直电梯下B1层或扶手梯下负一层爱回收（良品铺子旁）","12536484125",5),
-(null,"深圳坪山益田假日店","深圳市龙岗区坪山益田假日世界L1-H-11（天梭手表旁）","13698745624",6),
-(null,"深圳新沙天虹店","深圳市宝安区沙井街道新沙天虹购物中心L1层（客服中心旁）","16954821365",5)
+(1,"深圳益田假日店","深圳市南山区世界之窗地铁站C3出口益田假日广场B2层(麦当劳楼梯下方)","13625413648",4,"http://127.0.0.1:3000/img/serve/yitian.jpg","02180111030 转分机号 1025"),
+(null,"深圳缤果空间店","深圳市龙华新区深圳北站缤果空间L1层服务台右侧扶手电梯口（七匹狼工厂店旁","12365412571",7,"http://127.0.0.1:3000/img/serve/binguo.jpg","02180111030 转分机号 1032"),
+(null,"深圳乐淘里店","深圳市福田区华强北地铁站A出口乐淘里商业街F05号（台北涮涮锅对面","15421368541",3,"http://127.0.0.1:3000/img/serve/letaoli.jpg","02180111030 转分机号 1040"),
+(null,"深圳京基凤凰印象店","深圳市罗湖区京基凤凰印象商业城1层正门","12365458714",2,"http://127.0.0.1:3000/img/serve/jingji.jpg","02180111030 转分机号 1041"),
+(null,"深圳喜荟城店","深圳市罗湖区喜荟城购物中心L1层Z-112铺（博士眼镜旁","12365485412",2,"http://127.0.0.1:3000/img/serve/xihui.jpg","02180111030 转分机号 1080"),
+(null,"深圳天利名城店","深圳市南山区天利名城购物中心2层东南门（贡茶对面）","12365487412",4,"http://127.0.0.1:3000/img/serve/tianli.jpg","02180111030 转分机号 1106"),
+(null,"深圳金港城店","深圳市宝安区宝安大道4009-1号首层金港城沃尔玛正门进去左手边","13658421425",5,"http://127.0.0.1:3000/img/serve/jingang.jpg","02180111030 转分机号 1110"),
+(null,"深圳龙岗万科店","深圳市龙岗区万科广场负一楼停车场入口","12541236984",6,"http://127.0.0.1:3000/img/serve/wangke.jpg","02180111030 转分机号 1117"),
+(null,"深圳KK mall店","深圳市罗湖区大剧院地铁站B出口京基KK mall B1层（Blt超市门口","12368541254",2,"http://127.0.0.1:3000/img/serve/kk.jpg","02180111030 转分机号 1121"),
+(null,"深圳ICO购物中心店","深圳市龙华新区ICO时尚购物中心L1层西门扶手电梯旁","15123658412",7,"http://127.0.0.1:3000/img/serve/co.jpg","02180111030 转分机号 1133"),
+(null,"深圳龙华九方店","深圳市龙华新区人民路九方购物中心B1层（华为斜对面","18547562541",7,"http://127.0.0.1:3000/img/serve/jiufang.jpg","02180111030 转分机号 1158"),
+(null,"深圳西乡汇一城店","深圳市宝安区西乡地铁站A出口天虹汇一城1层（面包新语旁）","18523654741",5,"http://127.0.0.1:3000/img/serve/huiyi.jpg","02180111030 转分机号 1225"),
+(null,"深圳中洲π店","深圳市宝安区创业二路89号中洲·π mall购物中心正大门奈雪的茶旁边垂直电梯下B1层或扶手梯下负一层爱回收（良品铺子旁）","12536484125",5,"http://127.0.0.1:3000/img/serve/zhongzhou.jpg","02180111030 转分机号 1226"),
+(null,"深圳坪山益田假日店","深圳市龙岗区坪山益田假日世界L1-H-11（天梭手表旁）","13698745624",6,"http://127.0.0.1:3000/img/serve/pingshan.jpg","02180111030 转分机号 1259"),
+(null,"深圳新沙天虹店","深圳市宝安区沙井街道新沙天虹购物中心L1层（客服中心旁）","16954821365",5,"http://127.0.0.1:3000/img/serve/xinsha.jpg","02180111030 转分机号 1266");
+/**商品手机类型列表**/
+create table hs_category_phone(
+    pid int primary key auto_increment,
+    title varchar(32),   
+    zid int,
+    imgurl varchar(100)
+);
+insert into hs_category_phone values
+(1,"苹果",1,"http://127.0.0.1:3000/img/index/iPad/iPhone.png"),
+(null,"华为",1,"http://127.0.0.1:3000/img/index/iPad/HUAWEI.png"),
+(null,"vivo",1,"http://127.0.0.1:3000/img/index/phone/vivo.png"),
+(null,"OPPO",1,"http://127.0.0.1:3000/img/index/phone/OPPO.png"),
+(null,"小米",1,"http://127.0.0.1:3000/img/index/phone/mi.png"),
+(null,"三星",1,"http://127.0.0.1:3000/img/index/phone/SAMSUNG.png"),
+(null,"荣耀",1,"http://127.0.0.1:3000/img/index/phone/honor.png"),
+(null,"更多",1,"http://127.0.0.1:3000/img/index/phone/something.png");
+create table hs_category_labbook(
+    lid  int primary key auto_increment,
+    title varchar(32)  ,
+    zid int,
+    imgurl varchar(100) 
+);
+insert into hs_category_labbook values
+(1,"苹果",2,"http://127.0.0.1:3000/img/index/notebook/iPhone.png"),
+(null,"ThinkPad",2,"http://127.0.0.1:3000/img/index/notebook/ThinkPad.png"),
+(null,"华硕",2,"http://127.0.0.1:3000/img/index/notebook/ASUS.png"),
+(null,"联想",2,"http://127.0.0.1:3000/img/index/notebook/Lenovo.png"),
+(null,"戴尔",2,"http://127.0.0.1:3000/img/index/notebook/DELL.png"),
+(null,"惠普",2,"http://127.0.0.1:3000/img/index/notebook/hp.png"),
+(null,"小米",2,"http://127.0.0.1:3000/img/index/notebook/MI.png"),
+(null,"更多",2,"http://127.0.0.1:3000/img/index/notebook/something.png");
+create table hs_category_labtop(
+    tid int primary key auto_increment,
+    title varchar(32),
+    zid int,
+    imgurl varchar(100)   
+);
+insert into hs_category_labtop values
+(1,"苹果",3,"http://127.0.0.1:3000/img/index/iPad/iPhone.png"),
+(null,"三星",3,"http://127.0.0.1:3000/img/index/iPad/SAMSUNG.png"),
+(null,"小米",3,"http://127.0.0.1:3000/img/index/iPad/MI.png"),
+(null,"华为",3,"http://127.0.0.1:3000/img/index/iPad/HUAWEI.png"),
+(null,"荣耀",3,"http://127.0.0.1:3000/img/index/iPad/honor.png"),
+(null,"诺基亚",3,"http://127.0.0.1:3000/img/index/iPad/Nokia.png"),
+(null,"联想",3,"http://127.0.0.1:3000/img/index/iPad/Lenovo.png"),
+(null,"更多",3,"http://127.0.0.1:3000/img/index/iPad/more.png");
+create table hs_category_camera(
+    cid int primary key auto_increment,
+    title varchar(32)  ,
+    zid int
+);
+insert into hs_category_camera values
+(1,"单反相机",4),
+(null,"微单相机",4),
+(null,"镜头",4),
+(null,"数码相机",4),
+(null,"摄像机",4),
+(null,"闪光灯",4);
+create table hs_category_digital(
+    did int primary key auto_increment,
+    title varchar(32),
+    zid int 
+);
+insert into hs_category_digital values
+(1,"智能手表",5),
+(null,"新·奇·特",5),
+(null,"耳机",5),
+(null,"电子书",5),
+(null,"投影仪",5),
+(null,"游戏机",5),
+(null,"运动相机",5),
+(null,"智能手写笔",5),
+(null,"智能手环",5);
+
+create table hs_category_all(
+    aid int primary key auto_increment,
+    title varchar(32),
+    nid  int ,       #表示lid条件下的类型表,如卖手机下面的苹果
+    zid int         #表示当前数据属于什么类型,如卖手机
+);
+insert into hs_category_all values
+(1,"苹果 iPhone X Plus",1,1),
+(null,"苹果 iPhone 7 Plus",1,1),
+(null,"苹果 iPhone 6",1,1),
+(null,"苹果 iPhone 8 Plus",1,1),
+(null,"苹果 iPhone 6 Plus",1,1),
+(null,"苹果 iPhone 6s Plus",1,1),
+(null,"苹果 iPhone 7",1,1),
+(null,"苹果 iPhone 8",1,1),
+(null,"苹果 iPhone XS Max",1,1),
+(null,"苹果 iPhone 6",1,1),
+(null,"苹果 iPhone 8 Plus",1,1),
+(null,"苹果 iPhone 6 Plus",1,1),
+(null,"苹果 iPhone 6s Plus",1,1),
+(null,"苹果 iPhone 7",1,1),
+(null,"苹果 iPhone 8",1,1),
+(null,"苹果 iPhone XS Max",1,1),
+(null,"华为 P20  Pro",2,1),
+(null,"华为 Mate9",2,1),
+(null,"华为 P9",2,1),
+(null,"华为 Mate8",2,1),
+(null,"华为 P20",2,1),
+(null,"华为 Mate10 Pro",2,1),
+(null,"华为 Mate10",2,1),
+(null,"华为 P10",2,1),
+(null,"华为 P10 Plus",2,1),
+(null,"华为 麦芒5",2,1),
+(null,"华为 mate7",2,1),
+(null,"华为 P20",2,1),
+(null,"华为 Mate10 Pro",2,1),
+(null,"华为 Mate10",2,1),
+(null,"华为 P10",2,1),
+(null,"华为 P10 Plus",2,1),
+(null,"华为 麦芒5",2,1),
+(null,"华为 mate7",2,1),
+(null,"苹果 15年 13寸 MacBook Air",1,2),
+(null,"苹果 15年 13寸 MacBook Pro",1,2),
+(null,"苹果 17年 13寸 MacBook Air",1,2),
+(null,"苹果 17年 13寸 MacBook Pro",1,2),
+(null,"苹果 15年 15寸 MacBook Pro",1,2),
+(null,"苹果 14年 13寸 MacBook Air",1,2),
+(null,"苹果 15年 11寸 MacBook Air",1,2),
+(null,"苹果 17年 15寸 MacBook Pro",1,2),
+(null,"苹果 13年 13寸 MacBook Pro",1,2),
+(null,"苹果 15年 12寸 MacBook",1,2),
+(null,"苹果 16年 13寸 MacBook Pro",1,2),
+(null,"苹果 13年 13寸 MacBook Air",1,2),
+(null,"苹果 14年 13寸 MacBook Pro",1,2),
+(null,"苹果 11年 13寸 MacBook Pro",1,2),
+(null,"联想ThinkPad X1 Carbon 系列",2,2),
+(null,"联想ThinkPad New S2(非触控版) 系列",2,2),
+(null,"联想 ThinkPad E450",2,2),
+(null,"联想ThinkPad E470 系列",2,2),
+(null,"联想 Thinkpad E450c",2,2),
+(null,"联想ThinkPad E470c 系列",2,2),
+(null,"联想ThinkPad E420",2,2),
+(null,"联想ThinkPad X270 系列",2,2),
+(null,"联想ThinkPad X240",2,2),
+(null,"联想ThinkPad E431",2,2),
+(null,"联想ThinkPad X250",2,2),
+(null,"联想ThinkPad E430",2,2),
+(null,"联想ThinkPad X280 系列",2,2),
+(null,"联想ThinkPad E430c",2,2),
+(null,"联想ThinkPad 翼480(E480) 系列",2,2),
+(null,"联想ThinkPad E40",2,2),
+(null,"iPad Mini2",1,3),
+(null,"iPad mini4",1,3),
+(null,"iPad Air2",1,3),
+(null,"iPad Air",1,3),
+(null,"iPad 5代 2017款",1,3),
+(null,"iPad Mini",1,3),
+(null,"iPad Pro 10.5寸 2017款",1,3),
+(null,"iPad Pro 12.9寸 1代 2015款",1,3),
+(null,"iPad 6代 2018款",1,3),
+(null,"iPad 2代",1,3),
+(null,"iPad 4代 (Retina屏)",1,3),
+(null,"iPad 3代（New iPad）",1,3),
+(null,"iPad Mini3",1,3),
+(null,"iPad Pro 12.9寸 2代 2017款",1,3),
+(null,"iPad Pro 12.9寸 3代 2018款",1,3),
+(null,"三星Galaxy Tab S 8.4(T700/T705/T707)",2,3),
+(null,"三星Galaxy Note 10.1 2014 Edition(P600/P601)",2,3),
+(null,"三星Galaxy Tab S 10.5(T800/T805/T807)",2,3),
+(null,"三星Galaxy Tab2 7.0(P3100/P3110/P3113/P3108)",2,3),
+(null,"三星Galaxy Note 10.1(N8000/N8010/N8020)",2,3),
+(null,"三星Galaxy Tab2 10.1(P5100/P5110)",2,3),
+(null,"三星Galaxy Tab 3 8.0(T310/T311/T315)",2,3),
+(null,"三星Galaxy Tab 3 7.0(T210/T211/T215/T217)",2,3),
+(null,"三星Galaxy Tab S2 8.0(T710/T713/T715/T719)",2,3),
+(null,"三星Galaxy Tab 10.1(P7500/P7510)",2,3),
+(null,"三星Galaxy Tab S3(T820/T825)",2,3),
+(null,"三星Galaxy Tab 3 10.1(P5200/P5210/P5220)",2,3),
+(null,"三星Galaxy Tab 4 8.0(T330/T331/T335/T337)",2,3),
+(null,"三星Galaxy Note 8.0(N5100/N5110/N5120)",2,3),
+(null,"三星Galaxy Tab 8.9(P7300/P7310)",2,3);
+
+
+
 
 
