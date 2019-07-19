@@ -43,7 +43,11 @@
                 <span>{{seconds}}</span>
                 <span>秒</span>
             </div>
-            <div class="down-rigth">立即回收</div>
+            <div class="down-rigth">
+                <router-link to="/category">
+                     立即回收
+                </router-link>
+            </div>
         </div>
         <div class="single-img">
             <router-link to="/">
@@ -52,8 +56,10 @@
         </div>
         <div class="navgator margin">
             <div v-for="(item,i) in listtypeall" :key="i">
-                <i :class='item.img_list'></i>
-                <p>{{item.uname}}</p>
+                <router-link to="/category">
+                    <i :class='item.img_list'></i>
+                    <p>{{item.uname}}</p>
+                </router-link>
             </div>
             <!-- <div>
                 <i class="iconfont icon-laptop "></i>

@@ -3,8 +3,10 @@
         <router-link to="#">
         <div class="navgator">
              <div class="navgator-four" v-for="(item,i) in product" :key="i">
+                 <router-link to="/category">
                 <img :src="item.imgurl" alt="">
                 <span>{{item.title}}</span>
+                </router-link>
             </div>
             <!-- <div class="navgator-four">
                 <img src="http://127.0.0.1:3000/img/index/iPad/MI.png" alt="">
