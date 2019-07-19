@@ -15,8 +15,8 @@
         <div class="content">
             <div class="content-left" >
                 <ul>
-                    <li data-id=0 class="sele">推荐</li> 
-                    <li v-for="(el,i) in showleft" :key="i" >{{el.title}}</li>
+                    <li data-id=0 class="sele" @touchstart="showsele($event)">推荐</li> 
+                    <li v-for="(el,i) in showleft" :key="i" :data-id="el.pid" @touchstart="showsele($event)">{{el.title}}</li>
                     
                 </ul>
             </div>
@@ -49,6 +49,11 @@ export default {
             this.init()
     },
     methods:{
+        showsele(e){
+            console.log(e)
+            var id=e.target.dataset.id
+            console.log(id)
+        },
         show1(e){
              var parents=e.target.parentNode.children 
              for(var el of parents){
@@ -61,6 +66,8 @@ export default {
                 this.showleft=this.canmera
             }else if(typeid==this.digital[0].zid){
                 this.showleft=this.digital
+            }else if(typeid==this.phone[0].zid){
+                this.showleft=this.phone
             }else if(typeid==this. labtop[0].zid){
                 this.showleft=this.labtop
             }else if(typeid==this.labbook[0].zid){
@@ -79,7 +86,7 @@ export default {
                 this.type=res.data.type
                 this.labbook=res.data.labbook
                 this.showleft=res.data.phone 
-                
+                console.log(this.showleft)
                 this.showright=res.data.all.filter(function(item){
                     return item.zid==1&&item.nid==1
                 })    
@@ -101,7 +108,8 @@ export default {
 .header{
     position:fixed;
     background:#fff;
-    width:100%
+    width:100%;
+    z-index:15
 }
 .header ul{
     display:flex;
@@ -130,7 +138,7 @@ export default {
     flex-direction: row-reverse;
     
 }
-.content-reight::-webkit-scrollbar{
+.content-right::-webkit-scrollbar{
     display:none
 }
 .content-left{

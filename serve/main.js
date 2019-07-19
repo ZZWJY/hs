@@ -44,7 +44,7 @@ http=require("http").Server(server)
        console.log("一个用户已经退出")
     })
     socket.on("chat message",function(data){
-       io.emit("message","要什么帮助么？")
+       io.emit("message",data)
     })
   
  })
