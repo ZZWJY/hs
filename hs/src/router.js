@@ -16,6 +16,7 @@ import comeback from "./views/comeback"
 import comeback1 from "./views/comeback1"
 import hot  from "./components/index/index/hot"
 import welfare  from "./components/index/index/welfare"
+import shop  from "./views/shop.vue"
 
 Vue.use(Router)
 
@@ -51,6 +52,7 @@ export default new Router({
     {path:"/comeback",component:comeback},
     {path:"/comeback1",component:comeback1},
     {path:"/hot",component:hot},
-    {path:"/welfare",component:welfare}
+    {path:"/welfare",component:welfare},
+    {path:"/shop",component:shop}
   ]
 })

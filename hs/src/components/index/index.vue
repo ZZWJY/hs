@@ -12,7 +12,9 @@
                         <input type="text" placeholder="检索您要卖的品牌、机器型号">
                     </p>
                     <div class="search-rigth">
-                        <i class="iconfont icon-cart-circle"></i>
+                        <router-link to="/shop">
+                            <i class="iconfont icon-cart-circle"></i>
+                        </router-link>
                     </div>
                 </div>
                 <div>
@@ -50,7 +52,7 @@
             </div>  --> 
             <div class="header-content">
                 <transition name="fade" mode="out-in">
-                   <router-view ></router-view>
+                   <router-view></router-view>
 <!--                    <recmmend v-show="isShow==1"></recmmend>
                     <phone v-show="isShow==2"></phone>
                     <notebook v-show="isShow==3"></notebook>
