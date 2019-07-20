@@ -2,7 +2,7 @@
     <div>
         <div  class="header">
             <div class=" margin">
-                <div class="back">
+                <div class="back" @touchstart="back()">
                     <i class="iconfont icon-fanhui"></i>
                 </div>
                 <div>
@@ -15,8 +15,8 @@
         <div class="content">
             <div class="content-left" >
                 <ul>
-                    <li data-id=0 class="sele">推荐</li> 
-                    <li v-for="(el,i) in showleft" :key="i" >{{el.title}}</li>
+                    <li data-id=0 class="sele" @touchstart="showsele($event)">推荐</li> 
+                    <li v-for="(el,i) in showleft" :key="i" :data-id="i+1" @touchstart="showsele($event)">{{el.title}}</li>
                     
                 </ul>
             </div>
@@ -42,18 +42,41 @@ export default {
         phone:[],     //卖手机数据数据
         type:[],        //类型表
         showleft:[], //左侧正在显示的列表
-        showright:[]    //右侧正在显示的列表
+        showright:[],    //右侧正在显示的列表
+        zid:0          //当前显示的top的Id
         }
     },
      created(){
             this.init()
     },
     methods:{
+        back(){
+            history.go(-1)
+        },
+        showsele(e){
+            var parents=e.target.parentNode.children 
+            for(var el of parents){
+                el.classList.remove("sele")
+            }
+            e.target.classList.add("sele")
+            var id=e.target.dataset.id
+                
+            if(id==0){
+                this.showright=this.all.filter(item=>{
+                    return item.zid==this.zid
+                })
+            }else{
+                this.showright=this.all.filter(item=>{
+                    return item.zid==this.zid&&item.nid==id
+                    
+                })
+            }
+        },
         show1(e){
-             var parents=e.target.parentNode.children 
-             for(var el of parents){
+            var parents=e.target.parentNode.children 
+            for(var el of parents){
                 el.classList.remove("active")
-             }
+            }
             e.target.classList.add("active")
             var typeid=e.target.dataset.id
             
@@ -61,6 +84,8 @@ export default {
                 this.showleft=this.canmera
             }else if(typeid==this.digital[0].zid){
                 this.showleft=this.digital
+            }else if(typeid==this.phone[0].zid){
+                this.showleft=this.phone
             }else if(typeid==this. labtop[0].zid){
                 this.showleft=this.labtop
             }else if(typeid==this.labbook[0].zid){
@@ -68,6 +93,10 @@ export default {
             }else{
                 this.showleft=this.phone
             }
+            this.zid=typeid
+            this.showright=this.all.filter(item=>{
+                return item.zid==this.zid&&item.nid==this.showleft[0].id
+            })
         },init(){
             this.axios.get("index/category",{
             }).then(res=>{
@@ -79,7 +108,8 @@ export default {
                 this.type=res.data.type
                 this.labbook=res.data.labbook
                 this.showleft=res.data.phone 
-                
+                this.zid=1
+                console.log(this.showleft)
                 this.showright=res.data.all.filter(function(item){
                     return item.zid==1&&item.nid==1
                 })    
@@ -101,7 +131,8 @@ export default {
 .header{
     position:fixed;
     background:#fff;
-    width:100%
+    width:100%;
+    z-index:15
 }
 .header ul{
     display:flex;
@@ -130,7 +161,7 @@ export default {
     flex-direction: row-reverse;
     
 }
-.content-reight::-webkit-scrollbar{
+.content-right::-webkit-scrollbar{
     display:none
 }
 .content-left{
@@ -149,6 +180,7 @@ export default {
     line-height: 3.5rem;
     border-left:6px solid transparent;
     font-size:0.7rem;
+    color:#111;
 }
 .content-left ul li.sele{
     background:#f9faff;
@@ -166,5 +198,6 @@ export default {
 .content-right ul li {
     line-height:44px;
     font-size:0.7rem;
+    text-align:left
 }
 </style>

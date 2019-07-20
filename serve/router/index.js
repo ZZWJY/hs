@@ -68,7 +68,7 @@ router.get("/serve",(req,res)=>{
 router.get("/type",function(req,res){
 	var type=req.query.num
 	if(type==1){
-		Pool.query('select pid,title,imgurl from hs_category_phone',function(err,result){
+		Pool.query('select id,title,imgurl from hs_category_phone',function(err,result){
 			if(err) throw err
 			if(result.length>0){
 				res.send({code:1,data:result})
@@ -79,7 +79,7 @@ router.get("/type",function(req,res){
 			}
 		})
 	}else if(type==2){
-		Pool.query('select lid,title,imgurl from hs_category_labbook',function(err,result){
+		Pool.query('select id,title,imgurl from hs_category_labbook',function(err,result){
 			if(err) throw err
 			if(result.length>0){
 				res.send({code:1,data:result})
@@ -90,7 +90,7 @@ router.get("/type",function(req,res){
 			}
 		})
 	}else if(type==3){
-		Pool.query('select tid,title,imgurl from hs_category_labtop',function(err,result){
+		Pool.query('select id,title,imgurl from hs_category_labtop',function(err,result){
 			if(err) throw err
 			if(result.length>0){
 				res.send({code:1,data:result})
@@ -112,19 +112,19 @@ router.get('/category',function(req,res){
 		phone:[],
 		type:[]
 	}
-	Pool.query('select pid,title,zid from hs_category_phone',function(err,res0){
+	Pool.query('select id,title,zid from hs_category_phone',function(err,res0){
 		if(err) throw err;
 		obj.phone=res0
-		Pool.query('select lid,title,zid from  hs_category_labbook',function(err,res1){
+		Pool.query('select id,title,zid from  hs_category_labbook',function(err,res1){
 			if(err) throw err;
 			obj.labbook=res1
-			Pool.query('select tid,title,zid from hs_category_labtop',function(err,res2){
+			Pool.query('select id,title,zid from hs_category_labtop',function(err,res2){
 				if(err) throw err;
 				obj.labtop=res2
-				Pool.query('select cid,title,zid from hs_category_camera',function(err,res3){
+				Pool.query('select id,title,zid from hs_category_camera',function(err,res3){
 					if(err) throw err;
 					obj.camera=res3
-					Pool.query('select did,title,zid from hs_category_digital',function(err,res4){
+					Pool.query('select id,title,zid from hs_category_digital',function(err,res4){
 						if(err) throw err;
 						obj.digital=res4
 						Pool.query('select aid,title,nid,zid from hs_category_all',function(err,res5){

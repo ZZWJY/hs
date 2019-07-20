@@ -170,7 +170,7 @@ insert into hs_serve_adinfo values
 (null,"深圳新沙天虹店","深圳市宝安区沙井街道新沙天虹购物中心L1层（客服中心旁）","16954821365",5,"http://127.0.0.1:3000/img/serve/xinsha.jpg","02180111030 转分机号 1266");
 /**商品手机类型列表**/
 create table hs_category_phone(
-    pid int primary key auto_increment,
+    id int primary key auto_increment,
     title varchar(32),   
     zid int,
     imgurl varchar(100)
@@ -185,7 +185,7 @@ insert into hs_category_phone values
 (null,"荣耀",1,"http://127.0.0.1:3000/img/index/phone/honor.png"),
 (null,"更多",1,"http://127.0.0.1:3000/img/index/phone/something.png");
 create table hs_category_labbook(
-    lid  int primary key auto_increment,
+    id  int primary key auto_increment,
     title varchar(32)  ,
     zid int,
     imgurl varchar(100) 
@@ -200,7 +200,7 @@ insert into hs_category_labbook values
 (null,"小米",2,"http://127.0.0.1:3000/img/index/notebook/MI.png"),
 (null,"更多",2,"http://127.0.0.1:3000/img/index/notebook/something.png");
 create table hs_category_labtop(
-    tid int primary key auto_increment,
+    id int primary key auto_increment,
     title varchar(32),
     zid int,
     imgurl varchar(100)   
@@ -215,7 +215,7 @@ insert into hs_category_labtop values
 (null,"联想",3,"http://127.0.0.1:3000/img/index/iPad/Lenovo.png"),
 (null,"更多",3,"http://127.0.0.1:3000/img/index/iPad/more.png");
 create table hs_category_camera(
-    cid int primary key auto_increment,
+    id int primary key auto_increment,
     title varchar(32)  ,
     zid int
 );
@@ -227,7 +227,7 @@ insert into hs_category_camera values
 (null,"摄像机",4),
 (null,"闪光灯",4);
 create table hs_category_digital(
-    did int primary key auto_increment,
+    id int primary key auto_increment,
     title varchar(32),
     zid int 
 );
