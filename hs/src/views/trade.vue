@@ -1,0 +1,141 @@
+<template>
+  <div>
+    <!-- 头部 -->
+    <div class="trade_header">
+      <router-link to="/" slot="left">
+        <i class="iconfont icon-fanhui"></i>
+      </router-link>
+      <div>
+        <router-link to="#">
+          <i class="iconfont icon-ditu"></i>
+          <span>深圳市</span>
+          <i class="iconfont icon-xiangxia"></i>
+        </router-link>
+      </div>
+      <router-link to="/">
+        <i class="iconfont icon-guanbi"></i>
+      </router-link>
+    </div>
+    <div class="price-content">
+      <div class="price-card">
+        <!-- 标题 -->
+        <p>苹果 iPhone 8 Plus</p>
+        <!-- 跳转到回收站 -->
+        <router-link to="shop">
+          <span>
+            <i class="iconfont icon-gouwuche1"></i>
+            加入购物车
+          </span>
+        </router-link>
+        <!-- 价格 -->
+        <p class="price-number">
+          <span>3730</span>
+          <span>元</span>
+          <i class="iconfont icon-wenti"></i>
+        </p>
+        <div class="price_bottom">
+          <span>一周后再降</span>
+          <span style="color:#ffe4bc">￥202</span>
+          <span>现在下单，价格有效期为下单后</span>
+          <span style="color:#ffe4bc">10天</span>
+        </div>
+      </div>
+      <div class="data-clear">
+        <span>旧机数据安全清除</span>
+        <i class="iconfont icon-wenti"></i>
+        <s>￥50</s>
+      </div>
+    </div>
+  </div>
+</template>
+<style scoped>
+.trade_header {
+  width: 100%;
+  text-align: left;
+  background-color: #fff;
+}
+.mint-header {
+  background-color: #fff;
+  height: 44px;
+  color: #333;
+  font-size: 1.2rem;
+}
+.router-link-active {
+  line-height: 40px;
+  padding-left: 15px;
+}
+.trade_header > div {
+  display: inline-block;
+  width: 80%;
+  text-align: center;
+}
+.price-card {
+  width: 100%;
+  height: 150px;
+  color: #fff;
+  background: url("http://127.0.0.1:3000/img/trade/trade_bg.png");
+  background-size: 100%;
+  text-align: left;
+  box-sizing: border-box;
+  position: relative;
+  padding: 20px 0 0 14px;
+}
+.price-card > p {
+  font-size: 20px;
+  line-height: 20px;
+}
+.price-card > a > span {
+  position: absolute;
+  top: 18px;
+  left: 275.5px;
+  font-size: 12px;
+  color: #333;
+  height: 26px;
+  line-height: 26px;
+  background-color: #fff;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  padding: 0 10px;
+}
+.price-number{
+  margin-top:30px;
+  color:#ffe4bc;
+  font-size: 12px !important;
+}
+.price-number > span:first-child {
+  display: inline-block;
+  font-size: 40px;
+  margin-right: 5px;
+}
+.price-number>.icon-wenti{
+  font-size: 16px;
+}
+.price_bottom{
+  position: absolute;
+  bottom:0;
+  left:0;
+  width: 100%;
+  height: 26px;
+  line-height: 26px;
+  background: #cb654f;
+  padding-left: 14px;
+}
+.price_bottom>span{
+  font-size: 12px;
+}
+.data-clear{
+  width: 100%;
+  height: 44px;
+  color:#111;
+  padding:15px 14px;
+  text-align: left;
+}
+.data-clear>span{
+  font-size: 14px;
+}
+.data-clear>s{
+  float: right;
+  font-size: 12px;
+  color: #999;
+}
+</style>

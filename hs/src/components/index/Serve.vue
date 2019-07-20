@@ -155,7 +155,7 @@ export default {
     },
     moveTo(e) {
       var navList = document.getElementById("nav-list");
-      var startX = e.targetTouches[0].pageX;  
+      var startX = e.targetTouches[0].pageX;
       var navaddress=document.getElementsByClassName("nav-address")[0]
       var navadrsswidth=navaddress.offsetWidth//装nav容器的宽度
       var liwidth=0;
