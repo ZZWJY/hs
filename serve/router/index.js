@@ -142,4 +142,14 @@ router.get('/category',function(req,res){
 		})
 	})
 })
+router.get("/detail",(req,res)=>{
+	Pool.query('select aid,title,nid,zid from hs_category_all',function(err,result){
+		if(err) throw err
+		if(result.length>0){
+			res.send({code:1,data:result})
+		}else{
+			res.send({code:-1,data:"数据没有找到"})
+		}
+	})
+})
 module.exports=router;

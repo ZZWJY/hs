@@ -18,7 +18,7 @@
         <img src="http://127.0.0.1:3000/img/index/newphone/sell.jpg" alt />
       </div>
       <!-- 1 -->
-      <router-link to="#">
+      <router-link to="/detail">
         <div class="sell_product">
           <div class="img_left">
             <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -40,14 +40,14 @@
               <span>￥</span>
               <span>2999</span>
             </p>
-            <router-link to="#" class="btns">
+            <router-link to="/detail" class="btns">
               <p>立即换新</p>
             </router-link>
           </div>
         </div>
       </router-link>
       <!-- 2 -->
-      <router-link to="#">
+      <router-link to="/detail">
         <div class="sell_product">
           <div class="img_left">
             <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -69,14 +69,14 @@
               <span>￥</span>
               <span>2999</span>
             </p>
-            <router-link to="#" class="btns">
+            <router-link to="/detail" class="btns">
               <p>立即换新</p>
             </router-link>
           </div>
         </div>
       </router-link>
       <!-- 3 -->
-      <router-link to="#">
+      <router-link to="/detail">
         <div class="sell_product">
           <div class="img_left">
             <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -98,14 +98,14 @@
               <span>￥</span>
               <span>2999</span>
             </p>
-            <router-link to="#" class="btns">
+            <router-link to="/detail" class="btns">
               <p>立即换新</p>
             </router-link>
           </div>
         </div>
       </router-link>
       <!-- 4 -->
-      <router-link to="#">
+      <router-link to="/detail">
         <div class="sell_product">
           <div class="img_left">
             <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -127,14 +127,14 @@
               <span>￥</span>
               <span>2999</span>
             </p>
-            <router-link to="#" class="btns">
+            <router-link to="/detail" class="btns">
               <p>立即换新</p>
             </router-link>
           </div>
         </div>
       </router-link>
       <!-- 5 -->
-      <router-link to="#">
+      <router-link to="/detail">
         <div class="sell_product">
           <div class="img_left">
             <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -156,14 +156,14 @@
               <span>￥</span>
               <span>2999</span>
             </p>
-            <router-link to="#" class="btns">
+            <router-link to="/detail" class="btns">
               <p>立即换新</p>
             </router-link>
           </div>
         </div>
       </router-link>
       <!-- 6 -->
-      <router-link to="#">
+      <router-link to="/detail">
         <div class="sell_product">
           <div class="img_left">
             <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -185,7 +185,7 @@
               <span>￥</span>
               <span>2999</span>
             </p>
-            <router-link to="#" class="btns">
+            <router-link to="/detail" class="btns">
               <p>立即换新</p>
             </router-link>
           </div>
@@ -200,7 +200,7 @@
     <div class="miui">
       <div>
         <!-- left1 -->
-        <router-link to="#">
+        <router-link to="/detail">
           <div class="product">
             <div class="img_left">
               <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -225,14 +225,14 @@
                   <span></span>
                 </del>
               </p>
-              <router-link to="#" class="btns">
+              <router-link to="/detail" class="btns">
                 <p>立即换新</p>
               </router-link>
             </div>
           </div>
         </router-link>
         <!-- right1 -->
-        <router-link to="#">
+        <router-link to="/detail">
           <div class="product">
             <div class="img_left">
               <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -258,14 +258,14 @@
                   <span>2999</span>
                 </del>
               </p>
-              <router-link to="#" class="btns">
+              <router-link to="/detail" class="btns">
                 <p>立即换新</p>
               </router-link>
             </div>
           </div>
         </router-link>
         <!-- left2 -->
-        <router-link to="#">
+        <router-link to="/detail">
           <div class="product">
             <div class="img_left">
               <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -290,14 +290,14 @@
                   <span></span>
                 </del>
               </p>
-              <router-link to="#" class="btns">
+              <router-link to="/detail" class="btns">
                 <p>立即换新</p>
               </router-link>
             </div>
           </div>
         </router-link>
         <!-- right2 -->
-        <router-link to="#">
+        <router-link to="/detail">
           <div class="product">
             <div class="img_left">
               <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -323,7 +323,7 @@
                   <span>2999</span>
                 </del>
               </p>
-              <router-link to="#" class="btns">
+              <router-link to="/detail" class="btns">
                 <p>立即换新</p>
               </router-link>
             </div>
@@ -339,7 +339,7 @@
     <div class="miui">
       <div>
         <!-- left1 -->
-        <router-link to="#">
+        <router-link to="/detail">
           <div class="product">
             <div class="img_left">
               <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -364,14 +364,14 @@
                   <span></span>
                 </del>
               </p>
-              <router-link to="#" class="btns">
+              <router-link to="/detail" class="btns">
                 <p>立即换新</p>
               </router-link>
             </div>
           </div>
         </router-link>
         <!-- right1 -->
-        <router-link to="#">
+        <router-link to="/detail">
           <div class="product">
             <div class="img_left">
               <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -397,14 +397,14 @@
                   <span>2999</span>
                 </del>
               </p>
-              <router-link to="#" class="btns">
+              <router-link to="/detail" class="btns">
                 <p>立即换新</p>
               </router-link>
             </div>
           </div>
         </router-link>
         <!-- left2 -->
-        <router-link to="#">
+        <router-link to="/detail">
           <div class="product">
             <div class="img_left">
               <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -429,14 +429,14 @@
                   <span></span>
                 </del>
               </p>
-              <router-link to="#" class="btns">
+              <router-link to="/detail" class="btns">
                 <p>立即换新</p>
               </router-link>
             </div>
           </div>
         </router-link>
         <!-- right2 -->
-        <router-link to="#">
+        <router-link to="/detail">
           <div class="product">
             <div class="img_left">
               <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -462,14 +462,14 @@
                   <span>2999</span>
                 </del>
               </p>
-              <router-link to="#" class="btns">
+              <router-link to="/detail" class="btns">
                 <p>立即换新</p>
               </router-link>
             </div>
           </div>
         </router-link>
         <!-- left3 -->
-        <router-link to="#">
+        <router-link to="/detail">
           <div class="product">
             <div class="img_left">
               <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -494,14 +494,14 @@
                   <span></span>
                 </del>
               </p>
-              <router-link to="#" class="btns">
+              <router-link to="/detail" class="btns">
                 <p>立即换新</p>
               </router-link>
             </div>
           </div>
         </router-link>
         <!-- right3 -->
-        <router-link to="#">
+        <router-link to="/detail">
           <div class="product">
             <div class="img_left">
               <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -527,14 +527,14 @@
                   <span>2999</span>
                 </del>
               </p>
-              <router-link to="#" class="btns">
+              <router-link to="/detail" class="btns">
                 <p>立即换新</p>
               </router-link>
             </div>
           </div>
         </router-link>
         <!-- left4 -->
-        <router-link to="#">
+        <router-link to="/detail">
           <div class="product">
             <div class="img_left">
               <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -559,14 +559,14 @@
                   <span></span>
                 </del>
               </p>
-              <router-link to="#" class="btns">
+              <router-link to="/detail" class="btns">
                 <p>立即换新</p>
               </router-link>
             </div>
           </div>
         </router-link>
         <!-- right4 -->
-        <router-link to="#">
+        <router-link to="/detail">
           <div class="product">
             <div class="img_left">
               <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -592,14 +592,14 @@
                   <span>2999</span>
                 </del>
               </p>
-              <router-link to="#" class="btns">
+              <router-link to="/detail" class="btns">
                 <p>立即换新</p>
               </router-link>
             </div>
           </div>
         </router-link>
         <!-- left5 -->
-        <router-link to="#">
+        <router-link to="/detail">
           <div class="product">
             <div class="img_left">
               <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -624,14 +624,14 @@
                   <span></span>
                 </del>
               </p>
-              <router-link to="#" class="btns">
+              <router-link to="/detail" class="btns">
                 <p>立即换新</p>
               </router-link>
             </div>
           </div>
         </router-link>
         <!-- right5 -->
-        <router-link to="#">
+        <router-link to="/detail">
           <div class="product">
             <div class="img_left">
               <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -657,14 +657,14 @@
                   <span>2999</span>
                 </del>
               </p>
-              <router-link to="#" class="btns">
+              <router-link to="/detail" class="btns">
                 <p>立即换新</p>
               </router-link>
             </div>
           </div>
         </router-link>
         <!-- left6 -->
-        <router-link to="#">
+        <router-link to="/detail">
           <div class="product">
             <div class="img_left">
               <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -689,14 +689,14 @@
                   <span></span>
                 </del>
               </p>
-              <router-link to="#" class="btns">
+              <router-link to="/detail" class="btns">
                 <p>立即换新</p>
               </router-link>
             </div>
           </div>
         </router-link>
         <!-- right6 -->
-        <router-link to="#">
+        <router-link to="/detail">
           <div class="product">
             <div class="img_left">
               <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -722,7 +722,7 @@
                   <span>2999</span>
                 </del>
               </p>
-              <router-link to="#" class="btns">
+              <router-link to="/detail" class="btns">
                 <p>立即换新</p>
               </router-link>
             </div>
@@ -738,7 +738,7 @@
     <div class="miui">
       <div>
         <!-- left1 -->
-        <router-link to="#">
+        <router-link to="/detail">
         <div class="product">
           <div class="img_left">
             <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -763,14 +763,14 @@
                 <span></span>
               </del>
             </p>
-            <router-link to="#" class="btns">
+            <router-link to="/detail" class="btns">
               <p>立即换新</p>
             </router-link>
           </div>
         </div>
         </router-link>
         <!-- right1 -->
-        <router-link to="#">
+        <router-link to="/detail">
         <div class="product">
           <div class="img_left">
             <img src="http://127.0.0.1:3000/img/index/newphone/sell1.jpg" alt />
@@ -796,7 +796,7 @@
                 <span>2999</span>
               </del>
             </p>
-            <router-link to="#" class="btns">
+            <router-link to="/detail" class="btns">
               <p>立即换新</p>
             </router-link>
           </div>

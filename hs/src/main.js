@@ -30,7 +30,8 @@ Vue.use(new vuesocketio({
 var store=new Vuex.Store({
   //定义全局修改的数据
   state:{
-    serveinfo:{}
+    serveinfo:{},
+    oldproduct:[]
   },
   Mutations:{
     reserve(state,obj){

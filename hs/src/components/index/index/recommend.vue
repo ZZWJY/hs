@@ -156,13 +156,17 @@
             </div>
         </div>
         <div class="benefit">
-            <img src="http://127.0.0.1:3000/img/index/refer/benefit.png" alt="">
+            <router-link to="/fon">
+                <img src="http://127.0.0.1:3000/img/index/refer/benefit.png" alt="">
+            </router-link>
             <router-link to="/love">
                 <img src="http://127.0.0.1:3000/img/index/refer/lsgy.png" alt="">
             </router-link>
         </div>
         <div class="understand">
-            <img src="http://127.0.0.1:3000/img/index/refer/lsgy2.png" alt="">
+            <router-link to="/factor">
+                <img src="http://127.0.0.1:3000/img/index/refer/lsgy2.png" alt="">
+            </router-link>
             <router-link to="/clear">
                 <img src="http://127.0.0.1:3000/img/index/refer/lsgy3.png" alt="">
             </router-link>

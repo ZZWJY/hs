@@ -60,7 +60,7 @@ export default {
               return item.id==id
           })
           }catch(err){
-              console.log(err)
+              
           }
           this.data=this.data[0]
       }
