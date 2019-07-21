@@ -31,6 +31,7 @@ router.get('/recommend',function(req,res){
 		Pool.query('select title,img_url,model,price from hs_indexRefer_old_new',function(err,result){
 			if(err) throw err
 			obj.oldNew=result
+			console.log(req.url)
 			res.send(obj)
 		})
 		

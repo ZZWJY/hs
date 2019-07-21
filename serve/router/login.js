@@ -1,6 +1,7 @@
 const express=require('express');
 const router=express.Router();
 const Pool=require('../pool.js')
+const jwt=require("../jwt")
 
 router.post("/",(req,res)=>{
   //1:参数
@@ -18,7 +19,7 @@ sql +=" AND upwd = ?";
          res.send({code:-1,msg:"用户名或密码有误"});
       }else{
 		    req.session.uid=result[0].uid
-        res.send({code:1,msg:"登录成功"});
+        res.send({code:1,msg:"登录成功",uname:result[0].uname,token:jwt.generateToken(result[0])});
 		
       }
   })

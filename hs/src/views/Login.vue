@@ -102,11 +102,12 @@
                     this.$toast("用户名或者密码错误")
                     return;
                 }
-                sessionStorage.setItem('name',uname)
                 this.axios.post("login/",{
                        uname,upwd
                     }).then(res=>{
                         if(res.data.code==1){
+                            sessionStorage.setItem("token",res.data.token)
+                            this.$store.commit("setUname",res.data.uname)
                             this.$toast("登录成功")
                             this.$router.push("/")
                         }

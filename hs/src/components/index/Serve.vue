@@ -223,7 +223,6 @@ export default {
         }
         //默认导航栏第一个就是附近的有下边框
         this.$store.state.serveinfo=res.data.info
-       
       });
     }
   }

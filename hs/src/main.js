@@ -31,16 +31,24 @@ var store=new Vuex.Store({
   //定义全局修改的数据
   state:{
     serveinfo:{},
-    oldproduct:[]
+    oldproduct:[],
+    uname:'',
+    islogin:false
   },
-  Mutations:{
+  mutations:{
     reserve(state,obj){
       state.serveinfo=obj
+    },
+    setUname(state,value){
+      state.uname=value
     }
   },
   getters:{
     getServeingo(state){
       return state.serveinfo
+    },
+    getUname(state){
+      return state.uname
     }
   }
 })
