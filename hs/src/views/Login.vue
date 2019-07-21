@@ -107,6 +107,7 @@
                     }).then(res=>{
                         if(res.data.code==1){
                             sessionStorage.setItem("token",res.data.token)
+                            sessionStorage.setItem("name",res.data.uname)
                             this.$store.commit("setUname",res.data.uname)
                             this.$toast("登录成功")
                             this.$router.push("/")

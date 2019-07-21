@@ -41,6 +41,9 @@ var store=new Vuex.Store({
     },
     setUname(state,value){
       state.uname=value
+    },
+    setlogin(state,value){
+      state.islogin=value
     }
   },
   getters:{
