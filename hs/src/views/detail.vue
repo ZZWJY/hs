@@ -80,7 +80,8 @@
               <img :src="item.imgurl" alt="">
               <span>{{item.title}}</span>
             </div>
-            <p>预估<span>-￥{{item.estimate}}</span> </p>
+            <p>预估<span>-￥{{item.estimate}}</span><i class="iconfont icon-huishouzhan" @touchstart="deletedata()" ></i> </p>
+
           </li>
         </ul>
       <div class="old-a-style">
@@ -202,8 +203,6 @@ export default {
   },
   mounted(){
     this.$emit("connect","http://127.0.0.1:3000")
-     
-   
   },
   methods:{
     msg(){
@@ -235,7 +234,7 @@ export default {
     init(){
        this.axios.get("user/oldproducts").then(res=>{
          if(res.data.status===403){
-           this.$messagebox(res.data.msg)
+           this.$messagebox(res.data.msg+",请重新登录")
          }else{
            this.showold=res.data.msg
            console.log(this.showold)
@@ -539,7 +538,12 @@ export default {
   font-size:12px;
 }
 .oldproducts p span{
-  color:#3eb052
+  color:#3eb052;
+  margin-right:.5rem;
+}
+.oldproducts i{
+  font-size:1.2rem;
 }
 </style>
+
 
