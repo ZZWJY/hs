@@ -3,7 +3,7 @@ const express=require('express');
 const indexrouter=require('./router/index.js')
 const bodyparse=require("body-parser")
 const jwt=require("./jwt")
-
+const user=require("./router/user")
 const session = require("express-session");
 const loginrouter=require('./router/login.js')
 //创建web服务器
@@ -47,7 +47,7 @@ server.use((req,res,next)=>{
       }else if(result.name==="JsonWebTokenError"){
          res.send({status:403,msg:"证书出错"})
       }else{
-         res.user=result
+         req.user=result
          next()
       }
    }else{
@@ -73,4 +73,5 @@ http=require("http").Server(server)
 server.use(express.static("public"))
 server.use('/index',indexrouter)
 server.use('/login',loginrouter)
+server.use("/user",user)
 

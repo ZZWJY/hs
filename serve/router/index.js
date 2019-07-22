@@ -31,7 +31,6 @@ router.get('/recommend',function(req,res){
 		Pool.query('select title,img_url,model,price from hs_indexRefer_old_new',function(err,result){
 			if(err) throw err
 			obj.oldNew=result
-			console.log(req.url)
 			res.send(obj)
 		})
 		
@@ -128,7 +127,7 @@ router.get('/category',function(req,res){
 					Pool.query('select id,title,zid from hs_category_digital',function(err,res4){
 						if(err) throw err;
 						obj.digital=res4
-						Pool.query('select aid,title,nid,zid from hs_category_all',function(err,res5){
+						Pool.query('select aid,title,nid,zid,price,m_img_url from hs_category_all',function(err,res5){
 							if(err) throw err;
 							obj.all=res5
 							Pool.query('select id,uname from hs_indexRefer_listTypeALL',function(err,res6){
@@ -144,7 +143,7 @@ router.get('/category',function(req,res){
 	})
 })
 router.get("/detail",(req,res)=>{
-	Pool.query('select aid,title,nid,zid from hs_category_all',function(err,result){
+	Pool.query('select aid,title,nid,zid,price,m_img_url from hs_category_all',function(err,result){
 		if(err) throw err
 		if(result.length>0){
 			res.send({code:1,data:result})

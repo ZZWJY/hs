@@ -117,6 +117,7 @@ export default {
             this.$messagebox.confirm("确定退出么").then(action=>{
                 this.loginname=false
                 sessionStorage.removeItem("name")
+                sessionStorage.removeItem("token")
             }).catch(err=>{
                
             })

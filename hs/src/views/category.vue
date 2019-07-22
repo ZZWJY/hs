@@ -55,11 +55,20 @@ export default {
             //类型，如果num=1name就认为是新机中添加旧机的跳转
             var type=this.$route.query.num
             var id=e.target.dataset.id
-            console.log(this.$store)
-            console.log(id)
+            var info={}
             if(type==1){
-               this.$store.state.oldproduct.push(id)
-               window.location.href="http://127.0.0.1:8080/#/detail"
+                // for(var i=0;i<this.all.length;i++){
+                //     if(this.all[i].aid=id){
+                //        info.imgurl=this.all[i].m_img_url
+                //        info.title=this.all[i].title
+                //        info.estimate=this.all[i].price
+                //         break
+                //     }
+                // }
+            this.axios.post("user/oldproduct",{aid:id}).then(res=>{
+                console.log(res)
+            })
+            window.location.href="http://127.0.0.1:8080/#/detail"
             }
         },
         back(){

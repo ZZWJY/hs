@@ -109,6 +109,7 @@
                             sessionStorage.setItem("token",res.data.token)
                             sessionStorage.setItem("name",res.data.uname)
                             this.$store.commit("setUname",res.data.uname)
+                            this.$store.commit("setlogin",true)
                             this.$toast("登录成功")
                             this.$router.push("/")
                         }

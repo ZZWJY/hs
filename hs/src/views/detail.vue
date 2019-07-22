@@ -74,6 +74,15 @@
         <router-link class="a-style line-center text-left" to="#">添加想卖的旧机，可抵扣新机款</router-link>
         <router-link class="a-style new-img line-center" to="#">></router-link>
       </div>
+       <ul class="oldproducts">
+          <li v-for="(item,i) in showold" :key="i">
+            <div>
+              <img :src="item.imgurl" alt="">
+              <span>{{item.title}}</span>
+            </div>
+            <p>预估<span>-￥{{item.estimate}}</span> </p>
+          </li>
+        </ul>
       <div class="old-a-style">
         <router-link class="a-style" to="/category?num=1">添加更多旧机</router-link>
       </div>
@@ -171,7 +180,8 @@ export default {
       values:'',
       socket:{},
       id:"",
-      data:[]
+      data:[],
+      showold:[]
     };
   },
   sockets:{
@@ -192,7 +202,8 @@ export default {
   },
   mounted(){
     this.$emit("connect","http://127.0.0.1:3000")
-    console.log(this.$socket)
+     
+   
   },
   methods:{
     msg(){
@@ -216,23 +227,24 @@ export default {
       //  })
     },
     showmsg(){
+
        var messagebox=document.getElementsByClassName("messagebox")[0]
-      console.log(messagebox)
+     
           messagebox.style.display="block"
     },
     init(){
-      this.axios.get("index/detail").then(res=>{
-        var data=res.data.data
-        console.log(this.$store.state.oldproduct)
-        var oldproducts=[...new Set(this.$store.state.oldproduct)]
-        console.log(oldproducts)
-        this.data=data.filter(item=>{
-          return item==(()=>{
-
-          })()
-        })
-
+       this.axios.get("user/oldproducts").then(res=>{
+         if(res.data.status===403){
+           this.$messagebox(res.data.msg)
+         }else{
+           this.showold=res.data.msg
+           console.log(this.showold)
+         }
+        
       })
+
+     
+     
     }
   }
 };
@@ -240,11 +252,9 @@ export default {
 <style scoped>
 /* 页脚样式 */
 .go-top{
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    line-height: 50px;
     position: fixed;
+    padding:.5rem;
+    border-radius:40% 40%;
     right: 30px;
     bottom:80px;
     background: rgba(0,0,0,.5);
@@ -510,6 +520,26 @@ export default {
   color:#fff;
   z-index:999;
   text-align:left
+}
+.oldproducts li{
+  display:flex;
+  justify-content: space-between
+}
+.oldproducts img{
+  width:41px;
+  height:41px;
+  vertical-align:middle
+}
+.oldproducts div,.oldproducts p{
+  line-height:41px;
+  height:41px;
+  font-size:12px;
+}
+.oldproducts div span{
+  font-size:12px;
+}
+.oldproducts p span{
+  color:#3eb052
 }
 </style>
 

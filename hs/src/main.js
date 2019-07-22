@@ -44,7 +44,15 @@ var store=new Vuex.Store({
     },
     setlogin(state,value){
       state.islogin=value
-    }
+    },
+    setoldproduct(state,value){
+      // if(value instanceof Array){
+      //   state.oldproduct.concat(vlaue)
+      //   return
+      // }
+      state.oldproduct.push(value)
+    },
+   
   },
   getters:{
     getServeingo(state){
@@ -52,6 +60,9 @@ var store=new Vuex.Store({
     },
     getUname(state){
       return state.uname
+    },
+    getoldproduct(state){
+      return state.oldproduct
     }
   }
 })
