@@ -44,7 +44,7 @@
                 <span>秒</span>
             </div>
             <div class="down-rigth">
-                <router-link to="/category">
+                <router-link to="/trade">
                      立即回收
                 </router-link>
             </div>
