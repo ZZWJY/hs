@@ -100,13 +100,13 @@ export default {
 }
 </script>
 <style scoped>
-.index{
+/* .index{
     max-width: 750px;
     min-width: 320px;
     margin: 0 auto;
     background: #fff;
 
-}
+} */
 /*
 .mint-tabbar.is-fixed{
     max-width: 750px;

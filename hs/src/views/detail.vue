@@ -204,6 +204,12 @@ export default {
   mounted(){
     this.$emit("connect","http://127.0.0.1:3000")
   },
+  beforeRouteEnter(to, from, next){
+    next(vm=>{
+      console.log(vm);
+      vm.init()
+    })
+  },
   methods:{
     msg(){
       
@@ -236,14 +242,17 @@ export default {
          if(res.data.status===403){
            this.$messagebox(res.data.msg+",请重新登录")
          }else{
-           this.showold=res.data.msg
+           if(res.data.code===403){
+             this.showold=[]
+           }else{
+             this.showold=res.data.msg
+           }
+           
+          //  res.data.msg
            console.log(this.showold)
          }
         
       })
-
-     
-     
     }
   }
 };

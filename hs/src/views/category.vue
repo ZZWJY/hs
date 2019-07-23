@@ -67,8 +67,11 @@ export default {
                 // }
             this.axios.post("user/oldproduct",{aid:id}).then(res=>{
                 console.log(res)
+                if(res.data.code==200){
+                    window.location.href="http://127.0.0.1:8080/#/detail"
+                }
             })
-            window.location.href="http://127.0.0.1:8080/#/detail"
+            
             }
         },
         back(){

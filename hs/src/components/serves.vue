@@ -14,10 +14,10 @@
             <span class="address-text">
                 {{data.iaddress}}
             </span>
-            <a href="#">查看地图</a>
+            <router-link :to="'/map/'+data.id">查看地图</router-link>
         </div>
         <div class="contact">
-            <a href="#">{{data.sphone}}</a>
+            <router-link to="#">{{data.sphone}}</router-link>
         </div>
         <div class="hours-itme">
                 工作日 10:00到22:00 节假日 10:00到22:00
@@ -28,13 +28,13 @@
         <div class="service-item">
             <h4 class="item-title">旧机回收</h4>
             <div class="item-desc">手机 笔记本 平板 摄影摄像 智能数码</div>
-            <a class="item-btn" href="#">去回收</a>
+            <router-link class="item-btn" to="#">去回收</router-link>
             <span class="iconfont icon-icon-"></span>
         </div>
         <div class="service-item">
             <h4 class="item-title">以旧换新</h4>
             <div class="item-desc">旧机抵扣 购买新机平均6折起</div>
-            <a class="item-btn" href="#">去换新</a>
+            <router-link class="item-btn" to="#">去换新</router-link>
             <span class="iconfont icon-genghuanshouji"></span>
         </div>
     </div>
@@ -49,6 +49,7 @@ export default {
   },
   created(){
       this.init()
+      console.log(this.data)
   },
   methods:{
       init(){

@@ -6,7 +6,7 @@ router.post("/oldproduct",function(req,res){
     var aid=req.body.aid;
     var uid=req.user.uid  
     var obj={}; 
-    Pool.query('select aid from hs_user_oldProduct where aid=?',[aid],function(err,result){
+    Pool.query('select aid from hs_user_oldProduct where aid=? and uid=?',[aid,uid],function(err,result){
         if(err) throw err
         if(result.length>0){        
             res.send({code:200,msg:"已存在"})

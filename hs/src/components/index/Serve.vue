@@ -67,7 +67,9 @@
           </div>
           <div>
             <i class="iconfont icon-ditu"></i>
-            <span>查看地图</span>
+            <router-link :to="'/map/'+el.id">
+              <span>查看地图</span>
+            </router-link>
           </div>
         </div>
       </div>
@@ -100,7 +102,7 @@ export default {
       }
   },
   created() {
-    this.init();
+    this.init()
   },
   methods: {
     linkTo(n) {
@@ -201,13 +203,14 @@ export default {
           }
     },
     init() {
-      this.axios.get("index/serve", {}).then(res => {
+      this.axios.get("index/serve").then(res => {
         //导航栏显示地区的类型
         this.type = res.data.type;
         //内容显示的筛选的数据，默认为所有的数据
         this.info = res.data.info;
+        console.log(this.info)
         //储存所有的数据
-        this.alldata = res.data.info;
+        this.alldata = res.data.info; 
         //遍历所有的数据,导航栏的类型的id关联内容所有的数据的nid
         for (var i = 0; i < this.type.length; i++) {
           //利用filter拿着类型表表的id到内容表去筛选个数
