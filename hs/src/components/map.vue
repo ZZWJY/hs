@@ -44,14 +44,13 @@ export default {
         },
         map(){
             setTimeout(()=>{
-                console.log(this.showlist)
                 for(var j=0;j<this.info.length;j++){
                     this.info[j].map=this.info[j].map.split(",")
                 }
                 var infosnum=this.infos.mp.split(",")
                 var map = new BMap.Map("map-map");
             var point=new BMap.Point(infosnum[0],infosnum[1]) // 创建地图实例       
-            map.centerAndZoom(point,14);
+            map.centerAndZoom(point,12);
             map.enableScrollWheelZoom(true) 
             map.disableDragging() 
             var marker = new BMap.Marker(point);        // 创建标注    
@@ -61,11 +60,12 @@ export default {
                 //map.enableInertialDragging();   //两秒后开启惯性拖拽
                 }, 2000)
             //创建多个点坐标实例
-            // var i=0
-            // //创建点坐标函数
+            var i=0
+            //创建点坐标函数
             // function markerFun (points) {
-            //     var markers = new BMap.Marker(points);
+            //     let markers = new BMap.Marker(points);
             //     map.addOverlay(markers);
+            //     console.log(markers)
             // }
             // for (;i<this.info.length;i++) {
             //     var points = new BMap.Point(this.info[i].map[0],this.info[i].map[1]);//创建坐标点
@@ -75,20 +75,22 @@ export default {
             var html=`
                 <p style="text-align:center;color:#666;font-zise:16px;font-weight:600;border-bottom:1px solid #CCC">${this.showlist.title}<p>
             `
+            var html1=`<div style="">
+                <p style="color:#666;font-size:14px">地址：${this.showlist.iaddress}</p>
+                <p style="color:#f00;font-size:12px">电话：${this.showlist.sphone}</p>
+            </div>`
             var opts = {    
                 width : 60,     // 信息窗口宽度    
                 height: 100,     // 信息窗口高度    
                 title : html, // 信息窗口标题 
                 style : 'background:#cccccc50'
             }    
-            var infoWindow = new BMap.InfoWindow("<div>电话：142581</div>", opts);  // 创建信息 
+            var infoWindow = new BMap.InfoWindow(html1, opts);  // 创建信息 
             map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口
             map.addControl(new BMap.NavigationControl(opts));    
-            marker.addEventListener("click",(e)=>{  
-                console.log(111)  
-                map.openInfoWindow(infoWindow, map.getCenter()); 
+            marker.addEventListener("click",function(e){  
+                map.openInfoWindow(infoWindow,point); 
             });
-            console.log(marker)
             },200)
             //  console.log(this.infos.mp);
             // var showinfoarr=this.showinfo.mp.split(",")

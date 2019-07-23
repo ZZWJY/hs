@@ -340,10 +340,14 @@ export default {
   display: flex;
   margin-top: 1rem;
   font-size: 12px;
+  line-height:2rem;
 }
-.lianxiitem {
+.liannxi .lianxiitem{
   width: 50%;
   text-align: center;
+  line-height:2rem !important;
+  height:2rem;
+  justify-content: center !important
 }
 .content-list {
   padding-top: 5rem;
