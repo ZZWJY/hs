@@ -208,7 +208,6 @@ export default {
         this.type = res.data.type;
         //内容显示的筛选的数据，默认为所有的数据
         this.info = res.data.info;
-        console.log(this.info)
         //储存所有的数据
         this.alldata = res.data.info; 
         //遍历所有的数据,导航栏的类型的id关联内容所有的数据的nid

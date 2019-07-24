@@ -26,6 +26,8 @@ Vue.use(new vuesocketio({
   connection:"http://127.0.0.1:2900",
   debug:false
 }))
+Vue.config.silent = true //消除vue的所有的日志及警告
+
 //创建vuex实例
 var store=new Vuex.Store({
   //定义全局修改的数据

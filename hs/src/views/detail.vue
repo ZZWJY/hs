@@ -162,12 +162,13 @@
         <p class="foot-m">客服</p>
       </div>
       <div class="foot-s">
-        <p class="foot-m">添加旧机获取超值换新价</p>
+        <p class="foot-p" v-show="showold.length>0">{{showprice>0?"预计补差价"+showprice+"元":showprice==0?"[0元]购买":"[0元] 额外赚"+-showprice+"元"}}</p>
+        <p class="foot-m" v-show="showold.length==0">添加旧机获取超值换新价</p>
       </div>
       <div class="foot-t">
         <router-link class="foot-size" to="#">
-
-          <p class="foot-m">添加旧机</p>
+          <p class="foot-m" v-show="showold.length>0">提交</p>
+          <p class="foot-m" v-show="showold==0">添加旧机</p>
         </router-link>
       </div>
     </div>
@@ -178,12 +179,14 @@
 export default {
   data() {
     return {
+      price:6000,
       values:'',
       socket:{},
       id:"",
       data:[],
-      showold:[],
-      showadd:[]
+      showold:[],   //表示显示的旧机的列表
+      flag:false ,   //如果点击了删除icon，将此属性值变为true，监听此属性，调用init
+      showprice:0
     };
   },
   sockets:{
@@ -210,6 +213,12 @@ export default {
       console.log(vm);
       vm.init()
     })
+  },
+  watch:{
+    flag(){
+      this.init() //调用init 
+      this.flag=false
+    }
   },
   methods:{
     msg(){
@@ -239,7 +248,7 @@ export default {
     },
     init(){
        this.axios.get("user/oldproducts").then(res=>{
-         if(res.data.status===403){
+         if(res.data.status===403){//如果为状态403，代表证书出问题
            this.$messagebox(res.data.msg+",请重新登录")
            this.$router.push("/login")
          }else{
@@ -247,10 +256,16 @@ export default {
              this.showold=[]
            }else{
              this.showold=res.data.msg
+             //初始化总价为0
+             var tatol=0
+             //算出列表的回收总价
+             for(var item of this.showold){
+               tatol+= +item.estimate  //item.estmate为字符串，将其转为为数字，前面加上+隐式转换
+             }
+             this.showprice=this.price-tatol //显示的价钱为当前商品的价钱减去回收的总价
            }
            
           //  res.data.msg
-           console.log(this.showold)
          }
         
       })
@@ -260,7 +275,8 @@ export default {
       this.axios.post("user/deleteoldprodcut/",{id:id}).then(res=>{
        if(res.data.code==1){
         this.$toast("删除成功")
-        history.go(0)
+        this.flag=true   //当点击删除ICON时，将flag设置为true,进入监听对象，执行函数
+        // history.go(0)
        }
      })
     }
@@ -310,6 +326,9 @@ export default {
 }
 .foot-m {
   margin: 0;
+}
+.foot-p{
+  color:#fc6232
 }
 .foot-img {
   width: 14px;
