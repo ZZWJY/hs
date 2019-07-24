@@ -19,10 +19,7 @@ import factor from "./components/index/index/Factor"
 import clear from "./components/index/index/Clear"
 import category from "./views/category"
 import serves from "./components/serves"
-import shop  from "./views/shop"
-import welfare  from "./components/index/index/welfare"
-import trade  from "./views/trade"
-
+import map from "./components/map.vue"
 Vue.use(Router)
 
 export default new Router({
@@ -61,8 +58,6 @@ export default new Router({
     {path:"/fon",component:fon},
     {path:"/category",component:category},
     {path:"/serves/:id",component:serves},
-    {path:"/shop",component:shop},
-    {path:"/welfare",component:welfare},
-    {path:"/trade",component:trade},
+    {path:"/map/:id",component:map}
   ]
 })

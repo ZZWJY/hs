@@ -45,24 +45,24 @@
     <div class="conpan">
       <img class="conpan-img" src="http://127.0.0.1:3000/img/detail-1/small.png" alt />
       <span>领券最高减150元</span>
-      <a href="#" class="conpan-a a-style">
+      <router-link to="#" class="conpan-a a-style">
         <span>登录领取</span>
-      </a>
-      <a href="#">
+      </router-link>
+      <router-link to="#">
         <img class="img-detail" src="http://127.0.0.1:3000/img/detail-1/small01.png" alt />
-      </a>
+      </router-link>
     </div>
     <!-- 新机机型介绍 -->
     <div class="new">
       <h5 class="new-goods font-style">新机机型</h5>
       <div class="new-detail">
         <div>
-          <a class="a-style font-style" href="#">6GB 128GB幻夜黑全网通</a>
+          <router-link class="a-style font-style" to="#">6GB 128GB幻夜黑全网通</router-link>
         </div>
         <div>
           <span class="font-style font-color">￥</span>
-          <a class="a-style font-color" href="#">1699</a>
-          <a class="a-style new-img" href="#">></a>
+          <router-link class="a-style font-color" to="#">1699</router-link>
+          <router-link class="a-style new-img" to="#">></router-link>
         </div>
       </div>
     </div>
@@ -71,11 +71,21 @@
       <h5 class="new-goods font-style">旧机抵扣</h5>
       <div class="new-detail">
         <img class="old-img" src="http://127.0.0.1:3000/img/detail-1/下载.png" alt />
-        <a class="a-style line-center text-left" href="#">添加想卖的旧机，可抵扣新机款</a>
-        <a class="a-style new-img line-center" href="#">></a>
+        <router-link class="a-style line-center text-left" to="#">添加想卖的旧机，可抵扣新机款</router-link>
+        <router-link class="a-style new-img line-center" to="#">></router-link>
       </div>
+       <ul class="oldproducts">
+          <li v-for="(item,i) in showold" :key="i">
+            <div>
+              <img :src="item.imgurl" alt="">
+              <span>{{item.title}}</span>
+            </div>
+            <p>预估<span>-￥{{item.estimate}}</span><i class="iconfont icon-huishouzhan" @touchstart="deletedata()" ></i> </p>
+
+          </li>
+        </ul>
       <div class="old-a-style">
-        <a class="a-style" href="#">添加更多旧机</a>
+        <router-link class="a-style" to="/category?num=1">添加更多旧机</router-link>
       </div>
     </div>
     <!-- 优惠福利 -->
@@ -87,20 +97,20 @@
         </div>
         <div>
           <span class="font-style font-color">-￥</span>
-          <a class="a-style font-color" href="#">150</a>
+          <router-link class="a-style font-color" to="#">150</router-link>
         </div>
       </div>
       <div class="old-a-style new-detail">
-        <a class="a-style" href="#">添加更多旧机</a>
-        <a class="a-style new-img" href="#">></a>
+        <router-link class="a-style" to="#">添加更多旧机</router-link>
+        <router-link class="a-style new-img" to="#">></router-link>
       </div>
     </div>
     <img class="img-width" src="http://127.0.0.1:3000/img/detail-1/1-1.jpg" />
     <!-- 详情导航栏 -->
     <div class="pic-data font-style">
-      <a href="#miao1">图文详情</a>
-      <a class="pic-data-a" href="#miao2">基本参数</a>
-      <a href="#miao3">包装售后</a>
+      <router-link to="#miao1">图文详情</router-link>
+      <router-link class="pic-data-a" to="#miao2">基本参数</router-link>
+      <router-link to="#miao3">包装售后</router-link>
     </div>
     <img id="miao1" class="img-width" src="http://127.0.0.1:3000/img/detail-1/02.jpg" alt />
     <img class="img-width" src="http://127.0.0.1:3000/img/detail-1/03.jpg" alt />
@@ -156,12 +166,12 @@
         <p class="foot-m">添加旧机获取超值换新价</p>
       </div>
       <div class="foot-t">
-        <a class="foot-size" href="#">
+        <router-link class="foot-size" to="#">
           <p class="foot-m">添加旧机</p>
-        </a>
+        </router-link>
       </div>
     </div>
-    <div class="go-top"><a href="#">回顶部</a></div>
+    <div class="go-top"><router-link to="#">回顶部</router-link></div>
   </div>
 </template>
 <script>
@@ -170,7 +180,9 @@ export default {
     return {
       values:'',
       socket:{},
-      id:""
+      id:"",
+      data:[],
+      showold:[]
     };
   },
   sockets:{
@@ -187,10 +199,16 @@ export default {
     }
   },
   created(){
+    this.init()
   },
   mounted(){
     this.$emit("connect","http://127.0.0.1:3000")
-    console.log(this.$socket)
+  },
+  beforeRouteEnter(to, from, next){
+    next(vm=>{
+      console.log(vm);
+      vm.init()
+    })
   },
   methods:{
     msg(){
@@ -202,12 +220,11 @@ export default {
                   var p=document.createElement("p")
                       p.innerHTML=this.values
                       p.style.textAlign="right"
-                      messagecon.appendChild(p)
-                      console.log(messagecon)  
+                      messagecon.appendChild(p) 
             // var id=this.socket;
             // console.log(this.socket.id);
             this.values="";
-            console.log(this.id)
+            
       //        this.$socket.on("message",function(msg){
       //           console.log(this.$socket)
       //             console.log(msg)
@@ -215,9 +232,27 @@ export default {
       //  })
     },
     showmsg(){
+
        var messagebox=document.getElementsByClassName("messagebox")[0]
-      console.log(messagebox)
+     
           messagebox.style.display="block"
+    },
+    init(){
+       this.axios.get("user/oldproducts").then(res=>{
+         if(res.data.status===403){
+           this.$messagebox(res.data.msg+",请重新登录")
+         }else{
+           if(res.data.code===403){
+             this.showold=[]
+           }else{
+             this.showold=res.data.msg
+           }
+           
+          //  res.data.msg
+           console.log(this.showold)
+         }
+        
+      })
     }
   }
 };
@@ -225,11 +260,9 @@ export default {
 <style scoped>
 /* 页脚样式 */
 .go-top{
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    line-height: 50px;
     position: fixed;
+    padding:.5rem;
+    border-radius:40% 40%;
     right: 30px;
     bottom:80px;
     background: rgba(0,0,0,.5);
@@ -496,5 +529,30 @@ export default {
   z-index:999;
   text-align:left
 }
+.oldproducts li{
+  display:flex;
+  justify-content: space-between
+}
+.oldproducts img{
+  width:41px;
+  height:41px;
+  vertical-align:middle
+}
+.oldproducts div,.oldproducts p{
+  line-height:41px;
+  height:41px;
+  font-size:12px;
+}
+.oldproducts div span{
+  font-size:12px;
+}
+.oldproducts p span{
+  color:#3eb052;
+  margin-right:.5rem;
+}
+.oldproducts i{
+  font-size:1.2rem;
+}
 </style>
+
 

@@ -2,8 +2,8 @@ const express=require('express');
 //引入路由器
 const indexrouter=require('./router/index.js')
 const bodyparse=require("body-parser")
-
-
+const jwt=require("./jwt")
+const user=require("./router/user")
 const session = require("express-session");
 const loginrouter=require('./router/login.js')
 //创建web服务器
@@ -35,6 +35,25 @@ resave:true,
 //同时saveUninitialized要设置为false允许修改。
    saveUninitialized:true
  }))
+//使用中间件来验证token令牌，如果通过在执行下一步
+server.use((req,res,next)=>{
+   if(req.url!="/login"&&(req.url.startsWith("/use")||req.url.startsWith("/orders"))){
+      let token=req.headers.token;
+      let result=jwt.verifyToken(token)
+      if(result===undefined){
+         res.send({status:403,msg:"未提供证书"})
+      }else if(result.name==="TokenExpiredError"){
+         res.send({status:403,msg:"登录超时"})
+      }else if(result.name==="JsonWebTokenError"){
+         res.send({status:403,msg:"证书出错"})
+      }else{
+         req.user=result
+         next()
+      }
+   }else{
+      next()
+   }
+})
 http=require("http").Server(server)
  io=require("socket.io")(http)
  io.on("connection",function(socket){
@@ -54,3 +73,5 @@ http=require("http").Server(server)
 server.use(express.static("public"))
 server.use('/index',indexrouter)
 server.use('/login',loginrouter)
+server.use("/user",user)
+

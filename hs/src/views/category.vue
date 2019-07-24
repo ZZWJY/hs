@@ -22,7 +22,7 @@
             </div>
             <div class="content-right">
                 <ul>
-                    <li v-for="(el,i) in showright" :key="i">
+                    <li v-for="(el,i) in showright" :key="i" @touchstart="toOrSele($event)" :data-id="el.aid">
                         {{el.title}}
                     </li>
                 </ul>
@@ -43,13 +43,37 @@ export default {
         type:[],        //类型表
         showleft:[], //左侧正在显示的列表
         showright:[],    //右侧正在显示的列表
-        zid:0          //当前显示的top的Id
+        zid:0 ,         //当前显示的top的Id
         }
     },
      created(){
             this.init()
     },
     methods:{
+        toOrSele(e){
+            
+            //类型，如果num=1name就认为是新机中添加旧机的跳转
+            var type=this.$route.query.num
+            var id=e.target.dataset.id
+            var info={}
+            if(type==1){
+                // for(var i=0;i<this.all.length;i++){
+                //     if(this.all[i].aid=id){
+                //        info.imgurl=this.all[i].m_img_url
+                //        info.title=this.all[i].title
+                //        info.estimate=this.all[i].price
+                //         break
+                //     }
+                // }
+            this.axios.post("user/oldproduct",{aid:id}).then(res=>{
+                console.log(res)
+                if(res.data.code==200){
+                    window.location.href="http://127.0.0.1:8080/#/detail"
+                }
+            })
+            
+            }
+        },
         back(){
             history.go(-1)
         },

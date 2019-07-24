@@ -57,7 +57,7 @@ router.get("/serve",(req,res)=>{
 		if(err) throw err
 		if(result.length>0){
 			obj.type=result
-			Pool.query("select id,title,iaddress,phone,nid,img,sphone from hs_serve_adinfo",function(err,result1){
+			Pool.query("select id,title,iaddress,phone,nid,img,sphone,map from hs_serve_adinfo",function(err,result1){
 				if(err) throw err
 					obj.info=result1
 					res.send(obj)
@@ -127,7 +127,7 @@ router.get('/category',function(req,res){
 					Pool.query('select id,title,zid from hs_category_digital',function(err,res4){
 						if(err) throw err;
 						obj.digital=res4
-						Pool.query('select aid,title,nid,zid from hs_category_all',function(err,res5){
+						Pool.query('select aid,title,nid,zid,price,m_img_url from hs_category_all',function(err,res5){
 							if(err) throw err;
 							obj.all=res5
 							Pool.query('select id,uname from hs_indexRefer_listTypeALL',function(err,res6){
@@ -140,6 +140,16 @@ router.get('/category',function(req,res){
 				})	
 			})
 		})
+	})
+})
+router.get("/detail",(req,res)=>{
+	Pool.query('select aid,title,nid,zid,price,m_img_url from hs_category_all',function(err,result){
+		if(err) throw err
+		if(result.length>0){
+			res.send({code:1,data:result})
+		}else{
+			res.send({code:-1,data:"数据没有找到"})
+		}
 	})
 })
 module.exports=router;
