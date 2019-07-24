@@ -184,6 +184,7 @@ export default {
     },
     addShop() {
       this.$toast("已加入购物车");
+      this.axios.post("/addShop",)
     }
   }
 };
