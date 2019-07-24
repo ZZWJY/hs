@@ -49,4 +49,16 @@ router.get("/oldproducts",function(req,res){
         }
     })
 })
+router.post("/deleteoldprodcut",function(req,res){
+    var id=req.body.id
+    console.log(id)
+    Pool.query("delete from hs_user_oldProduct where id=?",[id],(err,result)=>{
+        if(result.affectedRows>0){
+            res.send({code:1,msg:"删除成功"})
+        }else{
+            res.send({code:-1,msg:"数据不存在"})
+            
+        }
+    })
+})
 module.exports=router;

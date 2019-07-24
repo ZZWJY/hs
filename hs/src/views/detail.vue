@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="messagebox">
+    <div class="messagebox" id="top">
       <div class="messagetop">与客服小姐姐的聊天</div>
       <div class="messagecontent"></div>
        <div class="messagefooter">
@@ -80,8 +80,7 @@
               <img :src="item.imgurl" alt="">
               <span>{{item.title}}</span>
             </div>
-            <p>预估<span>-￥{{item.estimate}}</span><i class="iconfont icon-huishouzhan" @touchstart="deletedata()" ></i> </p>
-
+            <p>预估<span>-￥{{item.estimate}}</span><i class="iconfont icon-huishouzhan"       @touchstart="deletedata($event)" :data-id="item.id"></i> </p>
           </li>
         </ul>
       <div class="old-a-style">
@@ -167,11 +166,12 @@
       </div>
       <div class="foot-t">
         <router-link class="foot-size" to="#">
+
           <p class="foot-m">添加旧机</p>
         </router-link>
       </div>
     </div>
-    <div class="go-top"><router-link to="#">回顶部</router-link></div>
+    <div class="go-top"><router-link to="#top">回顶部</router-link></div>
   </div>
 </template>
 <script>
@@ -182,7 +182,8 @@ export default {
       socket:{},
       id:"",
       data:[],
-      showold:[]
+      showold:[],
+      showadd:[]
     };
   },
   sockets:{
@@ -212,7 +213,6 @@ export default {
   },
   methods:{
     msg(){
-      
     //  this.socket=io("http://127.0.0.1:2900");
     //         this.socket.emit("chat message",this.values);
                 this.$socket.emit("chat message",this.values)
@@ -241,6 +241,7 @@ export default {
        this.axios.get("user/oldproducts").then(res=>{
          if(res.data.status===403){
            this.$messagebox(res.data.msg+",请重新登录")
+           this.$router.push("/login")
          }else{
            if(res.data.code===403){
              this.showold=[]
@@ -253,6 +254,15 @@ export default {
          }
         
       })
+    },
+    deletedata(e){
+      var id=e.target.dataset.id
+      this.axios.post("user/deleteoldprodcut/",{id:id}).then(res=>{
+       if(res.data.code==1){
+        this.$toast("删除成功")
+        history.go(0)
+       }
+     })
     }
   }
 };

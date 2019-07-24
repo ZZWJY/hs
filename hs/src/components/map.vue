@@ -15,7 +15,8 @@ export default {
         return {
            info:[],
            infos:[],
-           showinfo:[]
+           showinfo:[],
+           showlist:[]
         }
     },
     created(){
@@ -35,7 +36,8 @@ export default {
                 this.info=res.data.info
                 // console.log(this.info)
                 for(var j=0;j<this.info.length;j++){
-                    if(this.info[j].id==id){                              this.infos.mp=this.info[j].map
+                    if(this.info[j].id==id){                              
+                        this.infos.mp=this.info[j].map
                         this.showlist=this.info[j]
                         break;
                     }
@@ -61,22 +63,40 @@ export default {
                 }, 2000)
             //创建多个点坐标实例
             var i=0
-            //创建点坐标函数
-            // function markerFun (points) {
-            //     let markers = new BMap.Marker(points);
-            //     map.addOverlay(markers);
-            //     console.log(markers)
-            // }
-            // for (;i<this.info.length;i++) {
-            //     var points = new BMap.Point(this.info[i].map[0],this.info[i].map[1]);//创建坐标点
-            //     markerFun(points);
-            // }
+           // 创建点坐标函数
+           var _this=this
+            function markerFun (points,info){
+                let markers = new BMap.Marker(points);
+                map.addOverlay(markers);
+                markers.addEventListener("click",()=>{
+                    map.closeInfoWindow(infoWindow); 
+                    _this.showlist=info
+                    var html=`
+                        <p style="text-align:center;color:#666;font-zise:16px;font-weight:600;border-bottom:1px solid #CCC">${_this.showlist.title}<p>
+                    `
+                    var html1=`<div style="">
+                        <p style="color:#666;font-size:12px">地址：${_this.showlist.iaddress}</p>
+                        <p style="color:#f00;font-size:12px">电话：${_this.showlist.sphone}</p>
+                    </div>`
+                    var opts = {    
+                        width : 60,     // 信息窗口宽度    
+                        height: 100,     // 信息窗口高度    
+                        title : html, // 信息窗口标题 
+                    }    
+                    var infoWindow1 = new BMap.InfoWindow(html1, opts);
+                    map.openInfoWindow(infoWindow1,points);
+                })
+            }
+            for (;i<this.info.length;i++) {
+                var points = new BMap.Point(this.info[i].map[0],this.info[i].map[1]);//创建坐标点
+                markerFun(points,this.info[i]);
+            }
             var opts = {offset: new BMap.Size(10, 150)}
             var html=`
                 <p style="text-align:center;color:#666;font-zise:16px;font-weight:600;border-bottom:1px solid #CCC">${this.showlist.title}<p>
             `
             var html1=`<div style="">
-                <p style="color:#666;font-size:14px">地址：${this.showlist.iaddress}</p>
+                <p style="color:#666;font-size:12px">地址：${this.showlist.iaddress}</p>
                 <p style="color:#f00;font-size:12px">电话：${this.showlist.sphone}</p>
             </div>`
             var opts = {    

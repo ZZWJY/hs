@@ -112,6 +112,8 @@
                             this.$store.commit("setlogin",true)
                             this.$toast("登录成功")
                             this.$router.push("/")
+                        }else{
+                            this.$toast("用户名或者密码错误")
                         }
                     })
 
