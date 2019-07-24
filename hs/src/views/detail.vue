@@ -1,5 +1,12 @@
 <template>
   <div>
+    <div class="messagebox">
+      <div class="messagetop">与客服小姐姐的聊天</div>
+      <div class="messagecontent"></div>
+       <div class="messagefooter">
+        <input type="text" v-model="values"><button @touchstart="msg()" >提交</button>
+      </div>
+    </div>
     <!-- 页头标题 -->
     <mt-header title="【换新到手价¥1469】荣耀8X">
       <router-link to="/" slot="left">
@@ -10,52 +17,52 @@
     <div class="carousel">
       <mt-swipe :auto="4000">
         <mt-swipe-item>
-          <img class="img-size" src="http://127.0.0.1:3000/img/index/detail-1/01.jpg" />
+          <img class="img-size" src="http://127.0.0.1:3000/img/detail-1/01.jpg" />
         </mt-swipe-item>
         <mt-swipe-item>
-          <img src="http://127.0.0.1:3000/img/index/detail-1/01-1.jpg" />
+          <img src="http://127.0.0.1:3000/img/detail-1/01-1.jpg" />
         </mt-swipe-item>
         <mt-swipe-item>
-          <img src="http://127.0.0.1:3000/img/index/detail-1/01-2.jpg" />
+          <img src="http://127.0.0.1:3000/img/detail-1/01-2.jpg" />
         </mt-swipe-item>
         <mt-swipe-item>
-          <img src="http://127.0.0.1:3000/img/index/detail-1/01-3.jpg" />
+          <img src="http://127.0.0.1:3000/img/detail-1/01-3.jpg" />
         </mt-swipe-item>
         <mt-swipe-item>
-          <img src="http://127.0.0.1:3000/img/index/detail-1/01-4.jpg" />
+          <img src="http://127.0.0.1:3000/img/detail-1/01-4.jpg" />
         </mt-swipe-item>
         <mt-swipe-item>
-          <img src="http://127.0.0.1:3000/img/index/detail-1/01-5.jpg" />
+          <img src="http://127.0.0.1:3000/img/detail-1/01-5.jpg" />
         </mt-swipe-item>
       </mt-swipe>
     </div>
     <div class="title">
-      <img src="http://127.0.0.1:3000/img/index/detail-1/1-1.png" alt />
+      <img src="http://127.0.0.1:3000/img/detail-1/1-1.png" alt />
       <p>【换新到手价￥1469】荣耀8X</p>
       <span class="mytitle">千元旗舰 COF超窄下巴封装 GT加速</span>
     </div>
     <!-- 领券入口 -->
     <div class="conpan">
-      <img class="conpan-img" src="http://127.0.0.1:3000/img/index/detail-1/small.png" alt />
+      <img class="conpan-img" src="http://127.0.0.1:3000/img/detail-1/small.png" alt />
       <span>领券最高减150元</span>
-      <a href="#" class="conpan-a a-style">
+      <router-link to="#" class="conpan-a a-style">
         <span>登录领取</span>
-      </a>
-      <a href="#">
-        <img class="img-detail" src="http://127.0.0.1:3000/img/index/detail-1/small01.png" alt />
-      </a>
+      </router-link>
+      <router-link to="#">
+        <img class="img-detail" src="http://127.0.0.1:3000/img/detail-1/small01.png" alt />
+      </router-link>
     </div>
     <!-- 新机机型介绍 -->
     <div class="new">
       <h5 class="new-goods font-style">新机机型</h5>
       <div class="new-detail">
         <div>
-          <a class="a-style font-style" href="#">6GB 128GB幻夜黑全网通</a>
+          <router-link class="a-style font-style" to="#">6GB 128GB幻夜黑全网通</router-link>
         </div>
         <div>
           <span class="font-style font-color">￥</span>
-          <a class="a-style font-color" href="#">1699</a>
-          <a class="a-style new-img" href="#">></a>
+          <router-link class="a-style font-color" to="#">1699</router-link>
+          <router-link class="a-style new-img" to="#">></router-link>
         </div>
       </div>
     </div>
@@ -63,12 +70,22 @@
     <div class="old font-style">
       <h5 class="new-goods font-style">旧机抵扣</h5>
       <div class="new-detail">
-        <img class="old-img" src="http://127.0.0.1:3000/img/index/detail-1/下载.png" alt />
-        <a class="a-style line-center text-left" href="#">添加想卖的旧机，可抵扣新机款</a>
-        <a class="a-style new-img line-center" href="#">></a>
+        <img class="old-img" src="http://127.0.0.1:3000/img/detail-1/下载.png" alt />
+        <router-link class="a-style line-center text-left" to="#">添加想卖的旧机，可抵扣新机款</router-link>
+        <router-link class="a-style new-img line-center" to="#">></router-link>
       </div>
+       <ul class="oldproducts">
+          <li v-for="(item,i) in showold" :key="i">
+            <div>
+              <img :src="item.imgurl" alt="">
+              <span>{{item.title}}</span>
+            </div>
+            <p>预估<span>-￥{{item.estimate}}</span><i class="iconfont icon-huishouzhan" @touchstart="deletedata()" ></i> </p>
+
+          </li>
+        </ul>
       <div class="old-a-style">
-        <a class="a-style" href="#">添加更多旧机</a>
+        <router-link class="a-style" to="/category?num=1">添加更多旧机</router-link>
       </div>
     </div>
     <!-- 优惠福利 -->
@@ -80,26 +97,26 @@
         </div>
         <div>
           <span class="font-style font-color">-￥</span>
-          <a class="a-style font-color" href="#">150</a>
+          <router-link class="a-style font-color" to="#">150</router-link>
         </div>
       </div>
       <div class="old-a-style new-detail">
-        <a class="a-style" href="#">添加更多旧机</a>
-        <a class="a-style new-img" href="#">></a>
+        <router-link class="a-style" to="#">添加更多旧机</router-link>
+        <router-link class="a-style new-img" to="#">></router-link>
       </div>
     </div>
-    <img class="img-width" src="http://127.0.0.1:3000/img/index/detail-1/1-1.jpg" />
+    <img class="img-width" src="http://127.0.0.1:3000/img/detail-1/1-1.jpg" />
     <!-- 详情导航栏 -->
     <div class="pic-data font-style">
-      <a href="#miao1">图文详情</a>
-      <a class="pic-data-a" href="#miao2">基本参数</a>
-      <a href="#miao3">包装售后</a>
+      <router-link to="#miao1">图文详情</router-link>
+      <router-link class="pic-data-a" to="#miao2">基本参数</router-link>
+      <router-link to="#miao3">包装售后</router-link>
     </div>
-    <img id="miao1" class="img-width" src="http://127.0.0.1:3000/img/index/detail-1/02.jpg" alt />
-    <img class="img-width" src="http://127.0.0.1:3000/img/index/detail-1/03.jpg" alt />
-    <img class="img-width" src="http://127.0.0.1:3000/img/index/detail-1/04.jpg" alt />
-    <img class="img-width" src="http://127.0.0.1:3000/img/index/detail-1/05.jpg" alt />
-    <img class="img-width" src="http://127.0.0.1:3000/img/index/detail-1/06.jpg" alt />
+    <img id="miao1" class="img-width" src="http://127.0.0.1:3000/img/detail-1/02.jpg" alt />
+    <img class="img-width" src="http://127.0.0.1:3000/img/detail-1/03.jpg" alt />
+    <img class="img-width" src="http://127.0.0.1:3000/img/detail-1/04.jpg" alt />
+    <img class="img-width" src="http://127.0.0.1:3000/img/detail-1/05.jpg" alt />
+    <img class="img-width" src="http://127.0.0.1:3000/img/detail-1/06.jpg" alt />
     <div id="miao2" class="parameter">
       <h5 class="parameter-title">主体</h5>
       <span class="parameter-left">品牌</span>
@@ -132,46 +149,120 @@
       <span class="parameter-left parameter-h">机身材质工艺</span>
       <span class="parameter-right">卡托：金属+塑胶 后盖：玻璃 边框：铝合金</span>
     </div>
-    <img id="miao3" class="img-width" src="http://127.0.0.1:3000/img/index/detail-1/07.jpg" alt />
+    <img id="miao3" class="img-width" src="http://127.0.0.1:3000/img/detail-1/07.jpg" alt />
     <div class="police">
       <p>上海悦易网络信息技术有限公司</p>
       <p>沪ICP备10043802号 - 2</p>
       <p>
-        <img class="police-img" src="http://127.0.0.1:3000/img/index/detail-1/police.png" /> 沪ICP备10043802号 - 2
+        <img class="police-img" src="http://127.0.0.1:3000/img/detail-1/police.png" /> 沪ICP备10043802号 - 2
       </p>
     </div>
     <div class="font-style foot-f">
-      <div class="foot">
-        <img class="foot-img" src="http://127.0.0.1:3000/img/index/detail-1/phone.png" />
+      <div class="foot" @click="showmsg">
+        <img class="foot-img" src="http://127.0.0.1:3000/img/detail-1/phone.png" />
         <p class="foot-m">客服</p>
       </div>
       <div class="foot-s">
         <p class="foot-m">添加旧机获取超值换新价</p>
       </div>
       <div class="foot-t">
-        <a class="foot-size" href="#">
+        <router-link class="foot-size" to="#">
           <p class="foot-m">添加旧机</p>
-        </a>
+        </router-link>
       </div>
     </div>
-    <div class="go-top"><a href="#">回顶部</a></div>
+    <div class="go-top"><router-link to="#">回顶部</router-link></div>
   </div>
 </template>
 <script>
 export default {
   data() {
-    return {};
+    return {
+      values:'',
+      socket:{},
+      id:"",
+      data:[],
+      showold:[]
+    };
+  },
+  sockets:{
+    connect:function(){
+      this.id=this.$socket.id
+    },
+    message:function(val){
+      var messagecon=document.getElementsByClassName("messagecontent")[0]
+      console.log(val)
+      var p=document.createElement("p")
+          p.innerHTML=val
+          messagecon.appendChild(p)
+          console.log(messagecon)  
+    }
+  },
+  created(){
+    this.init()
+  },
+  mounted(){
+    this.$emit("connect","http://127.0.0.1:3000")
+  },
+  beforeRouteEnter(to, from, next){
+    next(vm=>{
+      console.log(vm);
+      vm.init()
+    })
+  },
+  methods:{
+    msg(){
+      
+    //  this.socket=io("http://127.0.0.1:2900");
+    //         this.socket.emit("chat message",this.values);
+                this.$socket.emit("chat message",this.values)
+                 var messagecon=document.getElementsByClassName("messagecontent")[0]
+                  var p=document.createElement("p")
+                      p.innerHTML=this.values
+                      p.style.textAlign="right"
+                      messagecon.appendChild(p) 
+            // var id=this.socket;
+            // console.log(this.socket.id);
+            this.values="";
+            
+      //        this.$socket.on("message",function(msg){
+      //           console.log(this.$socket)
+      //             console.log(msg)
+               
+      //  })
+    },
+    showmsg(){
+
+       var messagebox=document.getElementsByClassName("messagebox")[0]
+     
+          messagebox.style.display="block"
+    },
+    init(){
+       this.axios.get("user/oldproducts").then(res=>{
+         if(res.data.status===403){
+           this.$messagebox(res.data.msg+",请重新登录")
+         }else{
+           if(res.data.code===403){
+             this.showold=[]
+           }else{
+             this.showold=res.data.msg
+           }
+           
+          //  res.data.msg
+           console.log(this.showold)
+         }
+        
+      })
+    }
   }
 };
 </script>
 <style scoped>
 /* 页脚样式 */
 .go-top{
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    line-height: 50px;
     position: fixed;
+    padding:.5rem;
+    border-radius:40% 40%;
     right: 30px;
     bottom:80px;
     background: rgba(0,0,0,.5);
@@ -394,5 +485,74 @@ export default {
   border-left: 1px solid #999;
   border-right: 1px solid #999;
 }
+.messagebox{
+  position:fixed;
+  top:15%;
+  left:10%;
+  background:#22222270;
+  width:300px;
+  height:400px;
+  z-index:10;
+  overflow-y:scroll;
+  display:none
+}
+.messagetop{
+  width:100%;
+  height:2rem;
+  line-height:2rem;
+  background:#e6e6e650;
+  color:#fff;
+  position:fixed;
+  width:80%;
+}
+.messagefooter{
+  position:fixed;
+  height:29px;
+  background:#c6c6c680;
+  width:80%;
+  bottom:165px;
+  text-align:left;
+}
+.messagefooter input{
+  width:88%;
+ height:29px;
+ border:0px;
+}
+.messagefooter button{
+  background:#2c3e5060
+}
+.messagecontent{
+  overflow:hidden;
+  padding-top:35px;
+  padding-bottom:25px;
+  color:#fff;
+  z-index:999;
+  text-align:left
+}
+.oldproducts li{
+  display:flex;
+  justify-content: space-between
+}
+.oldproducts img{
+  width:41px;
+  height:41px;
+  vertical-align:middle
+}
+.oldproducts div,.oldproducts p{
+  line-height:41px;
+  height:41px;
+  font-size:12px;
+}
+.oldproducts div span{
+  font-size:12px;
+}
+.oldproducts p span{
+  color:#3eb052;
+  margin-right:.5rem;
+}
+.oldproducts i{
+  font-size:1.2rem;
+}
 </style>
+
 

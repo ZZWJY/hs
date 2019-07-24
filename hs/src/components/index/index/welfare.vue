@@ -16,10 +16,10 @@
         <div class="show_item">
           <div>
             <p>领取成功！优惠券已放至账户：</p>
-            <span>123456789</span>
+            <span>{{uname}}</span>
             <router-link to="javascriopt:;" class="show_btn">立即回收</router-link>
           </div>
-          <p @touchstart.prevent="sellhide()"></p>
+          <i @touchstart.prevent="sellhide()"></i>
         </div>
       </div>
     </div>
@@ -54,7 +54,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      uname:""
+    };
   },
   methods: {
     sellshow() {
@@ -65,6 +67,7 @@ export default {
       }
       sessionStorage.setItem("draw", 1);
       sell_show.style.display = "block";
+      this.uname=sessionStorage.getItem("name")
     },
     sellhide() {
       var sell_show = document.getElementsByClassName("sell_show")[0];
@@ -131,7 +134,7 @@ export default {
 .show_item > div > p {
   margin-top: 50px;
 }
-.show_item > p {
+.show_item > i {
   width: 34px;
   height: 34px;
   background: url("http://127.0.0.1:3000/img/index/welfare/icon-close.png")

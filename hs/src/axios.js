@@ -5,6 +5,7 @@ import Vue from "vue"
 //2 引入axios实例
 import axios from "axios" 
 import qs from "qs"
+import { Store } from "vuex";
  const Axios=axios.create({
 //3 发送请求时保存session信息
 // axios.defaults.withCredentials=true
@@ -14,7 +15,8 @@ import qs from "qs"
 // axios.defaults.baseURL="http://127.0.0.1:3000/"
    
  })
-//  Axios.interceptors.request.use(
+   Axios.interceptors.request.use(
+   
 //      config=>{
 //         //请求拦截器
 //         //axios默认post请求参数为查询字符串
@@ -26,7 +28,29 @@ import qs from "qs"
 //     },err=>{
      
 //     }
-//  )
+    config=>{
+      console.log("进入拦截器")
+      if(sessionStorage.getItem("token")){
+        config.headers.token=sessionStorage.getItem("token")
+      }
+      if(localStorage.getItem("token")){
+        config.headers.token=localStorage.getItem("token")
+      }
+      return config
+      },error=>{
+        return Promise.reject(error)
+      }
+    
+  )
+  Axios.interceptors.response.use(res=>{
+    if(res.data.status==403){
+      localStorage.removeItem("token")
+      localStorage.removeItem("name")
+      // Store.commit("setlogin",false)
+      // Store.commit("setUname","")
+    }
+    return res
+  })
 //5 将axios注册实例
 
 export default {

@@ -46,7 +46,6 @@
     export default {
     data() {
         return {
-
             list:["账号密码登录","手机号快捷登录"],
             active:"tb1",
             uname:"赵志伟",
@@ -61,7 +60,6 @@
     },
     watch:{
         checked(){
-            console.log(this.checked)
             var disab=document.getElementsByClassName("login-tab")[0]
             if(this.checked==true){
                disab.disabled=false 
@@ -76,7 +74,6 @@
         setclick(e){
             var ids=parseInt(e.target.dataset.ids);
             // console.log(ids);
-
             this.active="tb"+(ids+1);  
         },
         init(){
@@ -103,19 +100,19 @@
                     this.$toast("用户名或者密码错误")
                     return;
                 }
-                sessionStorage.setItem('name',uname)
                 this.axios.post("login/",{
                        uname,upwd
                     }).then(res=>{
-                    console.log(res)
                         if(res.data.code==1){
+                            sessionStorage.setItem("token",res.data.token)
+                            sessionStorage.setItem("name",res.data.uname)
+                            this.$store.commit("setUname",res.data.uname)
+                            this.$store.commit("setlogin",true)
                             this.$toast("登录成功")
-                            console.log(this.$router.push("/"))
+                            this.$router.push("/")
                         }
                     })
-
             }
-
         }
     },
     };
@@ -127,11 +124,9 @@
         color:#333;
         font-size:1.2rem;
     }
-
     .header .mint-button--normal{
         width:15px;
     }
-
     .app_tip{
         font-size:0.8rem;
         color:#797979;
@@ -139,7 +134,6 @@
     }
     a{
         text-decoration: none;
-
     } 
     .tab .mint-button--normal{
         border-radius: 2rem;
@@ -161,7 +155,6 @@
     .mint-cell-wrapper{
         border-top:none;
     }
-
     .input-box{
         position:relative;
     }
@@ -183,7 +176,6 @@
         color:#666;
         margin:10px 0;
     }
-
     .login-tab{
         background:linear-gradient(to right,rgba(255, 255, 0, 0.699),rgba(185, 185, 3, 0.712));
         color:#444
@@ -193,5 +185,4 @@
         width:90%;
         border-radius:.4rem
     }
-
 </style>

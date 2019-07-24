@@ -100,13 +100,13 @@ export default {
 }
 </script>
 <style scoped>
-.index{
+/* .index{
     max-width: 750px;
     min-width: 320px;
     margin: 0 auto;
     background: #fff;
 
-}
+} */
 /*
 .mint-tabbar.is-fixed{
     max-width: 750px;
@@ -141,17 +141,17 @@ export default {
 .nav-footer .active .nav-title{
     /* background:rgba(247, 231, 14, 0.486) center;
     border-radius:3rem; */
-    color:#fff03b;
+    color:#222;
     font-weight:700;
+
     
     /* box-shadow:0px 0px 22px 0px #ff0 inset */
 }
 .nav-footer .active .nav-font{
     /* background:#fff03b; */
-    color:#fff03b;
+    color:#222;
     border-radius:2rem;
-    opacity:.5
-    
+    background:rgba(6,6,6,.4)    
 }
 </style>
 
