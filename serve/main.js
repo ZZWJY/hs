@@ -6,6 +6,7 @@ const jwt=require("./jwt")
 const user=require("./router/user")
 const session = require("express-session");
 const loginrouter=require('./router/login.js')
+const shoprouter=require('./router/shop.js')
 //创建web服务器
 var server=express();
 //创建io对象
@@ -74,4 +75,5 @@ server.use(express.static("public"))
 server.use('/index',indexrouter)
 server.use('/login',loginrouter)
 server.use("/user",user)
+server.use("/shop",shoprouter)
 

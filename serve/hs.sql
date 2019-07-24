@@ -355,8 +355,13 @@ create table hs_user_oldProduct(
     aid  int     #商品id，关联hs_category_all表aid
 );
 insert into hs_user_oldProduct values
-(1,"http://127.0.0.1:3000/img/use/iphone_m,w_100,h_100.png","苹果 iPhone XS Max",680,2,9)
+(1,"http://127.0.0.1:3000/img/use/iphone_m,w_100,h_100.png","苹果 iPhone XS Max",680,2,9);
 
 
-
+create table hs_shop(
+    id int primary key auto_increment,
+    imgurl varchar(100),
+    title varchar(32),
+    price int
+)
 

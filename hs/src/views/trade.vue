@@ -29,7 +29,7 @@
         </span>
         <!-- 价格 -->
         <p class="price-number">
-          <span>3730</span>
+          <span>{{product.price}}</span>
           <span>元</span>
           <i class="iconfont icon-wenti"></i>
         </p>
@@ -57,11 +57,11 @@
       <!-- 价格等 -->
       <div class="product">
         <div class="img_box">
-          <img src="http://127.0.0.1:3000/img/trade/trade_product.jpg" alt />
+          <img :src="product.m_img_url" alt />
           <span>换新省￥150</span>
         </div>
         <div class="text_box">
-          <h4>荣耀 8X</h4>
+          <h4>{{product.title}}</h4>
           <span>6GB 128GB 幻夜黑 全网通</span>
           <div class="price">
             <i>0元换</i>
@@ -170,7 +170,8 @@ export default {
     return {
       phone: "",
       pickerVisible:"",
-      number:1
+      number:1,
+      product:""
     };
   },
   methods: {
@@ -184,9 +185,21 @@ export default {
     },
     addShop() {
       this.$toast("已加入购物车");
-      this.axios.post("/addShop",)
+      this.axios.post("/shop/addShop",{
+        title:this.product.title,
+        imgurl:this.product.m_img_url,
+        price:this.product.price
+      }).then(result=>{
+        console.log(result)
+      })
     }
-  }
+  },
+  created() {
+    this.axios.get("index/detail").then(result=>{
+      this.product=result.data.data[0];
+      console.log(this.product)
+    })
+  },
 };
 </script>
 <style scoped>
