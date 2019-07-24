@@ -387,4 +387,19 @@ insert into hs_indexRefer_hot values
 (null,"http://127.0.0.1:3000/img/index/hot/hot10.png","和包支付送您10元话费"),
 (null,"http://127.0.0.1:3000/img/index/hot/hot11.jpg","20元信用卡还款红包"),
 
+#创建客服信息表
+create table service(
+    id int primary key auto_increment,
+    text varchar(128) 
+)
 
+插入数据
+insert into service values
+(null,"您好，很高兴为您服务！"),
+(null,"您好，有什么能帮您的吗？"),
+(null,"还有什么能帮您的吗？"),
+(null,"如果暂时没有问题了 请您点击右下方的“结束人工服务”完成本次对话”"),
+(null,"以方便后面的买家进行咨询，如有问题随时可以联系我们 "),
+(null,"祝您生活愉快 再见！！O(∩_∩)O ~ "),
+(null,"我不太明白，能否再重复下您的问题吗？"),
+(null,"谢谢，这是我们应该做的！");
