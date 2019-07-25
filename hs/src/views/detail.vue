@@ -1,7 +1,10 @@
 <template>
   <div>
-    <div class="messagebox" id="top">
-      <div class="messagetop">与客服小姐姐的聊天</div>
+    <div class="messagebox" id="top" v-show="windowinfo">
+      <div class="messagetop">
+         <p>与客服小姐姐的聊天</p>
+         <span @touchstart="closeinfo()">x</span>
+      </div>
       <div class="messagecontent"></div>
        <div class="messagefooter">
         <input type="text" v-model="values"><button @touchstart="msg()" >提交</button>
@@ -80,7 +83,7 @@
               <img :src="item.imgurl" alt="">
               <span>{{item.title}}</span>
             </div>
-            <p>预估<span>-￥{{item.estimate}}</span><i class="iconfont icon-huishouzhan"       @touchstart="deletedata($event)" :data-id="item.id"></i> </p>
+            <p>预估<span>-￥{{item.estimate}}</span><i class="iconfont icon-huishouzhan"       @click="deletedata($event)" :data-id="item.id"></i> </p>
           </li>
         </ul>
       <div class="old-a-style">
@@ -157,7 +160,7 @@
       </p>
     </div>
     <div class="font-style foot-f">
-      <div class="foot" @click="showmsg">
+      <div class="foot" @touchstart="showmsg()">
         <img class="foot-img" src="http://127.0.0.1:3000/img/detail-1/phone.png" />
         <p class="foot-m">客服</p>
       </div>
@@ -167,7 +170,7 @@
       </div>
       <div class="foot-t">
         <router-link class="foot-size" to="#">
-          <p class="foot-m" v-show="showold.length>0">提交</p>
+          <p class="foot-m" v-show="showold.length>0">立即换新</p>
           <p class="foot-m" v-show="showold==0">添加旧机</p>
         </router-link>
       </div>
@@ -186,7 +189,8 @@ export default {
       data:[],
       showold:[],   //表示显示的旧机的列表
       flag:false ,   //如果点击了删除icon，将此属性值变为true，监听此属性，调用init
-      showprice:0
+      showprice:0,   //showold列表中旧机的总价
+      windowinfo:false  //客服聊天的显示状态true为显示列表,false为隐藏列表
     };
   },
   sockets:{
@@ -195,11 +199,9 @@ export default {
     },
     message:function(val){
       var messagecon=document.getElementsByClassName("messagecontent")[0]
-      console.log(val)
       var p=document.createElement("p")
           p.innerHTML=val
-          messagecon.appendChild(p)
-          console.log(messagecon)  
+          messagecon.appendChild(p) 
     }
   },
   created(){
@@ -221,6 +223,9 @@ export default {
     }
   },
   methods:{
+    closeinfo(){
+      this.windowinfo=false
+    },
     msg(){
     //  this.socket=io("http://127.0.0.1:2900");
     //         this.socket.emit("chat message",this.values);
@@ -241,10 +246,9 @@ export default {
       //  })
     },
     showmsg(){
-
-       var messagebox=document.getElementsByClassName("messagebox")[0]
-     
-          messagebox.style.display="block"
+      //  var messagebox=document.getElementsByClassName("messagebox")[0]
+      //      messagebox.style.display="block"
+      this.windowinfo=true
     },
     init(){
        this.axios.get("user/oldproducts").then(res=>{
@@ -272,13 +276,15 @@ export default {
     },
     deletedata(e){
       var id=e.target.dataset.id
-      this.axios.post("user/deleteoldprodcut/",{id:id}).then(res=>{
-       if(res.data.code==1){
-        this.$toast("删除成功")
-        this.flag=true   //当点击删除ICON时，将flag设置为true,进入监听对象，执行函数
-        // history.go(0)
-       }
-     })
+      this.$messagebox.confirm("确认删除么").then(action=>{
+        this.axios.post("user/deleteoldprodcut/",{id:id}).then(res=>{
+          if(res.data.code==1){
+            this.flag=true   //当点击删除ICON时，将flag设置为true,进入监听对象，执行函数
+          }     
+        }).catch(err=>{
+          console.log(err)
+        })
+      })
     }
   }
 };
@@ -523,7 +529,6 @@ export default {
   height:400px;
   z-index:10;
   overflow-y:scroll;
-  display:none
 }
 .messagetop{
   width:100%;
@@ -533,6 +538,13 @@ export default {
   color:#fff;
   position:fixed;
   width:80%;
+  display:flex;
+}
+.messagetop p{
+  width:90%
+}
+.messagetop span{
+  flex:1
 }
 .messagefooter{
   position:fixed;
@@ -581,6 +593,11 @@ export default {
 }
 .oldproducts i{
   font-size:1.2rem;
+}
+.messagebox{
+  background:#444;
+  width:300px;
+  height:400px;
 }
 </style>
 

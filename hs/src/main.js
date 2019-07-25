@@ -27,7 +27,6 @@ Vue.use(new vuesocketio({
   debug:false
 }))
 Vue.config.silent = true //消除vue的所有的日志及警告
-
 //创建vuex实例
 var store=new Vuex.Store({
   //定义全局修改的数据

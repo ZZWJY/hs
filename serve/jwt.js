@@ -9,7 +9,7 @@ function generateToken(data){
     let cert=fs.readFileSync(path.join(__dirname,"./pem/rsa_private_key.pem"))
     let token=jwt.sign({
         data,
-        exp:create+ 60*60
+        exp:create+60*60*1000
     },cert,{algorithm:"RS256"})
     return token
 };
