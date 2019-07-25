@@ -5,7 +5,6 @@ import Vue from "vue"
 //2 引入axios实例
 import axios from "axios" 
 import qs from "qs"
-import { Store } from "vuex";
  const Axios=axios.create({
 //3 发送请求时保存session信息
 // axios.defaults.withCredentials=true
@@ -42,10 +41,27 @@ import { Store } from "vuex";
       }
     
   )
+  function alert1(msg){
+    var div=document.createElement("div");
+    back.id="div";   
+    str=`height:24px;position:absolute;top:50%;left:50%;background:#dddddd40;display:block;line-height:24px;
+         font-size:16px;transformm:translate(25px 12px)`;
+    div.style.cssText=str;
+    div.innerHTML="你好啊"
+    document.body.appendChild(div);
+    setTimeout(function(){
+      document.body.removeChild(div)
+    },3000)
+  }
   Axios.interceptors.response.use(res=>{
     if(res.data.status==403){
+      console.log()
+      alert1(res.data.msg+",请重新登录")
+      window.location.href="http://127.0.0.1:8080/#/login"
       localStorage.removeItem("token")
       localStorage.removeItem("name")
+      sessionStorage.removeItem("token")
+      sessionStorage.removeItem("name")
       // Store.commit("setlogin",false)
       // Store.commit("setUname","")
     }

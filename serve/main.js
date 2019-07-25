@@ -42,10 +42,13 @@ server.use((req,res,next)=>{
       let result=jwt.verifyToken(token)
       if(result===undefined){
          res.send({status:403,msg:"未提供证书"})
+         return
       }else if(result.name==="TokenExpiredError"){
          res.send({status:403,msg:"登录超时"})
+         return
       }else if(result.name==="JsonWebTokenError"){
          res.send({status:403,msg:"证书出错"})
+         return
       }else{
          req.user=result
          next()

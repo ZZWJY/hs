@@ -107,6 +107,7 @@
                     }).then(res=>{
                         if(res.data.code==1){
                             sessionStorage.setItem("token",res.data.token)
+                            console.log(res.data)
                             sessionStorage.setItem("name",res.data.uname)
                             this.$store.commit("setUname",res.data.uname)
                             this.$store.commit("setlogin",true)

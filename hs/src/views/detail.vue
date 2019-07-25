@@ -253,8 +253,7 @@ export default {
     init(){
        this.axios.get("user/oldproducts").then(res=>{
          if(res.data.status===403){//如果为状态403，代表证书出问题
-           this.$messagebox(res.data.msg+",请重新登录")
-           this.$router.push("/login")
+              
          }else{
            if(res.data.code===403){
              this.showold=[]
