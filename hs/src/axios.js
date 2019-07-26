@@ -42,12 +42,11 @@ import qs from "qs"
     
   )
   function alert1(msg){
-    var div=document.createElement("div");
-    back.id="div";   
-    str=`height:24px;position:absolute;top:50%;left:50%;background:#dddddd40;display:block;line-height:24px;
-         font-size:16px;transformm:translate(25px 12px)`;
+    var div=document.createElement("div"); 
+    var str=`width:150px;height:40px;position:absolute;top:50%;left:30%;background:#00000070;display:block;line-height:40px;color:#fff;
+         font-size:14px;transformm:translate(50px 12px);border-radius:10px;padding:0 10px`;
     div.style.cssText=str;
-    div.innerHTML="你好啊"
+    div.innerHTML=msg+"请重新登录"
     document.body.appendChild(div);
     setTimeout(function(){
       document.body.removeChild(div)
@@ -57,7 +56,7 @@ import qs from "qs"
     if(res.data.status==403){
       console.log()
       alert1(res.data.msg+",请重新登录")
-      window.location.href="http://127.0.0.1:8080/#/login"
+      window.location.href="http://127.0.0.1:8080/#/login?type=1"
       localStorage.removeItem("token")
       localStorage.removeItem("name")
       sessionStorage.removeItem("token")

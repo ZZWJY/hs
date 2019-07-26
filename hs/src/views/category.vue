@@ -23,7 +23,7 @@
             <div class="content-right">
                 <ul>
                     <li v-for="(el,i) in showright" :key="i" @touchstart="toOrSele($event)" :data-id="el.aid">
-                        {{el.title}}
+                            {{el.title}}    
                     </li>
                 </ul>
             </div>
@@ -65,13 +65,13 @@ export default {
                 //         break
                 //     }
                 // }
-            this.axios.post("user/oldproduct",{aid:id}).then(res=>{
-                console.log(res)
+                this.axios.post("user/oldproduct",{aid:id}).then(res=>{
                 if(res.data.code==200){
                     window.location.href="http://127.0.0.1:8080/#/detail"
                 }
             })
-            
+            }else{
+                this.$router.push("/evaluate")
             }
         },
         back(){
@@ -133,7 +133,6 @@ export default {
                 this.labbook=res.data.labbook
                 this.showleft=res.data.phone 
                 this.zid=1
-                console.log(this.showleft)
                 this.showright=res.data.all.filter(function(item){
                     return item.zid==1&&item.nid==1
                 })    

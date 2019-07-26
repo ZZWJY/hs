@@ -56,7 +56,8 @@
             checked:false
             
         };
-    }, mounted(){
+    }, 
+    mounted(){
         this.init()
     },
     watch:{
@@ -92,6 +93,9 @@
                 }
             }
         },
+        back(){
+            console.log(this.$route)
+        },
         login(){
             if(this.active=="tb1"){
                 var uname=this.uname.trim()
@@ -107,12 +111,15 @@
                     }).then(res=>{
                         if(res.data.code==1){
                             sessionStorage.setItem("token",res.data.token)
-                            console.log(res.data)
                             sessionStorage.setItem("name",res.data.uname)
                             this.$store.commit("setUname",res.data.uname)
                             this.$store.commit("setlogin",true)
                             this.$toast("登录成功")
-                            this.$router.push("/")
+                            if(this.$route.query.type==1){
+                                history.go(-1)
+                            }else{
+                                this.$router.push("/")
+                            }
                         }else{
                             this.$toast("用户名或者密码错误")
                         }

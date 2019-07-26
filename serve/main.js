@@ -6,6 +6,7 @@ const jwt=require("./jwt")
 const user=require("./router/user")
 const session = require("express-session");
 const loginrouter=require('./router/login.js')
+const Pool=require("./pool")
 //创建web服务器
 var server=express();
 //创建io对象
@@ -63,12 +64,21 @@ http=require("http").Server(server)
     console.log("一个用户连接")
    //  console.log("a used connected")
     socket.on("disconnect",function(){
-       console.log("一个用户已经退出")
+      console.log("一个用户退出")
     })
     socket.on("chat message",function(data){
-       io.emit("message",data)
+       console.log(data)
+       Pool.query("select text from service where text like '%data%'",[data],function(err,result){
+         if(err) throw err
+         console.log(result)
+         if(result.length>0){
+            
+            io.emit("message",result[0].text)
+         }else{
+            io.emit("message","我不明白您的意思")
+         }
+       })
     })
-  
  })
  http.listen(2900,function(){
     console.log("2900")

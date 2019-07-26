@@ -826,7 +826,7 @@ export default {
   }
 };
 </script>
-<style scope>
+<style scoped>
 .newPhoneContent{
 padding-bottom:3.2rem;
 }

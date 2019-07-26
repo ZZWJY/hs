@@ -20,6 +20,10 @@ import clear from "./components/index/index/Clear"
 import category from "./views/category"
 import serves from "./components/serves"
 import map from "./components/map.vue"
+import submit from "./components/submit"
+import order from "./components/order"
+import evaluate from "./components/evaluate"
+import trade from "./components/trade"
 Vue.use(Router)
 
 export default new Router({
@@ -58,6 +62,10 @@ export default new Router({
     {path:"/fon",component:fon},
     {path:"/category",component:category},
     {path:"/serves/:id",component:serves},
-    {path:"/map/:id",component:map}
+    {path:"/map/:id",component:map},
+    {path:"/submit",component:submit},
+    {path:"/order",component:order},
+    {path:"/evaluate",component:evaluate},
+    {path:"/trade",component:trade}
   ]
 })

@@ -64,7 +64,7 @@
         </div>
         <div>
           <span class="font-style font-color">￥</span>
-          <router-link class="a-style font-color" to="#">1699</router-link>
+          <router-link class="a-style font-color" to="#">6000</router-link>
           <router-link class="a-style new-img" to="#">></router-link>
         </div>
       </div>
@@ -169,7 +169,7 @@
         <p class="foot-m" v-show="showold.length==0">添加旧机获取超值换新价</p>
       </div>
       <div class="foot-t">
-        <router-link class="foot-size" to="#">
+        <router-link class="foot-size" to="/submit">
           <p class="foot-m" v-show="showold.length>0">立即换新</p>
           <p class="foot-m" v-show="showold==0">添加旧机</p>
         </router-link>
@@ -212,7 +212,6 @@ export default {
   },
   beforeRouteEnter(to, from, next){
     next(vm=>{
-      console.log(vm);
       vm.init()
     })
   },
@@ -223,6 +222,9 @@ export default {
     }
   },
   methods:{
+    go(){
+      this.$router.push("/submit")
+    },
     closeinfo(){
       this.windowinfo=false
     },
