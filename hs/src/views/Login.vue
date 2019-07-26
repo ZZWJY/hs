@@ -114,10 +114,11 @@
                             sessionStorage.setItem("name",res.data.uname)
                             this.$store.commit("setUname",res.data.uname)
                             this.$store.commit("setlogin",true)
-                            this.$toast("登录成功")
+                           
                             if(this.$route.query.type==1){
                                 history.go(-1)
                             }else{
+                                this.$toast("登录成功")
                                 this.$router.push("/")
                             }
                         }else{

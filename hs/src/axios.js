@@ -54,7 +54,6 @@ import qs from "qs"
   }
   Axios.interceptors.response.use(res=>{
     if(res.data.status==403){
-      console.log()
       alert1(res.data.msg+",请重新登录")
       window.location.href="http://127.0.0.1:8080/#/login?type=1"
       localStorage.removeItem("token")
