@@ -159,7 +159,9 @@
           回收金额:
           <span class="order_price">￥1699</span>
         </span>
-        <span class="order_btn">立即回收</span>
+        <router-link to="/order">
+          <span class="order_btn">立即回收</span>
+        </router-link>
       </div>
     </div>
   </div>

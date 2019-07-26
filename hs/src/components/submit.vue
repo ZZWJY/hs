@@ -233,7 +233,7 @@ export default {
   width: 11px;
   height: 12px;
   position: absolute;
-  top: 262px;
+  top: 230px;
   right: 60px;
 }
 .input {
