@@ -1,8 +1,11 @@
 *{
     margin:0;
     padding:0;
-    boxsizing:border-box;
-    font-size:14px;
+    box-sizing:border-box;
+    font-size:16px;
+}
+body{
+    max-width: 750px;
 }
 a{
     text-decoration: none;
@@ -11,3 +14,29 @@ a{
 .my_font{
     font-size:12px;
 }
+.margin{
+    margin:0 1rem
+}
+ul{
+    list-style:none
+}
+html {
+overflow-y: scroll;
+}
+
+:root {
+overflow-y: auto;
+overflow-x: hidden;
+}
+
+:root body {
+position: absolute;
+}
+
+body {
+width: 100vw;
+overflow: hidden;
+} 
+.anchorBL {  
+    display:none  
+} 

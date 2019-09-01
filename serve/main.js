@@ -1,13 +1,20 @@
 const express=require('express');
 //引入路由器
 const indexrouter=require('./router/index.js')
-
+const bodyparse=require("body-parser")
+const jwt=require("./jwt")
+const user=require("./router/user")
 const session = require("express-session");
 const loginrouter=require('./router/login.js')
+const Pool=require("./pool")
 //创建web服务器
 var server=express();
+//创建io对象
+
 const cors=require("cors");
 server.listen(3000);
+//解析post请求中的数据
+server.use(bodyparse.json())
 //使用路由器
 //使用(挂载)的url: /user
 // /user/login
@@ -29,6 +36,55 @@ resave:true,
 //同时saveUninitialized要设置为false允许修改。
    saveUninitialized:true
  }))
+//使用中间件来验证token令牌，如果通过在执行下一步
+server.use((req,res,next)=>{
+   if(req.url!="/login"&&(req.url.startsWith("/use")||req.url.startsWith("/orders"))){
+      let token=req.headers.token;
+      let result=jwt.verifyToken(token)
+      if(result===undefined){
+         res.send({status:403,msg:"未提供证书"})
+         return
+      }else if(result.name==="TokenExpiredError"){
+         res.send({status:403,msg:"登录超时"})
+         return
+      }else if(result.name==="JsonWebTokenError"){
+         res.send({status:403,msg:"证书出错"})
+         return
+      }else{
+         req.user=result
+         next()
+      }
+   }else{
+      next()
+   }
+})
+http=require("http").Server(server)
+ io=require("socket.io")(http)
+ io.on("connection",function(socket){
+    console.log("一个用户连接")
+   //  console.log("a used connected")
+    socket.on("disconnect",function(){
+      console.log("一个用户退出")
+    })
+    socket.on("chat message",function(data){
+       console.log(data)
+       Pool.query("select text from service where text like '%data%'",[data],function(err,result){
+         if(err) throw err
+         console.log(result)
+         if(result.length>0){
+            
+            io.emit("message",result[0].text)
+         }else{
+            io.emit("message","我不明白您的意思")
+         }
+       })
+    })
+ })
+ http.listen(2900,function(){
+    console.log("2900")
+ })
 server.use(express.static("public"))
 server.use('/index',indexrouter)
 server.use('/login',loginrouter)
+server.use("/user",user)
+
